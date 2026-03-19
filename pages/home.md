@@ -1,12 +1,12 @@
 ---
 layout: layouts/home.njk
-title: PrestigePro Property Services
-subtitle: PrestigePro Property Services
+title: Society Pizzeria di Catania
+subtitle: Society Pizzeria di Catania
 class: home
 date: 2024-03-11
-description: PrestigePro is a local provider of comprehensive property management services tailored to meet individual needs for private property owners.
+description: Society Pizzeria di Catania is a family-owned pizzeria known for its authentic Italian pizza and warm atmosphere.
 metadata:
-  title: PrestigePro Property Services
+  title: Society Pizzeria di Catania
 permalink: /
 eleventyNavigation:
   key: Home
