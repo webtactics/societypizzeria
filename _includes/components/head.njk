@@ -15,16 +15,16 @@
 <meta name="view-transition" content="same-origin">
 
 <title>{{ title or metadata.title }} - {{ metadata.title }}</title>
-<link rel="canonical" href="https://prestigepropropertyservices.com.au{{ page.url or post.url or permalink }}" />
+<link rel="canonical" href="https://www.societypizzeria.com.au{{ page.url or post.url or permalink }}" />
 <meta name="description" content="{{ description or metadata.description or eleventyComputed.description }}" />
 <meta property="og:title" content="{{ title or metadata.title }}" />
 <meta property="og:description" content="{{ description or metadata.description or eleventyComputed.description }}" />
 <meta property="og:image" content="{{ image or metadata.image or eleventyComputed.image }}" />
-<meta property="og:url" content="https://prestigepropropertyservices.com.au{{ page.url or post.url or permalink }}" />
+<meta property="og:url" content="https://www.societypizzeria.com.au{{ page.url or post.url or permalink }}" />
 
 
 {% set css %}
-    {% include "assets/css/prestige-grid.css" %}
+    {% include "assets/css/society-grid.css" %}
   {% endset %}
   <style>{{ css | cssmin | safe }}</style>
   <style>
