@@ -17,7 +17,7 @@ eleventyNavigation:
 <div class="grid-4-bondi">
 
 <div class="shopmenu">
-<<a class="bondi-beach menuwrapper" style="background: url(https://ik.imagekit.io/webtactics/society/images/bondi/menu-400x400_vUh4bttwGu.jpg);background-repeat:no-repeat;
+<a class="bondi-beach menuwrapper" style="background: url(https://ik.imagekit.io/webtactics/society/images/bondi/menu-400x400_vUh4bttwGu.jpg);background-repeat:no-repeat;
 background-position: center center;background-size:cover;" title="Menu" href="https://www.societypizzeria.com.au/pdf/220607-SOCIETY-FOOD-MENU-AS-AT-4-MAY-22_LR.pdf" target="_blank" rel="noopener"><span class="largefont">Menu</span></a>
 </div>
 
