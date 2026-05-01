@@ -1681,7 +1681,7 @@ ul.menu li {
 }
 
 ul.menu a {
-  color: rgba(0,0,0,1);
+  color: var(--black);
   margin: 0 0 0.4rem 0;
   font-size: 2.4rem;
   line-height: 1;
@@ -1689,5 +1689,5 @@ ul.menu a {
 }
 
 ul.menu a:hover {
-  color: #F3090D;
+  color: var(--primary);
 }
