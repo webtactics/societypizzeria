@@ -1513,7 +1513,11 @@ ul.main-menu {
   background-size: cover;
 }
 
-
+.about .internalhero {
+  height: 50vh;
+  height: 50svh;
+  background-position: top center;
+}
 
 
 /* captions: absolute inside slide-wrap, above dot */
