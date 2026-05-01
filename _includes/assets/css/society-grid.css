@@ -1711,9 +1711,11 @@ ul.menu a:hover {
 }
 
 
-
-
-
 .mapwrapper {
   margin: 2rem 0;
+}
+
+.iconspacer {
+  width: 2rem;
+  height: 1rem;
 }
