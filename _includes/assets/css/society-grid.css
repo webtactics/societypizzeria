@@ -1692,3 +1692,7 @@ ul.menu a {
 ul.menu a:hover {
   color: var(--primary);
 }
+
+.mapwrapper {
+  margin: 2rem 0;
+}

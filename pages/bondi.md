@@ -56,7 +56,7 @@ background-position: center center;background-size:cover;" title="FUNCTIONS" hre
 <div class="grid-2-columns">
 <div class="bondi left">
 
-<p>88-90 Curlewis St, Bondi Beach, NSW, 2026, Australia<br /><a href="/cdn-cgi/l/email-protection#e881868e87a89b878b818d9c91988192928d9a8189c68b8785c6899d"><span class="__cf_email__" data-cfemail="2940474f46695a464a404c5d50594053534c5b4048074a464407485c">[email&#160;protected]</span></a></p>
+<p>88-90 Curlewis St, Bondi Beach, NSW, 2026, Australia<br /><a href="mailto:info@societypizzeria.com.au">info@societypizzeria.com.au</a></p>
 <div class="deliveryapp">&nbsp;</div>
 <h4><i class="fas fa-phone-square"></i> <a href="tel:+61291307359">(02) 9130 7359</a></h4>
 </div>
@@ -105,6 +105,7 @@ background-position: center center;background-size:cover;" title="FUNCTIONS" hre
 </div>
 
 
-
+<div class="mapwrapper">
 
 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13248.302009883912!2d151.2723776493666!3d-33.88770927566514!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b12ad991e1ba7ad%3A0x85d90c81fb30d599!2s88-90+Curlewis+St%2C+Bondi+Beach+NSW+2026!5e0!3m2!1sen!2sau!4v1524476023564" width="100%" height="400" frameborder="0" style="border:0.1rem solid #ffffff" allowfullscreen></iframe>
+</div>
