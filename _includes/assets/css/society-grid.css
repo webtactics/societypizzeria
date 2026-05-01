@@ -1719,11 +1719,5 @@ ul.menu a:hover {
   margin: 2rem 0;
 }
 
-span.iconspacer {
-  display:block;
-  width: 2rem;
-  height: auto;
-  float: left;
-}
 
-.bondi.left {}
+
