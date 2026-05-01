@@ -41,11 +41,11 @@ eleventyNavigation:
 </div>
 <div class="grid-2-columns-bondi">
 <div class="iconspacer"><p><i class="fas fa-envelope-square"></i></div>
-<div class="bondi-text"><p><a href="mailto:info@societypizzeria.com.au">info@societypizzeria.com.au</a></p></div>
+<div class="bondi-text"><p><a href="mailto:info@societypizzeria.com.au" title="Email Society Pizzeria" alt="Email Society Pizzeria">info@societypizzeria.com.au</a></p></div>
 </div>
 <div class="grid-2-columns-bondi">
 <div class="iconspacer"><p><i class="fas fa-phone-square"></i></div>
-<div class="bondi-text"><p><a href="tel:+61291307359">(02) 9130 7359</a></p></div>
+<div class="bondi-text"><p><a href="tel:+61291307359" title="Call Society Pizzeria" alt="Call Society Pizzeria">(02) 9130 7359</a></p></div>
 </div>
 
 </div>
@@ -57,8 +57,10 @@ eleventyNavigation:
 <div class="searchsocialwrapper">
 
 <ul class="menu">
-<li><a title="Follow Society Pizza Bar on Facebook" href="https://www.facebook.com/societypizzabar/" target="_blank"><i class="fab fa-facebook"></i></a></li><li><a title="Follow Society Pizza Bar on Instagram" href="https://www.instagram.com/societypizzeria/" target="_blank"><i class="fab fa-instagram"></i></a>
-</li></ul>
+<li><a title="Follow Society Pizza Bar on Facebook" alt="Follow Society Pizza Bar on Facebook" href="https://www.facebook.com/societypizzabar/" target="_blank"><i class="fab fa-facebook"></i></a></li>
+<li><a title="Follow Society Pizza Bar on Instagram" alt ="Follow Society Pizza Bar on Instagram" href="https://www.instagram.com/societypizzeria/" target="_blank"><i class="fab fa-instagram"></i></a></li>
+</ul>
+
 </div>
 
 <p><strong>Opening hours</strong><br>
