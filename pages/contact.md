@@ -15,6 +15,10 @@ eleventyNavigation:
 
 
 <p>If you would like to know more about Society please email <a href="mailto:info@societypizzeria.com.au">info@societypizzeria.com.au</a> or call us at <a href="tel:+61291307359">(02) 9130 7359</a>.</p>
+
+<p><strong>Opening hours</strong></p>
+<p>Monday &ndash; Friday 5pm - 10pm<br />Saturday &amp; Sunday - ALL DAY 12pm - 10pm</p>
+
 <iframe style="border: none;" src="https://myguestlist.com.au/mgl/showForm.php?id=5cef6775c2ae3" width="100%" height="700" frameborder="0" scrolling="auto"></iframe>
 
 <h3>Find Us</h3>
