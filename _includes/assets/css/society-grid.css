@@ -1591,8 +1591,7 @@ background-color: var(--black);color: var(--primary);border-width: 0.1rem;border
     display: flex;
   justify-content: center;
   align-items: center;
-  padding: 5rem 0 0 0;
-  font-size: 1.25rem;}
+  }
 
   .shopmenu .largefont {
   background-color: rgba(0,0,0,0.50);
@@ -1601,6 +1600,7 @@ background-color: var(--black);color: var(--primary);border-width: 0.1rem;border
   letter-spacing: 0.4rem;
   line-height: 1rem;
   transition: all 0.6s;
+  margin-top:4rem;
 }
 
 .shopmenu:hover .largefont {
@@ -1610,4 +1610,5 @@ background-color: var(--black);color: var(--primary);border-width: 0.1rem;border
   letter-spacing: 0.4rem;
   line-height: 1rem;
   transition: all 0.6s;
+    margin-top:4rem;
 }
