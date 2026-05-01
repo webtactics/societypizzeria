@@ -1597,18 +1597,20 @@ background-color: var(--black);color: var(--primary);border-width: 0.1rem;border
   background-color: rgba(0,0,0,0.50);
   padding: 0.75rem;
   font-size: 1.25rem;
-  letter-spacing: 0.4rem;
+  letter-spacing: 0.3rem;
   line-height: 1rem;
   transition: all 0.6s;
-  margin-top:4rem;
+  margin-top:4.4rem;
+   text-transform: uppercase;
 }
 
 .shopmenu:hover .largefont {
   background-color: rgba(0,0,0,1);
   padding: 0.75rem;
   font-size: 1.25rem;
-  letter-spacing: 0.4rem;
+  letter-spacing: 0.3rem;
   line-height: 1rem;
   transition: all 0.6s;
-    margin-top:4rem;
+    margin-top:4.4rem;
+    text-transform: uppercase;
 }
