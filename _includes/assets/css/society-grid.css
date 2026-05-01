@@ -1715,10 +1715,11 @@ ul.menu a:hover {
   margin: 2rem 0;
 }
 
-.iconspacer {
+span.iconspacer {
   display:block;
   width: 3rem;
   height: 1rem;
+  float: left;
 }
 
 .bondi.left {font-size:1rem;}
