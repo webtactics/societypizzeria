@@ -1573,7 +1573,7 @@ margin: 0 0 0.75rem 0;
   .flex-caption.centre,
   .home .flex-caption
   {
-  top: 100px;
+  top: 40vh;
   left: 0.5rem;
   right: 0.5rem;
   width: auto;
