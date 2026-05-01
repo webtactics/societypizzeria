@@ -1139,6 +1139,7 @@ background-color: var(--primary); font-weight: bold;}
 .grid-4-bondi {
   grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
+    margin-bottom: 2rem;
 }
 
 
@@ -1186,7 +1187,8 @@ grid-template-columns: 2fr 1fr;gap: 3rem;}
 
 .grid-4-bondi {
   grid-template-columns: repeat(1, 1fr);
-    gap: 2rem;
+    gap: 1rem;
+    margin-bottom: 0rem;
 }
 
   .grid-2-columns-2x1 {
