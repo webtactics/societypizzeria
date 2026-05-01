@@ -1613,3 +1613,18 @@ text-transform:uppercase;
 button.success:hover, button.success:focus, .button.success:hover, .button.success:focus {
 
 background-color: var(--black);color: var(--primary);border-width: 0.1rem;border-color: var(--white); }
+
+.google-maps {
+  position: relative;
+  padding-bottom: 50%;
+  height: 0;
+  overflow: hidden;
+}
+
+.google-maps iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100% !important;
+}
