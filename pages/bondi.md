@@ -13,6 +13,39 @@ eleventyNavigation:
   order: 3
 ---
 
+<section class="whiteshop">
+<div class="grid-4-bondi">
+
+<div class="shopmenu">
+<<a class="bondi-beach menuwrapper" style="background: url(https://ik.imagekit.io/webtactics/Society/images/bondi-beach/190222-menu-400x267.jpg);background-repeat:no-repeat;
+background-position: center center;background-size:cover;" title="Menu" href="https://www.societypizzeria.com.au/uploads/pdf/220607-SOCIETY-FOOD-MENU-AS-AT-4-MAY-22_LR.pdf" target="_blank" rel="noopener"><span class="largefont">Menu</span></a>
+</div>
+
+<div class="shopmenu">
+<a class="bondi-beach menuwrapper" style="background: url(https://ik.imagekit.io/webtactics/Society/images/Pizza.jpg);background-repeat:no-repeat;
+background-position: center center;background-size:cover;" title="Booking" href="https://bookings.nowbookit.com/?accountid=42c3dc48-f2ee-44dc-ae02-0108dc89edc7&venueid=2260&theme=light&colors=hex,000000" target="_blank" rel="noopener"><span class="largefont">Booking</span></a>
+</div>
+
+<div class="shopmenu">
+<a class="bondi-beach menuwrapper" style="background: url(https://ik.imagekit.io/webtactics/Society/images/bondi-beach/190222-delivery-400x267.jpg);background-repeat:no-repeat;
+background-position: center center;background-size:cover;" title="Order" href="https://www.societypizzeria.com.au/order/society-pizzeria-bondi-beach/index.html" target="_blank" rel="noopener"><span class="largefont">Order</span></a>
+</div>
+
+<div class="shopmenu">
+<a class="bondi-beach menuwrapper" style="background: url(https://ik.imagekit.io/webtactics/Society/images/Aperol.jpg);background-repeat:no-repeat;
+background-position: center center;background-size:cover;" title="FUNCTIONS" href="https://www.societypizzeria.com.au/uploads/pdf/220607-SOCIETY-SET-MENU-AS-AT-MAY-2022" target="_blank" rel="noopener"><span class="largefont">FUNCTIONS</span></a>
+</div>
+
+</div>
+</section>
+
+
+
+
+
+
+
+
 
 <p>SOCIETY PIZZA, ANTIPASTI &amp; BEACH STYLE COCKTAILS</p>
 <p>88-90 Curlewis St, Bondi Beach, NSW, 2026, Australia</p>
