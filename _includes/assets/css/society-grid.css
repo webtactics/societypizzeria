@@ -1717,9 +1717,9 @@ ul.menu a:hover {
 
 span.iconspacer {
   display:block;
-  width: 3rem;
-  height: 1rem;
+  width: 2rem;
+  height: auto;
   float: left;
 }
 
-.bondi.left {font-size:1rem;}
+.bondi.left {}
