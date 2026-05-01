@@ -1529,20 +1529,13 @@ ul.main-menu {
   font-size: 14px;
   line-height: 18px;
   border-radius: 10px;
-  text-align: left;
-}
-
-
-.flex-caption h1
- {
-  color: var(--white);
-  font-weight: 700;
-  line-height: 1.3em;
   text-align: center;
-margin: 0 0 2vh;
 }
 
-.flex-caption img {
+
+
+
+.flex-image {
   max-width: 100%;
   height: auto;
 display: flex;
