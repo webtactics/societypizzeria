@@ -33,12 +33,10 @@ eleventyNavigation:
 
 <div class="grid-2-columns">
 <div class="bondi left">
-
-<p><div class="iconspacer"><i class="fas fa-map-marker-alt"></i></div>  88-90 Curlewis St, Bondi Beach,<br>
-  <div class="iconspacer"></div>NSW, 2026, Australia<br>
+<div class="iconspacer"><i class="fas fa-map-marker-alt"></i></div>  88-90 Curlewis St, Bondi Beach,<br>
+<div class="iconspacer"></div>NSW, 2026, Australia<br>
 <div class="iconspacer"><i class="fas fa-envelope-square"></i></div><a href="mailto:info@societypizzeria.com.au">info@societypizzeria.com.au</a><br>
-<div class="iconspacer"><i class="fas fa-phone-square"></i></div><a href="tel:+61291307359">(02) 9130 7359</a></p>
-
+<div class="iconspacer"><i class="fas fa-phone-square"></i></div><a href="tel:+61291307359">(02) 9130 7359</a>
 </div>
 
 <div class="bondi right">
