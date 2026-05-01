@@ -1692,14 +1692,27 @@ ul.menu li {
 ul.menu a {
   color: var(--black);
   margin: 0 0 0.4rem 0;
-  font-size: 2.4rem;
+  font-size: 2rem;
   line-height: 1;
   padding: 0;
 }
 
+.footerwrap ul.menu a {
+  color: var(--white);
+  margin: 0 0 0.4rem 0;
+  font-size: 1.2rem;
+  line-height: 1;
+  padding: 0;
+}
+
+
 ul.menu a:hover {
   color: var(--primary);
 }
+
+
+
+
 
 .mapwrapper {
   margin: 2rem 0;
