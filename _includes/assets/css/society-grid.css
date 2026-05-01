@@ -1627,3 +1627,36 @@ background-color: var(--black);color: var(--primary);border-width: 0.1rem;border
     margin-top:4.4rem;
     text-transform: uppercase;
 }
+
+.app-btn {
+  color: #000000;
+  float: left;
+  margin-right: 15px;
+  background: rgba(0,0,0,0.30);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 2px;
+  transition: all .3s;
+}
+
+.appwrapper a:hover {
+  color: #ffffff;
+}
+
+.app-btn:hover {
+  background: rgba(0,0,0,1.0);
+}
+
+.pull-left {
+  float: left;
+}
+
+.app-btn .pull-right {
+  padding: 8px 25px 8px 10px;
+}
+
+.app-btn .text {
+  display: block;
+  font-size: 12px;
+  line-height: 1;
+}
