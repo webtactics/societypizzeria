@@ -1,8 +1,8 @@
 ---
 layout: layouts/default.njk
-title: Contact PrestigePro Property Services
+title: Contact Society Pizza Bar Bondi Beach
 class: contact
-description: For more information about our services or to schedule a consultation, please call on tel:0427892240 or email prestigepro2428@gmail.com
+description: For bookings please use the booking form on the venue page. If you would like to know more about Society please email..
 section: contact
 date: 2024-03-11
 metadata:
@@ -13,7 +13,7 @@ eleventyNavigation:
   order: 5
 ---
 
-h1>Contact Society</h1>
+<h1>Contact Society</h1>
 <p><strong>For bookings please use the booking form on the venue page.</strong></p>
 <p>If you would like to know more about Society please email <a href="mailto:info@societypizzeria.com.au">info@societypizzeria.com.au</a></p>
 <p><iframe style="border: none;" src="https://myguestlist.com.au/mgl/showForm.php?id=5cef6775c2ae3" width="100%" height="700" frameborder="0" scrolling="auto"></iframe></p>
