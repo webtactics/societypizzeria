@@ -1154,6 +1154,12 @@ background-color: var(--primary); font-weight: bold;}
 
 @media (max-width: 1024px) {
  
+.grid-4-bondi {
+  grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+
 .grid-3-columns {
   grid-template-columns: repeat(1, 1fr);
 }
@@ -1171,15 +1177,22 @@ background-color: var(--primary); font-weight: bold;}
 .grid-2-columns-2x1 {
 grid-template-columns: 2fr 1fr;gap: 3rem;}
 
-@media (max-width: 1024px) {
+
+
+
+
+@media (max-width: 600px) {
+
+
+.grid-4-bondi {
+  grid-template-columns: repeat(1, 1fr);
+    gap: 2rem;
+}
+
   .grid-2-columns-2x1 {
     grid-template-columns: 1fr;
   }
-  }
 
-
-}
-@media (max-width: 600px) {
 
   .hidesmall, .hideforsmall {display:none;}
 }
