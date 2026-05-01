@@ -33,7 +33,7 @@ background-position: center center;background-size:cover;" title="Order" href="h
 
 <div class="shopmenu">
 <a class="bondi-beach menuwrapper" style="background: url(https://ik.imagekit.io/webtactics/society/images/bondi/functions-400x400_V7jW4ky9S.jpg);background-repeat:no-repeat;
-background-position: center center;background-size:cover;" title="FUNCTIONS" href="https://www.societypizzeria.com.au/pdf/220607-SOCIETY-SET-MENU-AS-AT-MAY-2022.pdf" target="_blank" rel="noopener"><span class="largefont">FUNCTIONS</span></a>
+background-position: center center;background-size:cover;" title="FUNCTIONS" href="https://www.societypizzeria.com.au/pdf/220607-SOCIETY-SET-MENU-AS-AT-MAY-2022.pdf" target="_blank" rel="noopener"><span class="largefont">Functions</span></a>
 </div>
 
 </div>

@@ -1586,3 +1586,11 @@ background-color: var(--black);color: var(--primary);border-width: 0.1rem;border
   height: 100%;
   min-height: 300px;
 }
+
+.largefont {
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  
+
+  font-size: 1.25rem;}
