@@ -60,14 +60,16 @@ background-position: center center;background-size:cover;" title="FUNCTIONS" hre
 <div class="deliveryapp">&nbsp;</div>
 <h4><i class="fas fa-phone-square"></i> <a href="tel:+61291307359">(02) 9130 7359</a></h4>
 </div>
+
+
 <div class="bondi right">
 <div class="float-right right">
 <div class="searchsocialwrapper">
 <ul class="menu">
 <li><a title="Follow Society Pizza Bar on Facebook" href="https://www.facebook.com/societypizzabar/" target="_blank"><i class="fab fa-facebook"></i></a></li><li><a title="Follow Society Pizza Bar on Instagram" href="https://www.instagram.com/societypizzeria/" target="_blank"><i class="fab fa-instagram"></i></a></li></ul>
 </div>
-<p><strong>Opening hours</strong></p>
-<p>Monday &ndash; Friday 5pm - 10pm<br />Saturday &amp; Sunday - ALL DAY 12pm - 10pm<br /><br /></p>
+<p><strong>Opening hours</strong><br>
+Monday &ndash; Friday 5pm - 10pm<br />Saturday &amp; Sunday - ALL DAY 12pm - 10pm</p>
 </div>
 </div>
 </div>
