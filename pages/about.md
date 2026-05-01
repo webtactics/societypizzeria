@@ -20,6 +20,6 @@ The Faro family comes from Catania, Sicily renown for its produce, seafood, wine
 
 For many, the company’s success is based on Society's reputation for the best pizza in Sydney; but the family thinks it goes a little deeper than that.
 
-“If you create good times for people with what you do, then you will be successful. We understand that, and my father never let’s me forget it either.” Founder, Jonathan Faro
+*“If you create good times for people with what you do, then you will be successful. We understand that, and my father never let’s me forget it either.”* said founder, Jonathan Faro
 
 Food, drink, friends and family. These are the things that make life worth living and they are at the heart of the Society story.
