@@ -1591,6 +1591,5 @@ background-color: var(--black);color: var(--primary);border-width: 0.1rem;border
     display: flex;
   justify-content: center;
   align-items: center;
-  
-
+  padding: 6rem 0 0 0;
   font-size: 1.25rem;}
