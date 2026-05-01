@@ -1524,7 +1524,6 @@ ul.main-menu {
   right: 20vw;
   width: 60vw;
    padding: 1rem;
-  z-index: 1000;
   background: var(--primary60);
   color: var(--white);
   font-size: 14px;
