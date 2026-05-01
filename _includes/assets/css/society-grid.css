@@ -1540,7 +1540,7 @@ ul.main-menu {
 }
 
 .about .flex-caption, .contact .flex-caption, .bondi .flex-caption {
-    top: 45vh;
+    top: 55vh;
 }
 
 .flex-image {
@@ -1584,7 +1584,7 @@ margin: 0 0 0.75rem 0;
   }
 
   .about .flex-caption, .contact .flex-caption, .bondi .flex-caption {
-    top: 65vh;
+    top: 45vh;
 }
 }
 
