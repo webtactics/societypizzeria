@@ -15,7 +15,7 @@ eleventyNavigation:
 
 h1>Contact Society</h1>
 <p><strong>For bookings please use the booking form on the venue page.</strong></p>
-<p>If you would like to know more about Society please email <a href="/cdn-cgi/l/email-protection#472e292128073428242e22333e372e3d3d22352e266924282a692632"><span class="__cf_email__" data-cfemail="afc6c1c9c0efdcc0ccc6cadbd6dfc6d5d5caddc6ce81ccc0c281ceda">[email&#160;protected]</span></a></p>
+<p>If you would like to know more about Society please email <a href="mailto:info@societypizzeria.com.au">info@societypizzeria.com.au</a></p>
 <p><iframe style="border: none;" src="https://myguestlist.com.au/mgl/showForm.php?id=5cef6775c2ae3" width="100%" height="700" frameborder="0" scrolling="auto"></iframe></p>
 
 <h3>Society Pizza Bar Bondi Beach</h3>
