@@ -1716,7 +1716,8 @@ ul.menu a:hover {
 }
 
 .iconspacer {
-  width: 2rem;
+  display:block;
+  width: 3rem;
   height: 1rem;
 }
 
