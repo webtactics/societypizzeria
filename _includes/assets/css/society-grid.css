@@ -960,7 +960,7 @@ margin: 0;
   -ms-transition: all 0.6s;
   -o-transition: all 0.6s;
   transition: all 0.6s;}
-  .ctacallwrapper .menusocial:hover .phonetext {font-size:1rem;font-weight:700;line-height: 34px;color: var(--black);display: flex;justify-content: center;-webkit-transition: all 0.6s;
+  .ctacallwrapper .menusocial:hover .phonetext {font-size:1rem;line-height: 34px;color: var(--black);display: flex;justify-content: center;-webkit-transition: all 0.6s;
   -moz-transition: all 0.6s;
   -ms-transition: all 0.6s;
   -o-transition: all 0.6s;
