@@ -258,7 +258,7 @@ color: var(--black);
   
   }
 
-.container {margin: 10vh auto 0 auto;  background-color: var(--white);z-index: 2; position: relative; }
+.container {margin: 0 auto;  background-color: var(--white);z-index: 2; position: relative; }
 
 @media screen and (max-width: 768px) {
 
