@@ -1685,6 +1685,11 @@ ul.menu li {
   margin: 0 0 0 0.4rem;
 }
 
+.menu li, .menu.horizontal li {
+  display: inline-block;
+}
+
+
 ul.menu a {
   color: var(--black);
   margin: 0 0 0.4rem 0;
