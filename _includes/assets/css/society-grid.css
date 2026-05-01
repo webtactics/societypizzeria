@@ -1701,7 +1701,7 @@ ul.menu li {
 ul.menu a {
   color: var(--black);
   margin: 0 0 0.4rem 0;
-  font-size: 2rem;
+  font-size: 1.4rem;
   line-height: 1;
   padding: 0;
 }
