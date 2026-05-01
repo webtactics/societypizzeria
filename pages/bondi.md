@@ -55,8 +55,7 @@ background-position: center center;background-size:cover;" title="FUNCTIONS" hre
 
 <div class="grid-2-columns">
 <div class="bondi left">
-<h1>Society Pizza Bar</h1>
-<p>SOCIETY PIZZA, ANTIPASTI &amp; BEACH STYLE COCKTAILS&nbsp;</p>
+
 <p>88-90 Curlewis St, Bondi Beach, NSW, 2026, Australia<br /><a href="/cdn-cgi/l/email-protection#e881868e87a89b878b818d9c91988192928d9a8189c68b8785c6899d"><span class="__cf_email__" data-cfemail="2940474f46695a464a404c5d50594053534c5b4048074a464407485c">[email&#160;protected]</span></a></p>
 <div class="deliveryapp">&nbsp;</div>
 <h4><i class="fas fa-phone-square"></i> <a href="tel:+61291307359">(02) 9130 7359</a></h4>
