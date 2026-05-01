@@ -1536,8 +1536,9 @@ ul.main-menu {
   text-align: center;
 }
 
-
-
+.about .flex-caption {
+    top: 40vh;
+}
 
 .flex-image {
   max-width: 100%;
