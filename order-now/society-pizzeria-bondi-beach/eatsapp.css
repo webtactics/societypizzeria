@@ -1,0 +1,61 @@
+@media (max-width: 768px) and (min-width: 320px){
+				.bg-image {
+					background: url(img/results_wallpaper.jpg) center center/cover no-repeat!important;
+				}
+}
+@media (min-width: 768px){
+	.bg-image{height: 400px;}
+	.topRightCart{height: 84px;padding-top: 35px;}
+	.misc28{padding-top: 12px !important;}
+	.img-rounded{margin-top: 4px;margin-bottom: 4px;}
+	.misc6{height: 390px;}
+	.profile-img{display: none;}
+	.profile-desc{margin-top: -20px;margin-bottom: -20px;}
+	.containerVersionTwo{margin-left: 0px;padding-left: 40px;width: 490px;background-color: white;padding-bottom: 50px;padding-top: 20px;margin-top: 50px;}
+	.misc20{max-width: 492px;}
+	#restaurantName{color: #000;font-size: 36px;}
+	#subtitle{color: #000;font-size: 15px;margin-bottom: 12px;margin-top: 5px;}
+	#minOrder{color: #000;}
+	#speed{color: #000; !important}
+	#pickUpDeliveries{color: #000; !important}
+	#profile-desc-padding{width:100%}
+}
+
+	.eatsUL{-webkit-tap-highlight-color: rgba(0,0,0,0);color: #000000;font-family: sans-serif;-webkit-box-direction: normal;-webkit-font-smoothing: antialiased;padding: 0;margin: 0;list-style: none;display: grid;grid-gap: 40px 24px;grid-template-columns: repeat(2, 1fr);}
+	@media (min-width: 1700px){
+		.eatsUL{-webkit-tap-highlight-color: rgba(0,0,0,0);color: #000000;font-family: sans-serif;-webkit-box-direction: normal;-webkit-font-smoothing: antialiased;padding: 0;margin: 0;list-style: none;display: grid;grid-gap: 40px 24px;grid-template-columns: repeat(3, 1fr);}
+	}
+	.eatsLIP{-webkit-tap-highlight-color: rgba(0,0,0,0);color: #000000;font-family: sans-serif;-webkit-box-direction: normal;list-style: none;-webkit-font-smoothing: antialiased;display: flex;min-width: 0;}
+	.eatsC1{-webkit-tap-highlight-color: rgba(0,0,0,0);color: #000000;font-family: sans-serif;}
+	.eatsC2{-webkit-box-direction: normal;}
+	.eatsC3{cursor: pointer;-webkit-font-smoothing: antialiased;}
+	.eatsC4{list-style: none;-webkit-font-smoothing: antialiased;display: flex;cursor: pointer;flex: 1;text-decoration: none;}
+	.eatsC5{list-style: none;position: relative;display: flex;-webkit-box-orient: vertical;flex-direction: column;overflow: hidden;width: 100%;border: 1px solid #E2E2E2;}
+	.eatsC6{list-style: none;display: flex;-webkit-box-orient: horizontal;flex-direction: row;flex: 1;}
+	.eatsC7{list-style: none;display: flex;-webkit-box-orient: vertical;flex-direction: column;flex: 1;padding: 16px;}
+	.eatsC8{list-style: none;display: block;}
+	.eatsC9{-webkit-tap-highlight-color: rgba(0,0,0,0);color: #000000;list-style: none;margin: 0;font-weight: normal;display: flex;-webkit-box-align: center;align-items: center;line-height: 24px;font-family: sans-serif;font-size: 16px;}
+	.eatsC10{-webkit-tap-highlight-color: rgba(0,0,0,0);color: #000000;list-style: none;cursor: pointer;font-weight: normal;line-height: 24px;font-family: sans-serif;font-size: 16px;-webkit-font-smoothing: antialiased;overflow: hidden;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 3;}
+	.eatsC11{list-style: none;overflow: hidden;display: -webkit-box;-webkit-box-orient: vertical;padding-top: 4px;-webkit-line-clamp: 2;word-break: break-word;}
+	.eatsC12{-webkit-tap-highlight-color: rgba(0,0,0,0);list-style: none;cursor: pointer;word-break: break-word;-webkit-font-smoothing: antialiased;font-size: 14px;font-family: sans-serif;color: #545454;line-height: 20px;}
+	.eatsC13{list-style: none;display: flex;flex: 1;padding-top: 8px;-webkit-box-align: end;align-items: flex-end;}
+	.eatsC14{-webkit-tap-highlight-color: rgba(0,0,0,0);color: #000000;list-style: none;display: flex;line-height: 24px;font-family: sans-serif;font-size: 16px;}
+	.eatsC15{list-style: none;flex-shrink: 0;height: 158px;width: 158px;}
+	.eatsC16{list-style: none;flex-shrink: 0;opacity: 1;object-fit: cover;height: 158px;width: 158px;outline: rgba(0, 0, 0, 0.03) solid 1px;outline-offset: -1px;}
+    .eatsC17{-webkit-tap-highlight-color: rgba(0,0,0,0);color: #000000;font-family: sans-serif;list-style: none;cursor: pointer;-webkit-box-direction: normal;-webkit-font-smoothing: antialiased;margin-top: 4px;}
+	.eatsC18{-webkit-tap-highlight-color: rgba(0,0,0,0);list-style: none;cursor: pointer;-webkit-box-direction: normal;-webkit-font-smoothing: antialiased;display: flex;font-size: 14px;font-family: sans-serif;color: #545454;-webkit-box-align: start;align-items: flex-start;line-height: 20px;}
+	.eatsC19{-webkit-tap-highlight-color: rgba(0,0,0,0);color: #000000;-webkit-box-direction: normal;list-style: none;-webkit-font-smoothing: antialiased;margin: 0;font-weight: normal;font-family: sans-serif;padding-bottom: 24px;font-size: 20px;line-height: 28px;padding-top:25px;}
+
+	.eatsC20{-webkit-tap-highlight-color: rgba(0,0,0,0);color: #000000;font-family: sans-serif;-webkit-font-smoothing: antialiased;-webkit-box-orient: horizontal;-webkit-box-direction: normal;flex-direction: row;width: 100%;}
+	.eatsC21{-webkit-tap-highlight-color: rgba(0,0,0,0);color: #000000;font-family: sans-serif;-webkit-box-direction: normal;-webkit-font-smoothing: antialiased;position: relative;display: flex;padding-top: 30px;}
+	.eatsC22{-webkit-tap-highlight-color: rgba(0,0,0,0);color: #000000;font-family: sans-serif;-webkit-box-direction: normal;-webkit-font-smoothing: antialiased;display: flex;overflow: hidden;flex: 1;height: 48px;flex-wrap: wrap;}
+	.eatsC23{-webkit-tap-highlight-color: rgba(0,0,0,0);color: #000000;font-family: sans-serif;-webkit-box-direction: normal;-webkit-font-smoothing: antialiased;display: flex;-webkit-box-align: center;align-items: center;-webkit-box-pack: justify;justify-content: space-between;cursor:pointer}
+	.eatsC24{-webkit-tap-highlight-color: rgba(0,0,0,0);-webkit-box-direction: normal;-webkit-font-smoothing: antialiased;border-width: 0;padding: 0;margin: 0;background: transparent;font: inherit;letter-spacing: inherit;white-space: nowrap;color: #000000;font-family: sans-serif;font-size: 15px;text-align: center;line-height: 20px;padding-bottom: 30px;border-bottom: 2px solid #000000;}
+	.eatsC25{border-bottom: 2px solid rgb(0, 0, 0);line-height: 12px;}
+	
+	.eatsFixed{position: sticky;top: 0px;z-index: 9;}
+	.eatsBarFixed{background-color: white;position: fixed;top: 0px;z-index: 10;border-bottom: 1px solid #ccc;}
+	.eatsC5:hover {border: 1px solid #999}
+	#desktopShoppingCart{padding-top:20px;}
+	
+	@keyframes loadingAnimation{0%{background-position:-100vw 0}100%{background-position:100vw 0}}.Eatsapp{padding-bottom:48px;padding-top:24px;padding-right:0;padding-left:0px;width:93%}.EatsappIn{height:232px;background-size:100vw 232px;animation-name:loadingAnimation;background-image:-webkit-linear-gradient(120deg,#e2e2e2 20%,#f6f6f6 28%,#e2e2e2 43%);background-image:-moz-linear-gradient(120deg,#e2e2e2 20%,#f6f6f6 28%,#e2e2e2 43%);background-image:linear-gradient(120deg,#e2e2e2 20%,#f6f6f6 28%,#e2e2e2 43%);animation-timing-function:linear;animation-iteration-count:infinite;animation-fill-mode:forwards;animation-duration:2s;-webkit-box-orient:vertical;-webkit-box-direction:normal;flex-direction:column;flex:1;display:-webkit-box;display:-moz-box;display:-ms-flexbox;display:-webkit-flex;display:flex;overflow:hidden;position:relative}.EatsappIn1{height:100%}.EatsappIn2{flex-basis:calc(85vw - 16px);-webkit-box-flex:0;flex-grow:0;min-width:0;flex-shrink:0;position:relative}.EatsappInStart{flex-basis:calc(85vw - 16px);-webkit-box-flex:0;flex-grow:0;min-width:0;flex-shrink:0;position:relative;-webkit-font-smoothing:antialiased}.EatsappInStart1{left:224px;top:0;height:16px;width:100%;background-color:#fff;position:absolute;-webkit-font-smoothing:antialiased}.EatsappInStart2{left:0;top:16px;width:100%;height:24px;background-color:#fff;position:absolute;-webkit-font-smoothing:antialiased}.EatsappInStart3{top:180px;height:12px;width:100%;background-color:#fff;position:absolute}.EatsappInStart4{right:0;top:192px;width:35%;height:16px;background-color:#fff;position:absolute;-webkit-font-smoothing:antialiased}.EatsappInStart5{top:208px;height:8px;width:100%;background-color:#fff;position:absolute;-webkit-font-smoothing:antialiased}.EatsappInStart6{top:216px;width:65%;right:0;height:16px;background-color:#fff;position:absolute;-webkit-font-smoothing:antialiased}.EatsappInStart7{left:0;top:16px;height:100%;width:8px;background-color:#fff;position:absolute;-webkit-font-smoothing:antialiased}

@@ -1,0 +1,1539 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    	
+        <title>Takeaway and food delivery online by Eatsapp</title>
+		<meta name="description" content="Order Takeaway and food delivery online by Eatsapp. Online specials, ratings &amp; reviews, free to use by Eatsapp.">
+        <meta name="og:description" content="Order Takeaway and food delivery online by Eatsapp. Online specials, ratings &amp; reviews, free to use by Eatsapp.">
+    	<meta name="keywords" content="order takeaway, order food delivery">
+    	<meta name="og:title" content="Takeaway and food delivery online by Eatsapp">
+    	<meta name="og:url" content="/">
+    	<meta name="og:site_name" content="Takeaway and food delivery online by Eatsapp">
+    	<meta name="og:image" content="img/profile-image.png">
+    	<meta name="og:image:width" content="243">
+    	<meta name="og:image:height" content="138">
+    	<meta name="og:image:type" content="image/png">
+    	<meta name="og:type" content="website">
+
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/animsition.min.css" rel="stylesheet">
+        <link href="../css/animate.css" rel="stylesheet">
+        <link href="../css/style.min.css" rel="stylesheet">
+        <link id="favicon" rel="shortcut icon" href="img/favicon.png" type="image/png">
+        <link rel="canonical" href="/">
+
+        <script type="text/javascript">
+        	var t_linkedStores = 1;
+        	var wsPass = 457690;
+        	var t_storeID = 25011;
+        	var t_business = "Society Pizza";
+        	var phoneExtension = "+61";
+        	var t_siteURL = "https://eatsapp.com.au/restaurants/society-pizzeria-bondi-beach";
+        	var t_thisSuburb = "Bondi Beach";
+        	var t_storeDescription = "Visit our website to read more about us; follow us on Facebook and Instagram.";
+        </script>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+        <script type="text/javascript">	
+			var head  = document.getElementsByTagName('head')[0];
+			if ((window.location.href.includes("eatsapp.com.au") == true) && (t_storeID != 25039) && (t_storeID != 25505)){
+				var link = document.querySelector("link[rel*='icon']") || document.createElement('link');link.type = 'image/x-icon';link.rel = 'shortcut icon';link.href = 'https://eatsapp.com.au/images/favicon.ico';document.getElementsByTagName('head')[0].appendChild(link);
+				var linkFav  = document.createElement('link');
+				linkFav.rel  = 'stylesheet';linkFav.type = 'text/css';linkFav.href = 'eatsapp.css';head.appendChild(linkFav);
+			} else {
+				var link  = document.createElement('link');
+				link.rel  = 'stylesheet';link.type = 'text/css';link.href = 'store.css';head.appendChild(link);
+			}
+			document.title = '' + t_business + ' - ' + t_thisSuburb + ' menu ' + t_thisSuburb + ' Takeaway and Delivery | Order Online from Eatsapp';
+			$("meta[name='og:title']").attr('content', '' + t_business + ' - ' + t_thisSuburb + ' menu ' + t_thisSuburb + ' Takeaway and Delivery | Order Online from Eatsapp');
+			$("meta[name='og:description']").attr('content', 'Order takeaway and food delivery online from ' + t_business + ' ' + t_thisSuburb + '. Contact us on for any questions.');
+			$("meta[name='description']").attr('content', 'Order takeaway and food delivery online from ' + t_business + ' ' + t_thisSuburb + '. Contact us on for any questions.');
+			$("meta[name='keywords']").attr('content', '' + t_business + ', ' + t_thisSuburb + ', takeaway, delivery, online order, order takeaway, order food delivery');
+
+			if (window.location.href.includes("eatsapp.com.au") == true){
+				$('link[rel="canonical"]').attr('href', '' + t_siteURL + '');
+				$("meta[name='og:url']").attr('content', '' + t_siteURL + '');
+				$("meta[name='og:site_name']").attr('content', '' + t_business + ' menu ' + t_thisSuburb + ' Takeaway and Delivery | Online Ordering by Eatsapp');
+				$("meta[name='og:image']").attr('content', t_siteURL + '/img/profile-image.png');
+			}
+			
+			$(document).ready(function(){
+				if ((window.location.href.includes("eatsapp.com.au") == true) && (t_storeID != 25039) && (t_storeID != 25505)){
+					document.getElementById("customerTopLeftLogo").innerHTML = '<img class="img-rounded" src="https://eatsapp.com.au/images/eatsapp-search-page.png" alt="Eatsapp Online Ordering" title="Eatsapp Online Ordering">'
+				}
+				document.getElementById("footerStore").innerHTML = t_business
+				document.getElementById("footerDescription").innerHTML = t_storeDescription
+				
+				$('#status-modal').modal({
+					backdrop: 'static',
+					keyboard: false
+				})
+				document.getElementById("doShowStatus").click()
+				
+			});
+        </script>
+    </head>
+    <body onload="javascript:doLoad();">
+    		<div class="se-pre-con" id="se-pre-con"></div>
+        	<div class="site-wrapper animsition" data-animsition-in="fade-in" data-animsition-out="fade-out" id="topHeader">
+            <div class="animsition" data-animsition-in="fade-in" data-animsition-out="fade-out" id="topHeaderClosed">
+                <div id="sasscoMisc1">
+                    <p>
+                        <i class="fa fa-exclamation-triangle"></i> Sorry, we're currently closed<span id="StoreTypeFor" class="styleDisplayNone"> for Delivery</span> <a href="#" onclick="javascript:doPopulatePreOrder();" data-toggle="modal" data-target="#preorder-modal">Pre order?</a>
+                    </p>
+                </div>
+            </div>
+            <div class="animsition" data-animsition-in="fade-in" data-animsition-out="fade-out" id="topHeaderCart">
+                <div onClick="javascript:doShowMobileCart();" data-toggle="modal" data-target="#mobilecart-modal" id="mobilecart-modalOne">
+                    <p>
+                        <i class="fa fa-shopping-cart"></i> Checkout $<span id="cartTotalTop">$0.00</span> <i class="fa fa-arrow-right colorFFF"></i>
+                    </p>
+                </div>
+            </div>
+
+            <!--header starts-->
+			<header id="header" class="header-scroll top-header headrom animated headroom--top headroom--not-bottom">
+            	<!-- .navbar -->
+                <nav class="navbar navbar-dark clrBg">
+                    <div class="container misc1">
+                        <button onClick="javascript:goBackMobile();" class="navbar-toggler hidden-lg-up color000 doFloatRight" type="button"><i class="fa fa-cutlery clr-1-1"></i></button>
+                        
+                        <a class="navbar-brand misc2 doFloatLeft" href="https://eatsapp.com.au/" id="customerTopLeftLogo"> <img class="img-rounded" src="img/logo.png" alt="Powered by Eatsapp Online Ordering" title="Powered by Eatsapp Online Ordering"> </a>
+                        <div class="collapse navbar-toggleable-md  float-lg-right misc3" id="mainNavbarCollapse">
+                                <ul class="nav navbar-nav">
+                                    <li class="nav-item styleDisplayNone" id="signIn">
+                                        <a href="javascript:;" class="nav-link active misc28" data-toggle="modal" data-target="#signin-modal" id="openSignIn">Sign In</a>
+                                    </li>
+                                    <li class="nav-item dropdown styleDisplayNone" id="signedIn">
+                                        <a class="nav-link clr-1-2" href="javascript:;" role="button" aria-haspopup="true" aria-expanded="false" id="signedInName"></a>
+                                    </li>
+                                </ul>
+                        </div>
+                        <div class="topRightCart" onClick="javascript:doShowCartTop();">
+                            <div>
+                                <div><i class="fa fa-shopping-cart"></i> $<span id="topCartTotal">0.00</span></div>
+                            </div>
+                        </div>
+                        <div class="navbar-brand misc2 doFloatLeft" style="margin-left: 50px;margin-top: 2px;color:#000" id="viewOtherRestaurantsBtn"></div>
+                    </div>
+                </nav>
+                <!-- /.navbar -->
+			</header>
+			<div class="page-wrapper">
+                <!-- top Links -->
+
+                <div class="swiper-container" id="header1">
+                    <div class="swiper-wrapper" id="allSwipeCats">
+                    </div>
+                </div>
+                <div class="food-item-wrap styleDisplayNoneImportant">
+                    <div class="restaurant-block misc4">
+						<div class="left">
+							<a class="pull-left" href="javascript:;"> <img src="img/results_logo.png" alt="Restaurant logo" width="40"> </a>
+							<div class="pull-left right-text"> Our address:</div>
+						</div>
+                    </div>
+                </div>
+                <div class="breadcrumb styleDisplayNoneImportant" id="breadcrumbEatsapp"></div>
+                <div class="top-links styleDisplayNoneImportant" id="toplinksCustomer">
+                    <div class="container">
+                        <ul class="row links">
+                            <li class="col-xs-12 col-sm-3 link-item misc5"></li>
+                            <li class="col-xs-12 col-sm-3 link-item active" id="mystep1">
+                                <span>1</span>
+                                <a href="javascript:;">Create your order</a>
+                            </li>
+                            <li class="col-xs-12 col-sm-3 link-item" id="mystep2">
+                                <span>2</span>
+                                <a href="javascript:;">Order and Pay</a>
+                            </li>
+                            <li class="col-xs-12 col-sm-3 link-item" id="mystep3">
+                                <span>3</span>
+                                <a href="javascript:;">Track your order</a>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+                <!-- end:Top links -->
+                <!-- start: Inner page hero -->
+                <section class="inner-page-hero bg-image misc6" data-image-src="img/profile-banner.jpg">
+                    <a href="javascript:;" data-toggle="modal" data-target="#status-modal" id="doShowStatus"></a>
+                    <div class="profile">
+                        <div class="container containerVersionTwo">
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-12  col-md-4 col-lg-4 profile-img">
+                                    <div class="image-wrap misc7">
+                                        <figure class="misc8">
+                                            <img src="img/profile-image.png" alt="Order Online">
+                                        </figure>
+                                    </div>
+                                </div>
+                                <div id="profile-desc-padding" class="col-xs-12 col-sm-12 col-md-8 col-lg-8 profile-desc">
+                                    <div class="pull-left right-text white-txt">
+                                        <h6 class="misc30">
+                                            <a href="javascript:;" id="restaurantName" class="misc31">Populating..</a>
+                                        </h6>
+                                        <a href="javascript:;" class="btn btn-small btn-green" id="openClose">checking..</a>
+                                        <p id="subtitle" class="misc32"></p>
+                                        <ul class="nav nav-inline">
+                                            <li class="nav-item misc33">
+                                                <a class="nav-link active misc34" href="javascript:;" id="minOrder">
+                                                    <i class="fa fa-check"></i>
+                                                    Min $0
+                                                </a>
+                                            </li>
+                                            <li class="nav-item marginLeft5">
+                                                <a class="nav-link misc35" href="javascript:;" id="speed">
+                                                    <i class="fa fa-history"></i>
+
+                                                    30-40 min
+                                                </a>
+                                            </li>
+
+                                            <li class="nav-item">
+                                                <a class="nav-link misc36" href="javascript:;" id="pickUpDeliveries">
+                                                    <i class="fa fa-car"></i>
+                                                    Pickup &amp;Delivery
+                                                </a>
+                                            </li>
+                                        </ul>
+
+
+                                        <div class="row" style="padding-top:20px">
+                                            <div class="col-sm-6">
+                                                <span id="pickupYes" class="misc12">
+                                                    <a style="color:#000" class="nav-link dropdown-toggle misc13" data-toggle="dropdown" href="javascript:;" role="button" aria-haspopup="true" aria-expanded="false" id="tadingHours"></a>
+                                                    <div class="dropdown-menu" id="allTradingHours">
+                                                        <table>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>
+                                                                        <a class="dropdown-item" href="javascript:;">Monday</a>
+                                                                        <a class="dropdown-item" href="javascript:;">Tuesday</a>
+                                                                        <a class="dropdown-item" href="javascript:;">Wednesday</a>
+                                                                        <a class="dropdown-item" href="javascript:;">Thursday</a>
+                                                                        <a class="dropdown-item" href="javascript:;">Friday</a>
+                                                                        <a class="dropdown-item" href="javascript:;">Saturday</a>
+                                                                        <a class="dropdown-item" href="javascript:;">Sunday</a>
+                                                                    </td>
+                                                                    <td id="pickHours">
+                                                                        <a class="dropdown-item" href="javascript:;">5:30PM - 10:00PM</a>
+                                                                        <a class="dropdown-item" href="javascript:;">5:30PM - 10:00PM</a>
+                                                                        <a class="dropdown-item" href="javascript:;">5:30PM - 10:00PM</a>
+                                                                        <a class="dropdown-item" href="javascript:;">5:30PM - 10:00PM</a>
+                                                                        <a class="dropdown-item" href="javascript:;">5:30PM - 10:00PM</a>
+                                                                        <a class="dropdown-item" href="javascript:;">5:30PM - 10:00PM</a>
+                                                                        <a class="dropdown-item" href="javascript:;">5:30PM - 10:00PM</a>
+                                                                        <a class="dropdown-item" href="javascript:;"></a>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </span>
+                                            </div>
+                                            <div class="col-sm-6" style="padding-left: 0px;">
+                                                <span id="deliveryYes">
+                                                    <a style="color:#000" class="nav-link dropdown-toggle misc15" data-toggle="dropdown" href="javascript:;" role="button" aria-haspopup="true" aria-expanded="false" id="tadingHoursDelivery"></a>
+                                                    <div class="dropdown-menu" id="allTradingHoursDelivery">
+                                                    <table>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>
+                                                                        <a class="dropdown-item" href="javascript:;">Monday</a>
+                                                                        <a class="dropdown-item" href="javascript:;">Tuesday</a>
+                                                                        <a class="dropdown-item" href="javascript:;">Wednesday</a>
+                                                                        <a class="dropdown-item" href="javascript:;">Thursday</a>
+                                                                        <a class="dropdown-item" href="javascript:;">Friday</a>
+                                                                        <a class="dropdown-item" href="javascript:;">Saturday</a>
+                                                                        <a class="dropdown-item" href="javascript:;">Sunday</a>
+                                                                    </td>
+                                                                    <td>
+                                                                        <span id="deliveryHours">
+                                                                            <a class="dropdown-item" href="javascript:;">5:30PM - 10:00PM</a>
+                                                                            <a class="dropdown-item" href="javascript:;">5:30PM - 10:00PM</a>
+                                                                            <a class="dropdown-item" href="javascript:;">5:30PM - 10:00PM</a>
+                                                                            <a class="dropdown-item" href="javascript:;">5:30PM - 10:00PM</a>
+                                                                            <a class="dropdown-item" href="javascript:;">5:30PM - 10:00PM</a>
+                                                                            <a class="dropdown-item" href="javascript:;">5:30PM - 10:00PM</a>
+                                                                            <a class="dropdown-item" href="javascript:;">5:30PM - 10:00PM</a>
+                                                                            <a class="dropdown-item" href="javascript:;"></a>
+                                                                        </span>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </span>
+                                            </div>
+                                        </div>
+
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- end:Inner page hero -->
+                <div class="food-item-wrap" id="food-item-wrap-margin">
+                    <div class="restaurant-block misc9">
+						<div class="left">
+							<a class="pull-left" href="javascript:;"> <img src="img/results_logo.png" alt="Restaurant logo" width="40"> </a>
+							<div class="pull-left right-text"> Our Address<br><span id="mobileStoreAddress"></span> </div>
+						</div>
+						<div class="right-like-part pull-right" id="offerOrCart" onClick="javascript:doShowMobileCart();" data-toggle="modal" data-target="#mobilecart-modal"><i class="fa fa-gift"></i> <span id="ourPromiseOffer">Cheaper Prices!</span></div>
+                    </div>
+                </div>
+                <div class="widget-delivery clearfix hideDesktopDelivery">
+					<div class="col-xs-6 col-sm-12 col-md-6 col-lg-6 b-t-0 padding15pxx" id="divDelPick1">
+						<label class="custom-control custom-radio">
+						<input onclick="javascript:changeOrderTypeMobile(0);" id="topDelPickup1" name="radio" type="radio" class="custom-control-input"> <span class="custom-control-indicator misc10"></span> <span class="custom-control-description"><i class="fa fa-motorcycle"></i> <span class="fontSize14">Delivery</span><br><span class="fontSize12" id="starts_delivery">closed today</span></span> </label>
+					</div>
+					<div class="col-xs-6 col-sm-12 col-md-6 col-lg-6 b-t-0 padding15pxx" id="divDelPick2">
+						<label class="custom-control custom-radio">
+						<input onclick="javascript:changeOrderTypeMobile(0);" id="topDelPickup2" name="radio" type="radio" class="custom-control-input clr-1-3"> <span class="custom-control-indicator misc10"></span> <span class="custom-control-description"><i class="fa fa-shopping-basket"></i> <span class="fontSize14">Pick up</span><br><span class="fontSize12" id="starts_takeaway">closed today</span></span> </label>
+					</div>
+                </div>
+                <div class="widget-delivery clearfix hideDesktopDelivery" style="padding-top: 10px;padding-bottom: 10px;opacity: 0.7;background: rgb(204, 204, 204);">
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 b-t-0 padding15pxx" style="color:#000;">
+						<h3 class="widget-title text-dark" style="font-size: 18px;" id="openSignIn12_1"><i class="fa fa-calendar"></i> Pre order for later - <a href="#" onClick="javascript:doPopulatePreOrder();" data-toggle="modal" data-target="#preorder-modal">select time</a></h3>
+						<div class="clearfix"></div>
+					</div>
+                </div>
+                <div class="widget-delivery clearfix hideDesktopDelivery" id="couponAccepted_1" style="display:none">
+                	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 b-t-0" style="border: 0px;padding: 15px 10px 15px;background-color: #f7f7f7; text-align:center">
+                		Coupon# <strong id="actualCouponAccepted_1"></strong> <i class="fa fa-check"></i>
+                	</div>
+                </div>
+                <div class="widget-delivery clearfix hideDesktopDelivery" id="enterCoupon_1">
+                	<div class="col-xs-6 col-sm-12 col-md-6 col-lg-6 b-t-0" style="border: 0px;padding: 15px 10px 15px;background-color: #f7f7f7;">
+                		<input id="couponID_1" type="text" class="form-control" placeholder="Enter coupon code">
+                	</div>
+                	<div class="col-xs-6 col-sm-12 col-md-6 col-lg-6 b-t-0" style="border: 0px;padding: 15px 10px 15px;background-color: #f7f7f7;">
+                		<a href="javascript:doValidateCoupon();" class="btn btn-outline-success btn-block">Validate Coupon</a>
+                	</div>
+                </div>
+                
+
+                <section id="add-restaurants-msg" class="add-restaurants misc11" style="display:none">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-3 add-title">
+                                <h5 class="fontSize16"> <i class="fa fa-dollar faPromise"></i> Our price promise.</h5> </div>
+                            <div class="col-xs-12 col-sm-5 join-text">
+                                <p class="fontSize14">If you find any item on this menu cheaper elsewhere, let us know and we'll give you $25. </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <div class="breadcrumb" style="display:none">
+                    <div class="container">
+                        <ul>
+                        	<span id="onlyOnEatsapp">
+                                <li><a href="../" class="active fontWeight600">Home</a></li>
+                                <li id="breadcrumbEatsapp1">..</li>
+                                <li id="breadcrumbEatsapp2">..</li>
+                            </span>
+                            <li id="timelinow">
+                                <a href="javascript:;" class="active timeNow" id="timeNow">Time now: 00:00am</a>
+                            </li>
+                            
+                        </ul>
+                    </div>
+                </div>
+                <div class="container m-t-10 section1" id="section1">
+                    <div class="row">
+                        <div class="eatsC20 hideMobileWidget">
+                        	<div class="eatsC21">
+                        		<nav role="navigation" class="eatsC22" id="eatsCategories">
+                                	<div class="eatsC23" onclick="javascript:;"><span class="eatsC24 eatsC25">Loading..</span><div style="width: 40px;"></div></div>
+                                </nav>
+                        	</div>
+                        </div>
+                        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3 hideDesktopDelivery">
+                        	<span id="desktopMenu">
+                                <div class="sidebar clearfix m-b-20">
+                                    <div class="main-block">
+                                        <div class="sidebar-title white-txt misc16">
+                                            <h6>
+                                                Menu <span class="misc15" id="offers">| Eatsapp- get it for less.</span>
+                                            </h6>
+
+                                            <i class="fa fa-cutlery pull-right"></i>
+                                        </div>
+                                        <ul id="allCategories">
+                                            <div class="menu-widget" style="background: #fff;">
+                                                <div class="timeline-wrapper" style="padding: 10px;height: 60px;">
+                                                    <div class="animated-background" style="height: 40px;"><div class="background-masker header-top"></div><div class="background-masker header-left"></div><div class="background-masker header-right"></div><div class="background-masker header-bottom"></div>
+                                                    <div class="background-masker subheader-left"></div><div class="background-masker subheader-right"></div><div class="background-masker subheader-bottom"></div></div>
+                                                </div>
+                                            </div>
+                                            <div class="menu-widget" style="background: #fff; margin-top: 5px;">
+                                                <div class="timeline-wrapper" style="padding: 10px;height: 60px;">
+                                                    <div class="animated-background" style="height: 40px;"><div class="background-masker header-top"></div><div class="background-masker header-left"></div><div class="background-masker header-right"></div><div class="background-masker header-bottom"></div>
+                                                    <div class="background-masker subheader-left"></div><div class="background-masker subheader-right"></div><div class="background-masker subheader-bottom"></div><div class=""></div></div>
+                                                </div>
+                                            </div>
+                                            <div class="menu-widget" style="background: #fff; margin-top: 5px;">
+                                                <div class="timeline-wrapper" style="padding: 10px;height: 60px;">
+                                                    <div class="animated-background" style="height: 40px;"><div class="background-masker header-top"></div><div class="background-masker header-left"></div><div class="background-masker header-right"></div><div class="background-masker header-bottom"></div>
+                                                    <div class="background-masker subheader-left"></div><div class="background-masker subheader-right"></div><div class="background-masker subheader-bottom"></div><div class=""></div></div>
+                                                </div>
+                                            </div>
+                                        </ul>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <!-- end:Sidebar nav -->
+                                </div>
+                            </span>
+                            <!-- end:Left Sidebar -->
+                        </div>
+                        <div class="col-xs-12 col-sm-8 col-md-8 col-lg-6 mobileMenuWidth hideDesktopDelivery">
+                                <span id="allProductsInfo" class="menu-widget m-b-30">
+                                    <div class="widget-heading">
+                                        <h3 class="widget-title text-dark">
+                                            <span id="thisCategory">Loading your menu ..</span>
+                                            <a class="btn btn-link pull-right">
+                                                <i class="fa fa-angle-down pull-right"></i>
+                                            </a>
+                                        </h3>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div>
+                                    	<span id="allProductsInfoInner">
+                                            <div class="menu-widget" style="background: #fff;">
+                                                <div class="timeline-wrapper" style="padding: 10px;">
+                                                    <div class="animated-background"><div class="background-masker header-top"></div><div class="background-masker header-left"></div><div class="background-masker header-right"></div><div class="background-masker header-bottom"></div>
+                                                    <div class="background-masker subheader-left"></div><div class="background-masker subheader-right"></div><div class="background-masker subheader-bottom"></div><div class="background-masker content-top"></div><div class="background-masker content-first-end"></div><div class="background-masker content-second-line"></div><div class="background-masker content-second-end"></div><div class="background-masker content-third-line"></div><div class="background-masker content-third-end"></div></div>
+                                                </div>
+                                            </div><br>
+                                            <div class="menu-widget" style="background: #fff;">
+                                                <div class="timeline-wrapper" style="padding: 10px;">
+                                                    <div class="animated-background"><div class="background-masker header-top"></div><div class="background-masker header-left"></div><div class="background-masker header-right"></div><div class="background-masker header-bottom"></div>
+                                                    <div class="background-masker subheader-left"></div><div class="background-masker subheader-right"></div><div class="background-masker subheader-bottom"></div><div class="background-masker content-top"></div><div class="background-masker content-first-end"></div><div class="background-masker content-second-line"></div><div class="background-masker content-second-end"></div><div class="background-masker content-third-line"></div><div class="background-masker content-third-end"></div></div>
+                                                </div>
+                                            </div><br>
+                                            <div class="menu-widget" style="background: #fff;">
+                                                <div class="timeline-wrapper" style="padding: 10px;">
+                                                    <div class="animated-background"><div class="background-masker header-top"></div><div class="background-masker header-left"></div><div class="background-masker header-right"></div><div class="background-masker header-bottom"></div>
+                                                    <div class="background-masker subheader-left"></div><div class="background-masker subheader-right"></div><div class="background-masker subheader-bottom"></div><div class="background-masker content-top"></div><div class="background-masker content-first-end"></div><div class="background-masker content-second-line"></div><div class="background-masker content-second-end"></div><div class="background-masker content-third-line"></div><div class="background-masker content-third-end"></div></div>
+                                                </div>
+                                            </div>
+                                        </span>
+                                    </div>
+                                    <!-- end:Collapse -->
+                                </span>
+                                <span id="allProductsInfoMobile"></span>
+                            <!-- end:Widget menu -->
+                        </div>
+                        <!-- end:Bar -->
+                        <div class="col-xs-12 col-sm-8 col-md-8 col-lg-9 hideMobileWidget">
+                            <span id="eatsProducts">
+                            	<div class="row">
+									<div class="col-sm-4" style="padding:0px"><div class="Eatsapp"><div class="EatsappIn"><div class="EatsappIn1"><div class="EatsappInStart"><div class="EatsappInStart1"></div><div class="EatsappInStart2"></div><div class="EatsappInStart3"></div><div class="EatsappInStart4"></div><div class="EatsappInStart5"></div><div class="EatsappInStart6"></div><div class="EatsappInStart7"></div></div></div></div></div></div>
+									<div class="col-sm-4" style="padding:0px"><div class="Eatsapp"><div class="EatsappIn"><div class="EatsappIn1"><div class="EatsappInStart"><div class="EatsappInStart1"></div><div class="EatsappInStart2"></div><div class="EatsappInStart3"></div><div class="EatsappInStart4"></div><div class="EatsappInStart5"></div><div class="EatsappInStart6"></div><div class="EatsappInStart7"></div></div></div></div></div></div>
+									<div class="col-sm-4" style="padding:0px"><div class="Eatsapp"><div class="EatsappIn"><div class="EatsappIn1"><div class="EatsappInStart"><div class="EatsappInStart1"></div><div class="EatsappInStart2"></div><div class="EatsappInStart3"></div><div class="EatsappInStart4"></div><div class="EatsappInStart5"></div><div class="EatsappInStart6"></div><div class="EatsappInStart7"></div></div></div></div></div></div>
+                                </div>
+                            	<div class="row">
+									<div class="col-sm-4" style="padding:0px"><div class="Eatsapp"><div class="EatsappIn"><div class="EatsappIn1"><div class="EatsappInStart"><div class="EatsappInStart1"></div><div class="EatsappInStart2"></div><div class="EatsappInStart3"></div><div class="EatsappInStart4"></div><div class="EatsappInStart5"></div><div class="EatsappInStart6"></div><div class="EatsappInStart7"></div></div></div></div></div></div>
+									<div class="col-sm-4" style="padding:0px"><div class="Eatsapp"><div class="EatsappIn"><div class="EatsappIn1"><div class="EatsappInStart"><div class="EatsappInStart1"></div><div class="EatsappInStart2"></div><div class="EatsappInStart3"></div><div class="EatsappInStart4"></div><div class="EatsappInStart5"></div><div class="EatsappInStart6"></div><div class="EatsappInStart7"></div></div></div></div></div></div>
+									<div class="col-sm-4" style="padding:0px"><div class="Eatsapp"><div class="EatsappIn"><div class="EatsappIn1"><div class="EatsappInStart"><div class="EatsappInStart1"></div><div class="EatsappInStart2"></div><div class="EatsappInStart3"></div><div class="EatsappInStart4"></div><div class="EatsappInStart5"></div><div class="EatsappInStart6"></div><div class="EatsappInStart7"></div></div></div></div></div></div>
+                                </div>
+                            	<div class="row">
+									<div class="col-sm-4" style="padding:0px"><div class="Eatsapp"><div class="EatsappIn"><div class="EatsappIn1"><div class="EatsappInStart"><div class="EatsappInStart1"></div><div class="EatsappInStart2"></div><div class="EatsappInStart3"></div><div class="EatsappInStart4"></div><div class="EatsappInStart5"></div><div class="EatsappInStart6"></div><div class="EatsappInStart7"></div></div></div></div></div></div>
+									<div class="col-sm-4" style="padding:0px"><div class="Eatsapp"><div class="EatsappIn"><div class="EatsappIn1"><div class="EatsappInStart"><div class="EatsappInStart1"></div><div class="EatsappInStart2"></div><div class="EatsappInStart3"></div><div class="EatsappInStart4"></div><div class="EatsappInStart5"></div><div class="EatsappInStart6"></div><div class="EatsappInStart7"></div></div></div></div></div></div>
+									<div class="col-sm-4" style="padding:0px"><div class="Eatsapp"><div class="EatsappIn"><div class="EatsappIn1"><div class="EatsappInStart"><div class="EatsappInStart1"></div><div class="EatsappInStart2"></div><div class="EatsappInStart3"></div><div class="EatsappInStart4"></div><div class="EatsappInStart5"></div><div class="EatsappInStart6"></div><div class="EatsappInStart7"></div></div></div></div></div></div>
+                                </div>
+                            </span>
+                        </div>
+                        <div class="col-xs-12 col-md-12 col-lg-3" id="desktopShoppingCart" style="background-color:#fff">
+                            <div class="sidebar-wrap">
+                                <div class="widget widget-cart">
+                                    <div class="widget-heading">
+                                        <h3 class="widget-title text-dark">Your Shopping Cart</h3>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <span id="allCartItems">
+                                        <div class="order-row">
+                                            <div class="widget-body misc17">
+                                                <div class="title-row marginBottom0">
+                                                    <div class="row no-gutter">
+                                                        <div class="col-xs-12">Your order is currently empty.</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </span>
+                                    <!-- end:Order row -->
+                                    <div class="widget-delivery clearfix" id="selectOrderType">
+                                        <form>
+                                            <div class="col-xs-6 col-sm-12 col-md-6 col-lg-6 b-t-0" id="hideType1">
+                                                <label class="custom-control custom-radio" id="disablePickup">
+                                                    <input onclick="javascript:changeOrderType();" id="radioTakeaway" name="radio" type="radio" class="custom-control-input" checked="">
+                                                    <span class="custom-control-indicator padding6px"></span>
+                                                    <span class="custom-control-description" id="addCrossTakeaway">Pick up</span><br><span class="fontSize12" id="starts_takeaway_desktop">closed today</span>
+                                                </label>
+                                            </div>
+                                            <div class="col-xs-6 col-sm-12 col-md-6 col-lg-6 b-t-0" id="hideType2">
+                                                <label class="custom-control custom-radio" id="disableDelivery">
+                                                    <input onclick="javascript:changeOrderType();" id="radioDelivery" name="radio" type="radio" class="custom-control-input">
+                                                    <span class="custom-control-indicator padding6px"></span>
+                                                    <span class="custom-control-description" id="addCrossDelivery">Delivery</span><br><span class="fontSize12" id="starts_delivery_desktop">closed today</span>
+                                                </label>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    
+                                    <div class="widget-heading">
+                                        <h3 class="widget-title text-dark" id="openSignIn12"><i class="fa fa-calendar"></i> Pre order for later - <a href="#" onClick="javascript:doPopulatePreOrder();" data-toggle="modal" data-target="#preorder-modal">select time</a></h3>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="widget-body">
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <td width="90%">
+                                                        Sub Total:<br>
+                                                        <span id="cartRemoveForPickup">Pick up:</span>
+                                                        <br>
+                                                        <span id="cartDiscountLabel">Discount:</span>
+                                                    </td>
+                                                    <td>
+                                                        <span id="orderItemsTotal" class="textAlRight">
+                                                            $0.00<br>$0.00
+                                                        </span>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <div class="price-wrap text-xs-center" style="font-size: 23px;">
+                                            Total due
+                                            <h3 class="value">
+                                                $<strong id="orderTotal" style="font-size: 38px;">0.00</strong>
+                                            </h3>
+                                            <button type="button" class="btn theme-btn btn-lg misc18" id="goNextStep">Next Step</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="widget clearfix hideMobileWidget">
+                                    <div class="widget-heading" style="padding-bottom: 5px;padding-top: 5px;">
+                                        <h3 class="widget-title text-dark">Got a coupon?</h3>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="widget-body" id="couponAccepted" style="display:none">
+                                        <div class="row" style="padding-left:10px">
+                                            Coupon# <strong id="actualCouponAccepted"></strong> <i class="fa fa-check"></i>
+                                        </div>
+                                    </div>
+                                    <div class="widget-body" style="padding-bottom: 5px" id="enterCoupon">
+                                        <div class="row">
+                                            <div class="col-sm-7" style="padding-left: 0px;padding-right: 0px;">
+                                                <div class="form-group">
+                                                    <input id="couponID" type="text" class="form-control" placeholder="Enter coupon">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-5" style="padding-left: 0px;padding-right: 0px;">
+                                                <div class="form-group">
+                                                    <a href="javascript:doValidateCoupon();" class="btn btn-outline-success btn-block">Apply</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="widget clearfix hideMobileWidget">
+                                    <!-- /widget heading -->
+                                    <div class="widget-heading">
+                                        <h3 class="widget-title text-dark" id="storeTopInfo">Store Pickup</h3>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="widget-body">
+                                        <p id="allStoreDetailsHere">
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end:Right Sidebar -->
+                    </div>
+                    <!-- end:row -->
+                </div>
+                <div class="container m-t-30 styleDisplayNone" id="section2">
+                    <div class="widget clearfix">
+                        <div class="widget-heading">
+                            <div class="pull-left">
+                                <a href="javascript:slideBack();" class="btn theme-btn-dash pull-left">
+                                    <i class="fa fa-arrow-left"></i>
+                                    Back
+                                
+                                
+                                </a>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="widget-body">
+                            <form method="post" action="#">
+                                <div class="row">
+                                    <div class="col-sm-6 margin-b-30">
+                                        <span id="option1" class="styleDisplayNone">
+                                            <div class="cart-totals margin-b-20">
+                                                <div class="cart-totals-title">
+                                                    <h4 id="preOptionDelivery">Delivery</h4>
+                                                </div>
+                                                <br>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    <div class="form-group">
+                                                        <label>Apt No.</label>
+                                                        <input type="text" id="t_deliveryApp" class="form-control" placeholder="Optional">
+                                                    </div>
+                                                    <!--/form-group-->
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    <div class="form-group">
+                                                        <label>Street Address *</label>
+                                                        <input id="t_deliveryStreet" type="text" class="form-control" placeholder="E.g: 15 George St">
+                                                    </div>
+                                                    <!--/form-group-->
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div class="form-group">
+                                                        <label>Suburb *</label>
+                                                        <input id="t_deliverySuburb" type="text" class="form-control" placeholder="e.g: North Sydney">
+                                                    </div>
+                                                    <!--/form-group-->
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <div class="form-group">
+                                                        <label>Postcode *</label>
+                                                        <input id="t_deliveryPostcodeCanada" type="text" class="form-control styleDisplayNone" placeholder="e.g: B4A 4L9">
+                                                        <input id="t_deliveryPostcode" type="text" class="form-control" placeholder="e.g: 2060">
+                                                    </div>
+                                                    <!--/form-group-->
+                                                </div>
+                                                <div class="col-sm-4 styleDisplayNone">
+                                                    <div class="form-group">
+                                                        <label>State</label>
+                                                        <select id="t_deliveryState" placeholder="State" class="form-control">
+                                                            <option value="NSW">NSW</option>
+                                                            <option value="VIC">VIC</option>
+                                                            <option value="QLD">QLD</option>
+                                                            <option value="SA">SA</option>
+                                                            <option value="WA">WA</option>
+                                                            <option value="NT">NT</option>
+                                                            <option value="TA">TA</option>
+                                                            <option value="NOV">Nova Scotia (Canada)</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </span>
+                                        <span id="option2" class="styleDisplayNone">
+                                            <div class="cart-totals margin-b-20">
+                                                <div class="cart-totals-title">
+                                                    <h4 id="preOptionPickup">Pick up</h4>
+                                                </div>
+                                                <br>
+                                            </div>
+                                            <div class="widget clearfix">
+                                                <div class="widget-heading">
+                                                    <h3 class="widget-title text-dark" id="storeTopInfo2">Store Pickup
+                                               </h3>
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                                <div class="widget-body">
+                                                    <p id="allStoreDetailsHere1">
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </span>
+                                    </div>
+                                    <div class="col-sm-6">
+                                            <div class="cart-totals-title">
+                                                <h4 style="margin-bottom: 15px;">
+                                                    Chef notes?
+                                                </h4>
+                                            </div>
+                                        	<input type="text" class="form-control" placeholder="Add a note (extra napkins etc.)" id="orderExtraNotes">
+                                        	<br>
+                                        <div class="cart-totals margin-b-20">
+                                            <div class="cart-totals-title">
+                                                <h4>
+                                                    Payment $<span id="orderTotal2"></span>
+                                                </h4>
+
+                                            </div>
+                                            <br>
+                                        </div>
+                                        <!--cart summary-->
+                                        <div class="payment-option">
+                                            <ul class=" list-unstyled">
+                                                <li>
+                                                    <label class="custom-control custom-radio  m-b-20" id="disableCashPays">
+                                                        <input onchange="javascript:doChangePaymentType();" id="payCashNow" checked="" name="radio-stacked" type="radio" class="custom-control-input">
+                                                        <span class="custom-control-indicator"></span>
+                                                        <span class="custom-control-description" id="paymentOn">Payment on Pickup</span>
+                                                        <br>
+                                                        <span class="fontSize14Color">Select this option to pay when you collect food.</span>
+                                                    </label>
+                                                </li>
+                                                <li>
+                                                    <label class="custom-control custom-radio  m-b-20">
+                                                        <input onchange="javascript:doChangePaymentType();" id="payLoyaltyNow" name="radio-stacked" type="radio" class="custom-control-input">
+                                                        <span class="custom-control-indicator"></span>
+                                                        <span class="custom-control-description">
+                                                            Loyalty <span id="loyaltyTotal">($0.00)</span>
+                                                        </span>
+                                                        <br>
+                                                        <span class="fontSize14Color">Pay with your loyalty credit.</span>
+                                                    </label>
+                                                </li>
+                                                <li>
+                                                    <label class="custom-control custom-radio  m-b-20" id="disableCcPays">
+                                                        <input onchange="javascript:doChangePaymentType();" id="payCCNow" name="radio-stacked" type="radio" class="custom-control-input">
+                                                        <span class="custom-control-indicator"></span>
+                                                        <span class="custom-control-description">
+                                                            Credit Card <img src="../images/paypal.jpg" alt="" width="90">
+                                                        </span>
+                                                    </label>
+                                                    <div class="misc19" id="showCreditCard">
+                                                        <div class="row">
+                                                            <div class="col-sm-12">
+                                                                <div class="form-group">
+                                                                    <label>Full Name *</label>
+                                                                    <input type="text" id="ccName" class="form-control" placeholder="As it appears on credit card">
+                                                                </div>
+                                                                <!--/form-group-->
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-sm-12">
+
+                                                                <div class="form-group">
+                                                                    <label>Credit Card Number *</label>
+                                                                    <input id="ccNum" onclick="javascript:ccClicked();" type="text" class="form-control" placeholder="e.g: 5448 4556 8554 1998">
+                                                                </div>
+                                                                <!--/form-group-->
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-sm-3">
+                                                                <div class="form-group">
+                                                                    <label>Expiry Month *</label>
+                                                                    <input id="ccExm" type="text" class="form-control" placeholder="e.g: 04">
+                                                                </div>
+                                                                <!--/form-group-->
+                                                            </div>
+                                                            <div class="col-sm-6">
+                                                                <div class="form-group">
+                                                                    <label>Expiry Year *</label>
+                                                                    <input id="ccExy" type="text" class="form-control" placeholder="Last 2 digits, e.g: 18 for 2018">
+                                                                </div>
+                                                                <!--/form-group-->
+                                                            </div>
+                                                            <div class="col-sm-3">
+                                                                <div class="form-group">
+                                                                    <label>CVN *</label>
+                                                                    <input id="ccCVN" type="text" class="form-control" placeholder="3 digit code">
+                                                                </div>
+                                                                <!--/form-group-->
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <label class="custom-control custom-radio  m-b-10" id="disablePayPalPays">
+                                                        <input onchange="javascript:doChangePaymentType();" id="payPayPalNow" name="radio-stacked" type="radio" class="custom-control-input">
+                                                        <span class="custom-control-indicator"></span>
+                                                        <span class="custom-control-description">PayPal</span>
+                                                        <br>
+                                                        <span class="fontSize14Color">Pay securely using PayPal</span>
+                                                        <div id="paypal-button" style="padding-top: 10px; display:none"></div>
+                                                    </label>
+                                                </li>
+                                            </ul>
+                                            <p class="text-xs-center" id="disableForPayPal">
+                                                <a href="javascript:doPlaceOrderNow();" class="btn btn-outline-success btn-block" id="placeOrderBtn">
+                                                    Place Order <i class="fa fa-arrow-right"></i>
+                                                </a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- end:Container -->
+                <section class="app-section">
+                    <div class="app-wrap">
+                        <div class="container">
+                            <div class="row text-img-block text-xs-left">
+                                <div class="container">
+                                    <div class="col-xs-12 col-sm-6 hidden-xs-down right-image text-center">
+                                        <figure>
+                                            <img src="img/app.png" alt="Right Image">
+                                        </figure>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-6 left-text">
+                                        <h3>Download our App!</h3>
+                                        <p>Receive updates about your order via push notification, receive promotions and more. App is available for both iPhone and Android.</p>
+                                        <div class="social-btns">
+                                            <a target="_blank" href="https://apps.apple.com/au/app/eatsapp-online-ordering/id1438556232" class="app-btn apple-button clearfix" id="appstoreUrl">
+                                                <div class="pull-left">
+                                                    <i class="fa fa-apple"></i>
+                                                </div>
+                                                <div class="pull-right">
+                                                    <span class="text">Available on the</span>
+                                                    <span class="text-2">App Store</span>
+                                                </div>
+                                            </a>
+                                            <a target="_blank" href="https://play.google.com/store/apps/details?id=com.sassco.eatsapp" class="app-btn android-button clearfix" id="googlePlayUrl">
+                                                <div class="pull-left">
+                                                    <i class="fa fa-android"></i>
+                                                </div>
+                                                <div class="pull-right">
+                                                    <span class="text">Available on the</span>
+                                                    <span class="text-2">Play store</span>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- start: FOOTER -->
+                <footer class="footer">
+                    <div class="container">
+                        <!-- top footer statrs -->
+                        <div class="row top-footer">
+                            <div class="col-xs-12 col-sm-4 address color-gray">
+                                <h5 id="footerStore"></h5>
+                                <p id="footerDescription"></p>
+                            </div>
+                            <div class="col-xs-12 col-sm-2 about color-gray">
+                                <h5>Policies</h5>
+                                <ul>
+                                    <li>
+                                        <a href="javascript:;" data-toggle="modal" data-target="#terms-1">Refunds</a><br>
+                                        <a href="javascript:;" data-toggle="modal" data-target="#terms-2">Privacy Policy</a><br>
+                                        <a href="javascript:;" data-toggle="modal" data-target="#terms-3">Terms &amp; Conditions</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-xs-12 col-sm-3 additional-info color-gray">
+                                <h5>You're safe with us!</h5>
+                                <p>We use the most secure Braintree (by PayPal) Bank Gateway for our online credit card transactions.</p>
+                            </div>
+                            <div class="col-xs-12 col-sm-3 footer-logo-block color-gray">
+                                <a href="https://eatsapp.com.au/" title="Eatsapp Online Ordering System"><img src="../images/eatsapp-logo.png" alt="Eatsapp Online Ordering System" title="Eatsapp Online Ordering System"></a>
+                                <span>
+                                    Powered by <a target="_blank" class="sasscoLink" href="https://eatsapp.com.au/" title="Eatsapp Online Ordering">Eatsapp</a>; Australia's most advanced online ordering system for restaurants.
+                                </span>
+                            </div>
+                        </div>
+                        <!-- top footer ends -->
+                        <!-- bottom footer statrs -->
+                        <!-- bottom footer ends -->
+                    </div>
+                </footer>
+                <!-- end:Footer -->
+            </div>
+            <!-- end:page wrapper -->
+        </div>
+        <!--/end:Site wrapper -->
+        <!-- Modal -->
+        <div class="modal fade order-modal" id="order-modal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <button type="button" class="close zIndex1000Width" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                    <div class="modal-body cart-addon">
+                        <div class="food-item white marginNoBtmPaddingNoBtm">
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-7 payment-options color-gray">
+                                    <h6>
+                                        <a id="productFullName" class="fontWeight600"></a>
+                                        <p id="productDesc"></p>
+                                        <input type="text" class="form-control" placeholder="Add a note (extra sauce, no onion etc.)" id="productExtraNote">
+                                    </h6>
+                                    <img class="productMainImage misc20" id="productMainImage" alt="">
+                                </div>
+                                <div class="col-xs-12 col-sm-5 additional-info color-gray">
+                                    <select class="form-control b-r-0 misc21" id="productQty" onchange="javascript:doChangeProductQty();">
+                                        <option value="1" selected="">Quantity: 1</option>
+                                        <option value="2">Quantity: 2</option>
+                                        <option value="3">Quantity: 3</option>
+                                        <option value="4">Quantity: 4</option>
+                                        <option value="5">Quantity: 5</option>
+                                        <option value="6">Quantity: 6</option>
+                                        <option value="7">Quantity: 7</option>
+                                        <option value="8">Quantity: 8</option>
+                                        <option value="9">Quantity: 9</option>
+                                    </select><br>
+                            
+                                    <span id="widgetContent"></span>
+                            
+                                </div>
+                            </div>
+
+                            <!-- end:row -->
+                            <span id="isItAddOrUpdate"></span>
+                            <div class="row styleDisplayNone" id="hideProductType">
+                                <div class="col-xs-12 col-sm-12 col-lg-12">
+                                    <span id="productTypeInfo"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="item-img pull-left">
+                            <span class="pickUpDeliveryInfo clrOrangge" id="pickUpDeliveryInfo"></span>
+                        </div>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="productCloseBtn">Cancel</button>
+                        <button type="button" class="btn theme-btn" id="addCartBtnValue" onclick="javascript:addToCart();">Add to cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="signin-modal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <button type="button" class="close zIndex1000Width" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                    <div class="modal-body cart-addon">
+                        <div class="food-item white marginNoBtmPaddingNoBtm">
+                            <div class="row">
+                                <!-- REGISTER -->
+                                <div class="col-md-8">
+                                    <div class="widget">
+                                        <div class="widget-body">
+                                            <form>
+                                                <div class="form-group">
+                                                    <label for="exampleInputEmail1">Email</label>
+                                                    <input class="form-control" type="email" value="" id="loginEmail" placeholder="e-mail address" aria-describedby="emailHelp">
+                                                    <small id="emailHelp" class="form-text text-muted">Please enter your e-mail address used for this store.</small>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="exampleInputEmail1">Password</label>
+                                                    <input type="password" value="" class="form-control" id="loginPassword">
+                                                </div>
+                                                <div class="pull-left styleDisplayNone" id="signinLoader">
+                                                    <div class="loader"></div>
+                                                </div>
+                                                <div class="pull-right">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal" id="signinCloseBtn">Cancel</button>
+                                                    <a href="javascript:doLogin();" class="btn theme-btn m-t-15">Sign in</a>
+                                                </div>
+                                                <br>
+                                                <div class="pull-right disNonClr" id="signinError">
+                                                    <p>
+                                                        <br>Incorrect username/password combination, try again.
+                                                    </p>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <!-- end: Widget -->
+                                </div>
+                                <!-- /REGISTER -->
+                                <!-- WHY? -->
+                                <div class="col-md-4" id="emailResentContent">
+                                    <h4 class="m-t-20">Forgot password?</h4>
+                                    <p>Enter your email address below to retrieve your password:</p>
+                                    <form>
+                                        <div class="form-group">
+                                            <input class="form-control" type="email" value="" id="loginForgotEmail" placeholder="e-mail address">
+                                            <small class="form-text text-muted">An e-mail containing your password will be sent to you.</small>
+                                        </div>
+                                    </form>
+                                    <p>
+                                        <a href="javascript:loadingSendingEmailScreen();" class="btn theme-btn-dash">Retrieve password</a>
+                                    </p>
+                                </div>
+                                <!-- /WHY? -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="preorder-modal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <button type="button" class="close zIndex1000Width" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                    <div class="modal-body cart-addon">
+                        <div class="food-item white marginNoBtmPaddingNoBtm">
+                            <div class="row">
+                                <!-- REGISTER -->
+                                <div class="col-md-7">
+                                    <div class="widget">
+                                        <div class="widget-body">
+                                            <form>
+                                            <div class="row">
+                                            	<div class="col-md-6">
+                                                    <div class="form-group" style="margin-bottom: 0px;">
+                                                        <label for="exampleInputEmail1" style="font-weight:600">Pick up or Delivery?</label>
+                                                    </div>
+                                                    
+                                                    <div class="form-group">
+                                                        <div class="btn-group" data-toggle="buttons">
+                                                          <label class="btn btn-secondary" onclick="javascript:preOrderSelect(0);">
+                                                          <input type="radio" name="optionsPre" id="option_pickup_pre" checked=""> Pick up </label>
+                                                          <label class="btn btn-secondary" onclick="javascript:preOrderSelect(1);">
+                                                          <input type="radio" name="optionsPre" id="option_delivery_pre"> Delivery </label>
+                                                       </div>
+                                                    </div>
+                                            	</div>
+                                            	<div class="col-md-6">
+                                                    <div class="form-group" style="margin-bottom: 0px;text-align: right;">
+                                                        <label style="font-weight:400">When?</label>
+                                                    </div>
+                                                    <div class="form-group" style="text-align: right;">
+                                                        <select onchange="preOrderDateChanged()" name="preorderWhen" id="preorderWhen" class="btn btn-secondary" style="height: 38px;padding: .3rem 1rem;">
+                                                          <option value="today" selected>Today</option>
+                                                          <option value="tomorrow">Tomorrow</option>
+                                                        </select>
+                                                    </div>
+                                            	</div>
+                                            </div>
+                                            
+                                                
+                                                
+                                                <div class="form-group" style="margin-bottom: 0px;">
+                                                    <label id="exampleInputEmail131" style="font-weight:600">Select available time slot:</label>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="btn-group" data-toggle="buttons" id="preButtons">First, select pick up or delivery..
+                                                   </div>
+                                            	</div>
+                                            
+                                                <div class="pull-left styleDisplayNone" id="signinLoader123">
+                                                    <div class="loader"></div>
+                                                </div>
+                                                <div class="pull-right">
+                                                	<button style="display:none" data-dismiss="modal" id="cancelPreNoAction">Cancel</button>
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal" id="cancelPre" onClick="javascript:cancelPreModal();">Cancel</button>
+                                                    <a href="javascript:doSavePreOrder();" class="btn theme-btn m-t-15">Save</a>
+                                                </div><br><br>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <!-- end: Widget -->
+                                </div>
+                                <!-- /REGISTER -->
+                                <!-- WHY? -->
+                                <div class="col-md-5">
+                                    <h4 class="m-t-20">Pre order for later.</h4>
+                                    <p>Today's trading hours:</p>
+                                    	<table>
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <a class="dropdown-item" href="javascript:;">Pick Up: </a>
+                                                        <a class="dropdown-item" href="javascript:;">Delivery: </a>
+                                                    </td>
+                                                    <td>
+                                                        <span>
+                                                        	<a class="dropdown-item" href="javascript:;" id="preOrder_1">..</a>
+                                                        	<a class="dropdown-item" href="javascript:;" id="preOrder_2">..</a>
+                                                        </span>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        
+                                        <br><div class="widget">
+                                            <div class="widget-body">
+                                                <div class="form-group" style="margin-bottom: 0px;">
+                                                    <label><span style="color:#f00">Note:</span> You can include more order information in our notes section at checkout.</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                                <div class="disNonClr" id="signinError123">
+                                                    <p>
+                                                        Please select a time!
+                                                    </p>
+                                                </div>
+                                </div>
+                                <!-- /WHY? -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="wait-modal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-body cart-addon">
+                        <div class="food-item white marginNoBtmPaddingNoBtm">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="widget">
+                                        <div class="widget-body">
+                                            <p id="dialogText"></p>
+                                        </div>
+                                    </div>
+                                    <!-- end: Widget -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+         <div class="modal fade" id="mobilecart-modal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <button type="button" class="close zIndex1000Width" data-dismiss="modal" aria-label="Close" id="closeMobileCart">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                    <div class="modal-body cart-addon">
+                        <div class="food-item white marginNoBtmPaddingNoBtm">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="widget marginBottom0">
+                                        <div class="widget-body paddingBottom0">
+                                            <p id="mobileCartContent"></p>
+                                        </div>
+                                    </div>
+                                    <!-- end: Widget -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+       <a href="javascript:;" data-toggle="modal" data-target="#braintreeWait" id="callBraintreeModal"></a>
+        <div class="modal fade" id="braintreeWait" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                     <button type="button" class="close styleDisplayNone" data-dismiss="modal" aria-label="Close" id="braintreeWaitClose">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                   <div class="modal-body cart-addon paddingBottom0">
+                        <div class="food-item white marginNoBtmPaddingNoBtm">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="widget">
+                                        <div class="widget-body misc22">
+                                            <p id="dialogTextBraintreee">Processing payment, please wait..</p>
+                                            <img src="../images/anim_pleasewait.gif" width="66" height="22" alt=""/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+ 
+        <a href="javascript:;" data-toggle="modal" data-target="#callCCerrorNow" id="callCCerror"></a>
+        <div class="modal fade" id="callCCerrorNow" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                   <div class="modal-body cart-addon paddingBottom0">
+                        <div class="food-item white marginNoBtmPaddingNoBtm">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="widget">
+                                        <div class="widget-body misc22">
+                                            <p>Sorry, your credit card declined this order, please try again or add a difference card.</p>
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal" onClick="javascript:scrollNowTopYes();">Okay</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="snackbar"></div>
+        <div class="modal fade" id="terms-1" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <button type="button" class="close zIndex1000Width" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                    <div class="modal-body cart-addon">
+                        <div class="food-item white marginNoBtmPaddingNoBtm">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="widget">
+                                        <div class="widget-body">
+                                            <div class="">
+                                                <strong>Refund and Exchange: </strong>
+                                                <br>
+                                                <span id="termsStore1">Society Pizza Bar</span> <span id="storeABN"> ABN 75 471 721 833</span> (we, us or our) is bound by Australian Consumer Law (ACL) to provide refunds in certain circumstances. This policy sets out our obligations.
+                                                <br>
+                                                <br>
+                                                We are not required to provide a refund or replacement if you change your mind.
+                                                <br>
+                                                <br>
+                                                But you can choose a refund or exchange if an item has a major problem. This is when the item:
+                                        <br>
+                                                - has a problem that would have stopped someone from buying the item if they had known about it;
+                                        <br>
+                                                - is unsafe;
+                                        <br>
+                                                - is significantly different from the sample or description; or
+                                        <br>
+                                                - is not fit for consumption.
+                                        <br>
+                                                <br>
+                                                Alternatively, you can choose to keep the item and we will compensate you for part of the value of the item.
+                                        <br>
+                                                If the problem is not major, we will replace the item within a reasonable time. If it is not replaced in a reasonable time you can choose a refund or replacement.
+                                        <br>
+                                                <br>
+                                                To obtain a refund please return to the restaurant you purchased the goods from with your proof of purchase and explain the basis of your refund request. Following approval by the restaurant the agree amount will be refunded to you in cash or as a refund onto your credit card subject to the payment method used in the original transaction.
+                                        <br>
+                                                Please keep your proof of purchase – e.g. your receipt as this provide details of the items purchased and also the name and location of the restaurant.
+                                        
+                                        <br>
+                                                <br>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- end: Widget -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+         <div class="modal fade" id="terms-2" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <button type="button" class="close zIndex1000Width" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                    <div class="modal-body cart-addon">
+                        <div class="food-item white marginNoBtmPaddingNoBtm">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="widget">
+                                        <div class="widget-body">
+                                            <div class="">
+                                                <strong>Privacy POLICY: </strong>
+                                                <br>
+                                                <span id="termsStore2"></span>
+                                                regards customer privacy as an important part of our relationship with our customers. The following privacy policy applies to all users, and conforms to internet privacy standards. If you have questions or concerns regarding this statement, please contact us.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- end: Widget -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="terms-3" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <button type="button" class="close zIndex1000Width" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                    <div class="modal-body cart-addon">
+                        <div class="food-item white marginNoBtmPaddingNoBtm">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="widget">
+                                        <div class="widget-body">
+                                            <div class="">
+                                                <strong>Collection of Information: </strong>
+                                                <br>
+                                                In order to use the <span id="termsStore3"></span>
+                                                App, we may require information from you in order to provide the best service possible. All correspondence from the <span id="termsStore4"></span>
+                                                App and Email may be collected and stored, particularly in regards to sales, support and accounts.
+                                        <br>
+                                                <br>
+                                                <strong>Use of Collection Information: </strong>
+                                                <br>
+                                                Any details collected from <span id="termsStore5"></span>
+                                                customers is required in order to provide you with our products and/or services, and a high level of customer service. Correspondence is recorded in order to provide service references, and to assist in our staff development.
+                                        <br>
+                                                <br>
+                                                <strong>Orders: </strong>
+                                                <br>
+                                                If you purchase a product or service from us, we may request certain personalised identifiable information from you. You may be required to provide contact information (such as name, Email, and postal address) and financial information (such as credit card number, expiration date).We use this information for billing purposes and to fill your orders. If we have trouble processing an order, we will use this information to contact you.
+                                        <br>
+                                                <br>
+                                                <strong>Legal: </strong>
+                                                <br>We reserve the right to disclose your personalised identifiable information as required by law and when we believe that disclosure is necessary to protect our rights and/or comply with a judicial proceeding, court order, or legal process served on our App.
+                                    
+                                            
+                                            
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- end: Widget -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="modal fade" id="account-modal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <button type="button" class="close zIndex1000Width" data-dismiss="modal" aria-label="Close" id="doCloseAccountModal">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                    <div class="modal-body cart-addon">
+                       <div class="food-item white marginNoBtmPaddingNoBtm">
+                            <div class="row" id="codeNotSent">
+                                <!-- REGISTER -->
+                                <div class="col-md-8">
+                                    <div class="widget">
+                                        <div class="widget-heading">
+                                            <h3 class="widget-title text-dark">Create your account
+                                   	</h3>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div class="widget-body paddingBottom0">
+                                            <form>
+                                                <div class="row">
+                                                    <div class="form-group col-sm-6">
+                                                        <label for="exampleInputEmail1">Full Name *</label>
+                                                        <input class="form-control" type="text" value="" id="loginCreateFirst" placeholder="Full Name">
+                                                    </div>
+                                                    <div class="form-group col-sm-6">
+                                                        <label for="exampleInputEmail1">Email address *</label>
+                                                        <input type="email" class="form-control" id="loginCreateEmail" aria-describedby="emailHelp" placeholder="Email">
+                                                    </div>
+                                                    <div class="form-group col-sm-6">
+                                                        <label for="exampleInputEmail1">Mobile Number *</label>
+                                                        <input class="form-control" type="tel" value="" id="loginCreateMobile" placeholder="E.g: 0412 456 789">
+                                                    </div>
+                                                    <div class="form-group col-sm-6">
+                                                        <label for="exampleInputPassword1">Password *</label>
+                                                        <input type="password" class="form-control" id="loginCreatePassword" placeholder="Password">
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="pull-left misc23">
+                                                    	<a href="javascript:doLoginInstead();" class="btn theme-btn-dash">Login?</a>
+                                                    </div>
+                                                    <div class="pull-left misc24" id="accountLoader">
+                                                        <div class="loader"></div>
+                                                    </div>
+                                                    <div class="pull-right misc25">
+                                                        <p>
+                                                            <a href="javascript:doCreateAccount();" class="btn theme-btn">Register</a>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <!-- end: Widget -->
+                                    </div>
+                                    <!-- /REGISTER -->
+                                </div>
+                                <!-- WHY? -->
+                                <div class="col-md-4">
+                                    <h4>We will SMS you an activation code.</h4>
+                                    <p>
+                                        Please enter your Australian mobile number in the correct format; example 0412 456 789.<br>
+                                        <br>We will use your mobile number to send you an activation code.
+                                    </p>
+                                </div>
+                                <!-- /WHY? -->
+                            </div>
+                            <div class="row styleDisplayNone" id="codeSent">
+                                <!-- REGISTER -->
+                                <div class="col-md-12">
+                                    <div class="widget">
+                                        <div class="widget-heading">
+                                            <h3 class="widget-title text-dark">SMS Sent!
+                                   	</h3>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div class="widget-body paddingBottom0">
+                                            <h4>An SMS with a code has been sent to your mobile.</h4>
+                                            <p>Please enter the code in the box below to activate your account.</p>
+                                            <form>
+                                                <div class="row">
+                                                    <div class="form-group col-sm-6">
+                                                        <label for="exampleInputEmail1">Code </label>
+                                                        <input class="form-control" type="text" value="" id="verificationCode" placeholder="">
+                                                    </div>
+                                                    <div class="form-group col-sm-3 misc26">
+                                                        <a href="javascript:doCheckCode();" class="btn theme-btn">Verify &amp;Continue</a>
+                                                    </div>
+                                                    <div class="form-group col-sm-3 misc27" id="checkCode">
+
+                                                        <div class="loader"></div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <!-- end: Widget -->
+                                    </div>
+                                    <!-- /REGISTER -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="status-modal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <button type="button" class="close zIndex1000Width styleDisplayNone" data-dismiss="modal" aria-label="Close" id="orderSentCloseBtn" onclick="javascript:stopStatusThread();">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                    <div class="modal-body cart-addon">
+                        <div class="food-item white marginNoBtmPaddingNoBtm">
+                            <div class="row">
+                                <!-- REGISTER -->
+                                <div class="col-md-4">
+                                    <h4 class="m-t-20">
+                                        Order placed #<span id="newOrderID">..</span>
+                                    </h4>
+                                    <p>
+                                        <span class="fontSize12 clr999">
+                                            <span id="cartDelOrPick">Estimated pick up time </span>
+                                            <br>
+                                            <span class="fontSize42" id="timeExpected">12:00AM</span>
+                                        </span>
+                                    </p>
+                                    <hr>
+                                    <a href="javascript:;" class="btn theme-btn-dash pull-left" id="isItConfirmed">
+                                        <i class="fa fa-warning"></i>
+                                        NOT CONFIRMED YET
+                                    </a><br><br>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="widget">
+                                        <div class="widget-body">
+                                            <div class="container mt-5 mb-5" id="hideForMap">
+                                                <div class="row">
+                                                    <div class="">
+                                                        <div class="demo-markup-source u-letter-box-small undefined">
+                                                            <ul class="o-timeline o-timeline--alternate o-timeline--loading">
+                                                                <li class="c-timeline-item c-timeline-item--left" id="timelineStatus1">
+                                                                    <div class="c-timeline-item__body" id="">
+                                                                        <span id="step1"></span>
+                                                                        <br>
+                                                                        <span id="step1Time"></span>
+                                                                    </div>
+                                                                </li>
+                                                                <li class="c-timeline-item c-timeline-item--brand c-timeline-item--left" id="timelineStatus2">
+                                                                    <div class="c-timeline-item__body">
+                                                                        <span id="step2"></span>
+                                                                        <br>
+                                                                        <span id="step2Time"></span>
+                                                                    </div>
+                                                                </li>
+                                                                <li class="c-timeline-item c-timeline-item--success" id="timelineStatus3">
+                                                                    <div class="c-timeline-item__body">
+                                                                        <span id="step3">Confirming order with restaurant</span>
+                                                                        <br>
+                                                                        <span id="step3Time"></span>
+                                                                    </div>
+                                                                </li>
+                                                                <li class="c-timeline-item c-timeline-item--info">
+                                                                    <div class="c-timeline-item__body">
+                                                                        <span id="step4">Food is being prepared</span>
+                                                                        <br>
+                                                                        <span id="step4Time"></span>
+                                                                    </div>
+                                                                </li>
+                                                                <li class="c-timeline-item c-timeline-item--last">
+                                                                    <div class="c-timeline-item__body">
+                                                                        <span id="step5">Driver is on the way</span>
+                                                                        <br>
+                                                                        <span id="step5Time"></span>
+                                                                    </div>
+                                                                </li>
+                                                                <li class="c-timeline-item c-timeline-item--loading" id="disableForPickup">
+                                                                    <div class="c-timeline-item__body">
+                                                                        <span id="step6">Food is arriving</span>
+                                                                        <br>
+                                                                        <span id="step6Time"></span>
+                                                                    </div>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <span id="liveTracker" style="display:none">
+                                                <div class="item-title" style="padding-bottom:10px; padding-top:0px; padding-left:3px; padding-right:5px; color:#000;font-weight: 600;font-size: 19px;"><i class="fa fa-map-marker"></i> Live update</div>
+                                                <h4 style="margin-bottom: 15px;font-size: 18px;" id="veryLastStatus"></h4>
+                                            </span>
+                                            
+                                            <div id="map" style="height: 400px;width: 100%;border-style: solid;border-color: #000;border: 1px;"></div>
+                                        </div>
+                                    </div>
+                                    <!-- end: Widget -->
+                                </div>
+                                <!-- /REGISTER -->
+                                <!-- WHY? -->
+                                <!-- /WHY? -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.6.1/bootstrap-slider.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+		<script src="//cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js"></script>
+		<script>
+            var swiper = new Swiper('.swiper-container', {
+              slidesPerView: 'auto',
+              spaceBetween: 10,
+              centeredSlides: false,
+            });
+        </script>
+
+        <script src="../js/other/other.js"></script>
+        <script src="../js/sassco/sassco.js"></script>
+        <script src="../js/sassco/reset.js"></script>
+        <script src="../js/sassco/service.js"></script>
+        <script src="//maps.googleapis.com/maps/api/js?key=AIzaSyA4O-XeUAIu6aaNUvLZVVdI0z4R1eB7_pw"async defer></script>
+
+		<!-- Braintree -->
+		<script src="//js.braintreegateway.com/js/braintree-2.32.1.min.js"></script> 
+        <script src="../js/sassco/braintree.js?v=101"></script>
+        
+		<!-- PayPal -->
+		<script src="//www.paypalobjects.com/api/checkout.js" data-version-4 log-level="warn"></script>
+        <script src="//js.braintreegateway.com/web/3.53.0/js/client.min.js"></script>
+        <script src="//js.braintreegateway.com/web/3.53.0/js/paypal-checkout.min.js"></script>
+		<script src="../js/sassco/paypal.js?v=101"></script>
+       
+    </body>
+</html>
