@@ -12,9 +12,6 @@ eleventyNavigation:
   key: About Us
   order: 4
 ---
-
-<h1>The Family</h1>
-
 Society is a family-owned business founded by Italian brother and sister team Jonathan Faro and Vittoria Wynne.
 
 What started as a modest event catering business has become a Bondi and Sydney institution in record time based on a simple recipe for success from its origins in Southern Italy.

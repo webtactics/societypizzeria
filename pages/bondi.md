@@ -13,7 +13,7 @@ eleventyNavigation:
   order: 3
 ---
 
-<h1>Society Pizza Bar</h1>
+
 <p>SOCIETY PIZZA, ANTIPASTI &amp; BEACH STYLE COCKTAILS</p>
 <p>88-90 Curlewis St, Bondi Beach, NSW, 2026, Australia</p>
 
