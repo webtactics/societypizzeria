@@ -1538,9 +1538,8 @@ ul.main-menu {
 .flex-image {
   max-width: 100%;
   height: auto;
-display: flex;
-justify-content: center;
-align-items: center;
+display: block;
+margin: 0 auto; 
 
 }
 .flex-caption h2, .flex-caption h3 {
