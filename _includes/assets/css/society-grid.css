@@ -1513,10 +1513,10 @@ ul.main-menu {
   background-size: cover;
 }
 
-.about .internalhero {
+.about .internalhero, .contact .internalhero {
   height: 80vh;
   height: 80svh;
-  background-position: center center;
+  background-position: top center;
 }
 
 
@@ -1536,7 +1536,7 @@ ul.main-menu {
   text-align: center;
 }
 
-.about .flex-caption {
+.about .flex-caption, .contact .flex-caption {
     top: 50vh;
 }
 
