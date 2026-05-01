@@ -1129,7 +1129,7 @@ background-color: var(--primary); font-weight: bold;}
   gap: 1rem;
 }
 
-.grid-2-bondi {
+.grid-2-columns-bondi {
     grid-template-columns: repeat(2, 100px 1fr);
 }
 
