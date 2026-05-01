@@ -408,21 +408,15 @@ display: none;
 
 }
 
-.logo img {
+.logo img, .scrolled .logo img  {
   aspect-ratio: 4/3;
-max-width:100px;
+max-width:120px;
 -webkit-transition: all 1s;
 -moz-transition: all 1s;
 -ms-transition: all 1s;
 -o-transition: all 1s;
 transition: all 1s;}
-.scrolled .logo img {
-  max-width:100px;
--webkit-transition: all 1s;
--moz-transition: all 1s;
--ms-transition: all 1s;
--o-transition: all 1s;
-transition: all 1s;}
+
 
 
 
