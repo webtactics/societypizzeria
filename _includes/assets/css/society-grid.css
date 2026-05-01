@@ -1669,3 +1669,25 @@ background-color: var(--black);color: var(--primary);border-width: 0.1rem;border
   text-align: right;
 }
 
+.menu {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  position: relative;
+}
+
+ul.menu li {
+  margin: 0 0 0 0.4rem;
+}
+
+ul.menu a {
+  color: rgba(0,0,0,1);
+  margin: 0 0 0.4rem 0;
+  font-size: 2.4rem;
+  line-height: 1;
+  padding: 0;
+}
+
+ul.menu a:hover {
+  color: #F3090D;
+}
