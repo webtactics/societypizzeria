@@ -1662,7 +1662,11 @@ background-color: var(--black);color: var(--primary);border-width: 0.1rem;border
   font-size: 12px;
   line-height: 1;
 }
-
+.app-btn .text-2 {
+  display: block;
+  font-size: 16px;
+  line-height: 1;
+}
 
 .right {
   float: right;
