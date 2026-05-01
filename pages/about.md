@@ -5,11 +5,11 @@ description: Society is a family owned business founded by Italian brother and s
 section: about
 class: about
 date: 2024-03-11
-permalink: /about/
+permalink: /about-us/
 metadata:
   title: Society is a family owned business founded by Italian brother and sister team Jonathan Faro and Vittoria Wynne.
 eleventyNavigation:
-  key: About
+  key: About Us
   order: 4
 ---
 

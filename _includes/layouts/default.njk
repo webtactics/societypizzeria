@@ -10,7 +10,15 @@
 {% endblock %}
 
 {% block hero %}
-{% include "components/hero-home.njk" %}
+{% if url == "/about-us/" %}
+{% include "components/hero-about.njk" %}
+{% elif url == "/contact/" %}
+{% include "components/hero-contact.njk" %}
+{% elif url == "/society-pizza-bar-bondi-beach/" %}
+{% include "components/hero-bondi.njk" %}
+{% else %}
+{% include "components/hero-default.njk" %}
+{% endif %}
 {% endblock %}
 
 <div class="container">
