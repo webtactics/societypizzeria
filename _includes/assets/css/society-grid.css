@@ -1554,3 +1554,17 @@ background-color: var(--black);color: var(--primary);border-width: 0.1rem;border
   width: 100% !important;
   height: 100% !important;
 }
+
+.shopmenu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.shopmenu img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1/1;
+}
