@@ -56,22 +56,25 @@ background-position: center center;background-size:cover;" title="FUNCTIONS" hre
 <div class="grid-2-columns">
 <div class="bondi left">
 
-<p>88-90 Curlewis St, Bondi Beach, NSW, 2026, Australia<br /><a href="mailto:info@societypizzeria.com.au">info@societypizzeria.com.au</a></p>
-<div class="deliveryapp">&nbsp;</div>
-<h4><i class="fas fa-phone-square"></i> <a href="tel:+61291307359">(02) 9130 7359</a></h4>
-</div>
+<p>88-90 Curlewis St, Bondi Beach,<br>
+NSW, 2026, Australia<br>
+E: <a href="mailto:info@societypizzeria.com.au">info@societypizzeria.com.au</a><br>
+T: <i class="fas fa-phone-square"></i><a href="tel:+61291307359">(02) 9130 7359</a></p>
 
+</div>
 
 <div class="bondi right">
 <div class="float-right right">
 <div class="searchsocialwrapper">
 <ul class="menu">
-<li><a title="Follow Society Pizza Bar on Facebook" href="https://www.facebook.com/societypizzabar/" target="_blank"><i class="fab fa-facebook"></i></a></li><li><a title="Follow Society Pizza Bar on Instagram" href="https://www.instagram.com/societypizzeria/" target="_blank"><i class="fab fa-instagram"></i></a></li></ul>
+<li><a title="Follow Society Pizza Bar on Facebook" href="https://www.facebook.com/societypizzabar/" target="_blank"><i class="fab fa-facebook"></i></a></li><li><a title="Follow Society Pizza Bar on Instagram" href="https://www.instagram.com/societypizzeria/" target="_blank"><i class="fab fa-instagram"></i></a>
+</li></ul>
 </div>
 <p><strong>Opening hours</strong><br>
 Monday &ndash; Friday 5pm - 10pm<br />Saturday &amp; Sunday - ALL DAY 12pm - 10pm</p>
 </div>
 </div>
+
 </div>
 
 
