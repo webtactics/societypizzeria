@@ -14,8 +14,8 @@ eleventyNavigation:
 ---
 
 
-<p>If you would like to know more about Society please email <a href="mailto:info@societypizzeria.com.au">info@societypizzeria.com.au</a></p>
-<p><iframe style="border: none;" src="https://myguestlist.com.au/mgl/showForm.php?id=5cef6775c2ae3" width="100%" height="700" frameborder="0" scrolling="auto"></iframe></p>
+<p>If you would like to know more about Society please email <a href="mailto:info@societypizzeria.com.au">info@societypizzeria.com.au</a> or call us at <a href="tel:+61291307359">(02) 9130 7359</a>.</p>
+<iframe style="border: none;" src="https://myguestlist.com.au/mgl/showForm.php?id=5cef6775c2ae3" width="100%" height="700" frameborder="0" scrolling="auto"></iframe>
 
 <h3>Society Pizza Bar Bondi Beach</h3>
 <p>88/90 Curlewis St, Bondi Beach NSW 2026</p>
@@ -25,7 +25,7 @@ eleventyNavigation:
 
 
 </div>
-<h4>Tel: <a href="tel:+61291307359">(02) 9130 7359</a></h4>
+
 
 
 
