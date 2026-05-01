@@ -1538,8 +1538,17 @@ ul.main-menu {
   color: var(--white);
   font-weight: 700;
   line-height: 1.3em;
-  text-align: left;
+  text-align: center;
 margin: 0 0 2vh;
+}
+
+.flex-caption img {
+  max-width: 100%;
+  height: auto;
+display: flex;
+justify-content: center;
+align-items: center;
+
 }
 .flex-caption h2, .flex-caption h3 {
   color: var(--white);
