@@ -1,27 +1,28 @@
 ---
 layout: layouts/default.njk
-title: About PrestigePro Property Services
-description: PrestigePro simplify property maintenance by providing professional, reliable, and localised services to maintain your property value from new construction stage or restoring properties to their former glory.
+title: The Family
+description: Society is a family owned business founded by Italian brother and sister team Jonathan Faro and Vittoria Wynne.
 section: about
 class: about
 date: 2024-03-11
 permalink: /about/
 metadata:
-  title: About PrestigePro Property Services
+  title: Society is a family owned business founded by Italian brother and sister team Jonathan Faro and Vittoria Wynne.
 eleventyNavigation:
   key: About
-  order: 2
+  order: 4
 ---
 
+<h1>The Family</h1>
 
+Society is a family-owned business founded by Italian brother and sister team Jonathan Faro and Vittoria Wynne.
 
+What started as a modest event catering business has become a Bondi and Sydney institution in record time based on a simple recipe for success from its origins in Southern Italy.
 
-## At PrestigePro we simplify property maintenance by providing professional, reliable, and localised services to maintain your property value from new construction stage or bring back its former glory over time. ##
+The Faro family comes from Catania, Sicily renown for its produce, seafood, wine and love of the good life. And while you can take the family out of Sicily, you can’t take Sicily out of this family. So everything that Society does links back to the simple traditions and social energy of Jonathan and Vittoria's home; from the quality of the food to the incredible atmosphere of their venues.
 
-We offer tailored subscriptions for a seamless service that can be set and forget or adjusted to requirements. 
+For many, the company’s success is based on Society's reputation for the best pizza in Sydney; but the family thinks it goes a little deeper than that.
 
+“If you create good times for people with what you do, then you will be successful. We understand that, and my father never let’s me forget it either.” Founder, Jonathan Faro
 
-### Clientele: ###
-PrestigePro serves a diverse range of clientele, including individual high end property owners, real estate investors, homeowner associations, and commercial property owners. 
-
-Our tailored solutions cater to the unique needs of each client, regardless of property size or type.
+Food, drink, friends and family. These are the things that make life worth living and they are at the heart of the Society story.
