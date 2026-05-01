@@ -1589,17 +1589,17 @@ background-color: var(--black);color: var(--primary);border-width: 0.1rem;border
   border-radius: 5px;
   transition: background-color 0.3s ease;
   width: 100%;
-  min-width: 300px;
+  min-width: 296px;
   height: 100%;
-  min-height: 300px;
+  min-height: 296px;
 }
 .shopmenu a:hover {
   background-color: var(--primarydarker);
   color: var(--primary);
   width: 100%;
-  min-width: 300px;
+  min-width: 296px;
   height: 100%;
-  min-height: 300px;
+  min-height: 296px;
 }
 
 .largefont {
