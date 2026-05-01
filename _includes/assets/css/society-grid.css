@@ -1514,9 +1514,9 @@ ul.main-menu {
 }
 
 .about .internalhero {
-  height: 50vh;
-  height: 50svh;
-  background-position: top center;
+  height: 70vh;
+  height: 70svh;
+ 
 }
 
 
@@ -1537,7 +1537,7 @@ ul.main-menu {
 }
 
 .about .flex-caption {
-    top: 40vh;
+    top: 50vh;
 }
 
 .flex-image {
