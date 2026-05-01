@@ -1678,7 +1678,7 @@ background-color: var(--black);color: var(--primary);border-width: 0.1rem;border
   margin: 0;
   list-style: none;
   position: relative;
-  float: right;
+
 }
 
 ul.menu li {
