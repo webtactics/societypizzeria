@@ -8,9 +8,10 @@
 {% include "components/header.njk" %}
 {% include "components/off-canvas.njk" %}
 {% endblock %}
-  {% block hero %}
-  {% include "components/hero-home.njk" %}
-  {% endblock %}
+
+{% block hero %}
+{% include "components/hero-home.njk" %}
+{% endblock %}
 
 <div class="container">
 {% block content %}
@@ -19,14 +20,7 @@
 </main>
 </div>
 {% endblock %}
-<section class="sectioncta">  
-<div class="cta content fade-in"> 
-{% include "components/cta.html" %}
-</div>
-</section>
-<section class="sectionpartners"> 
-{% include "components/global/partners.html" %}
-</section>
+
 
 
 <footer class="footernavwrapper"> 
