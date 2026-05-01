@@ -1514,9 +1514,9 @@ ul.main-menu {
 }
 
 .about .internalhero {
-  height: 70vh;
-  height: 70svh;
-   background-position: top center;
+  height: 80vh;
+  height: 80svh;
+  background-position: center center;
 }
 
 
