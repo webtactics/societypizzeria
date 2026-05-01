@@ -415,7 +415,7 @@ transition: all 1s;}
             
 
 @media screen and (max-width: 1025px) {
-  
+
 .navwrapper, .socialwrapper {
 display: none;
 }
@@ -1539,7 +1539,7 @@ ul.main-menu {
   text-align: center;
 }
 
-.about .flex-caption, .contact .flex-caption {
+.about .flex-caption, .contact .flex-caption, .bondi .flex-caption {
     top: 65vh;
 }
 
