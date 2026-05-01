@@ -1172,62 +1172,8 @@ grid-template-columns: 2fr 1fr;gap: 3rem;}
   }
 
 
-
-
-  
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-.img250 img {max-width: 250px;height:auto;aspect-ratio: 1 / 1;}
-
-.img400 img {max-width: 400px;height:auto;aspect-ratio: 1 / 1;}
-
-.img600 img {max-width:600px;height:auto;aspect-ratio: 60 / 36;}
-
-figure {
-  margin: 0;
-}
-
-figcaption {
-  font-size: 80%;
-  line-height: 120%;
-  color: var(--white);
-  background: var(--black);
-  padding: 0.5rem;
-  text-align: center;
-  max-width: auto;
-  margin:0 auto;
-}
-@media (max-width: 800px) {
-  .img400 img {max-width: 300px;height:auto;aspect-ratio: 1 / 1;}
-
-.img600 img {max-width:400px;height:auto;aspect-ratio: 60 / 36;}
 }
 @media (max-width: 600px) {
-
-  .imageright {
-    float: none;
-    max-width: 100%;
-    padding: 0;
-    text-align: center;
-    margin: 1rem auto;
-  
-  }
-  .imageright img {margin:0 auto;}
-
-  .img400 img,   .img600 img {max-width: 100%;}
 
   .hidesmall, .hideforsmall {display:none;}
 }
@@ -1362,45 +1308,8 @@ ul.main-menu {
   height:44px;
   line-height:44px;
 }
-.partnerlogos {text-align: center;}
-.partnerlogos img {max-width: 400px;max-height: 300px;object-fit: contain;text-align: center;margin:0 auto;aspect-ratio: 4 / 3;}
-.partnerwrapperbox:hover img {filter: brightness(1.2);}
 
-.partnertitle {text-align: center;}
-.partnertitle h4 {text-align: center;margin:0;}
-.partnertitle h4 a {text-align: center;color: var(--black);margin:0;text-decoration: none;}
-.partnertitle h4 a:hover {text-align: center;color: var(--black);background-color: var(--primarydarker);
-  -webkit-transition: all 0.6s;
-  -moz-transition: all 0.6s;
-  -ms-transition: all 0.6s;
-  -o-transition: all 0.6s;
-  transition: all 0.6s;
-}
 
-.partnerwrapperbox:hover h4 {color: var(--black);background-color: var(--primarydarker);
-  -webkit-transition: all 0.6s;
-  -moz-transition: all 0.6s;
-  -ms-transition: all 0.6s;
-  -o-transition: all 0.6s;
-  transition: all 0.6s;
-}
-.partnerwrapperbox {
-  box-shadow: 0 2px 8px #ffffff;
-  -webkit-transition: box-shadow 0.2s ease-in-out;
-  -moz-transition: box-shadow 0.2s ease-in-out;
-  -o-transition: box-shadow 0.2s ease-in-out;
-  transition: box-shadow 0.2s ease-in-out;
-  border: 1px solid #ffffff;
-}
-
-.partnerwrapperbox:hover {
-  box-shadow: 0 2px 8px #CFCFCF;
-  -webkit-transition: box-shadow 0.2s ease-in-out;
-  -moz-transition: box-shadow 0.2s ease-in-out;
-  -o-transition: box-shadow 0.2s ease-in-out;
-  transition: box-shadow 0.2s ease-in-out;
-  border: 1px solid #ebebeb;
-}
 
 
 
@@ -1513,7 +1422,7 @@ ul.main-menu {
   background-size: cover;
 }
 
-.about .internalhero, .contact .internalhero {
+.about .internalhero, .bondi .internalhero, .contact .internalhero {
   height: 80vh;
   height: 80svh;
   background-position: top center;
