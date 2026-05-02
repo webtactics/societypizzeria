@@ -1731,3 +1731,8 @@ ul.menu li a:hover {
 
 
 .whiteshop {margin-bottom: 1rem;}
+.bondi-right {text-align: right;}
+
+@media screen and (max-width: 800px) {
+  .bondi-right {text-align: left;}
+}
