@@ -21,7 +21,7 @@ permalink: /
 </section>
 
 
-<div class="grid-2-columns">
+<div class="deliveryapp">
 {% include "components/global/app-details.html" %}
 </div>
 

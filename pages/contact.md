@@ -20,8 +20,7 @@ eleventyNavigation:
 {% include "components/global/info-details.html" %}
 </section>
 
-
-<div class="grid-2-columns">
+<div class="deliveryapp">
 {% include "components/global/app-details.html" %}
 </div>
 
