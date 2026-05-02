@@ -30,3 +30,9 @@ permalink: /
 <h3>Find us</h3>
 {% include "components/global/map-details.html" %}
 </div>
+
+<div class="mapwrapper">
+<!-- Elfsight Instagram Feed | Untitled Instagram Feed -->
+<script src="https://elfsightcdn.com/platform.js" async></script>
+<div class="elfsight-app-2bf46624-4f76-4d38-81a9-b5273979115c" data-elfsight-app-lazy></div>
+</div>
