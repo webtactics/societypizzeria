@@ -681,61 +681,6 @@ ul.menusocial li {
 
 
 
-/* Second level nav */
-ul.main-menu li ul.second-level {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background-color: var(--white);
-  padding: 0;
-  margin: 0;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-ul.main-menu li ul.second-level li {
-  display: block;
-  border-top: 1px solid var(--lightgrey);
-}
-
-
-
-
-ul.main-menu li ul.second-level li a {
-  display: block;
-padding: 0.4rem 0;
-  color: var(--primary);
-  width: 160px;
-  text-align: center;
-  text-decoration: none;
-  border-bottom: 1px solid var(--lightgrey);
-}
-ul.main-menu li ul.second-level li a:hover {
-  display: block;  
-  border-bottom: 1px solid var(--lightgrey);
-  color: var(--white);
-  background-color: var(--primary);
-  text-align: center;
-  text-decoration: none;
-}
-
-ul.main-menu li ul.second-level li.active-class > a {
-  color: var(--white);
-  background-color: var(--primary);
-  border-bottom: 1px solid var(--lightgrey);
-  -webkit-transition: all 0.6s;
-  -moz-transition: all 0.6s;
-  -ms-transition: all 0.6s;
-  -o-transition: all 0.6s;
-  transition: all 0.6s;
-}
-
-
-ul.main-menu li:hover ul.second-level {
-  display: block;
-  
-}
-
 
 
 ul.footer-menu {
@@ -927,26 +872,7 @@ margin: 0 10px;
 }
 
 
-.ctacallwrapper {margin:0;height:34px;padding:0;width:160px; }
-.ctacallwrapper:hover {margin:0;height:34px;padding:0; }
 
-.ctacallwrapper ul.menusocial li {
-float: none;
-margin: 0;
-}
-
-.ctacallwrapper span.phonetext {font-size:1rem;line-height: 34px;color: var(--white);display: flex;justify-content: center;-webkit-transition: all 0.6s;
-  -moz-transition: all 0.6s;
-  -ms-transition: all 0.6s;
-  -o-transition: all 0.6s;
-  transition: all 0.6s;}
-  .ctacallwrapper .menusocial:hover .phonetext {font-size:1rem;line-height: 34px;color: var(--black);display: flex;justify-content: center;-webkit-transition: all 0.6s;
-  -moz-transition: all 0.6s;
-  -ms-transition: all 0.6s;
-  -o-transition: all 0.6s;
-  transition: all 0.6s;}
-
-.ctacallwrapper  .menusocial > li > a {line-height: 34px;margin: 0;}
 
 
 .mobilemenu {padding:0 0 1rem;}
@@ -1027,13 +953,6 @@ background-color: var(--primary); font-weight: bold;}
     top: 0;
     left: 0;
     object-fit: cover;}
-
-
-
-
-
-
-
 
 
 
@@ -1671,6 +1590,11 @@ padding: 0 0 0.5rem 0;
   font-size: 1.4rem;
   line-height: 1;
 
+}
+
+.mobilemenu .menu {
+font-size: 1.4rem;
+padding: 1rem 0 0 0;
 }
 
 ul.menu li {
