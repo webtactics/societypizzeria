@@ -1515,8 +1515,7 @@ padding: 0.5rem 1rem;
 button.success, .button.success {
 
 background-color: rgba(0,0,0,0.30);
-border-width: 0.3rem;
-border-color: var(--white);
+border: 0.3rem solid var(--white);
 color: var(--white);
 font-size: 1.1rem;
 padding: 0.5rem 0;
@@ -1535,13 +1534,12 @@ text-transform:uppercase;
 
 button.success:hover, button.success:focus, .button.success:hover, .button.success:focus {
 
-background-color: var(--black);color: var(--primary);border-width: 0.3rem;border-color: var(--white);
+background-color: var(--black);color: var(--primary);border: 0.3rem solid var(--white);
   -webkit-transition: all 0.6s;
   -moz-transition: all 0.8s;
   -ms-transition: all 0.8s;
   -o-transition: all 0.8s;
   transition: all 0.8s; 
-
 text-decoration: none;
 }
 
