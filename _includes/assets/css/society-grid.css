@@ -1613,6 +1613,12 @@ ul.menu li a {
   padding: 0;
 }
 
+
+.mobilemenu ul.menu li a {
+  font-size: 1.6rem;
+}
+
+
 .footerwrap ul.menu li a {
   color: var(--white);
   margin: 0 0 0.4rem 0;
