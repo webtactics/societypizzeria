@@ -52,7 +52,7 @@ eleventyNavigation:
 
 
 
-<div class="bondi right">
+<div class="bondi-right">
 
 <div class="searchsocialwrapper">
 
