@@ -1643,10 +1643,21 @@ background-color: var(--black);color: var(--primary);border-width: 0.1rem;border
 
 .appwrapper {
 margin:1rem 0;
-background-color: var(--mattblack);
+background-color: var(--black);
+padding:1rem;
 }
 
-.appwrapper:hover {background-color: var(--black);}
+.appwrapper:hover {background-color: var(--primary);}
+
+
+.appwrapper a {text-decoration: none;
+color: var(--white);
+font-size: 1.1rem;
+padding: 0.5rem 1rem;
+transition: all 0.6s;
+}
+
+.appwrapper a:hover {color: var(--primary);}
 
 .apptop {
   display: flex;
@@ -1715,6 +1726,8 @@ ul.menu li a:hover {
 .mapwrapper {
   margin: 2rem 0;
 }
+
+
 
 
 .whiteshop {margin-bottom: 1rem;}
