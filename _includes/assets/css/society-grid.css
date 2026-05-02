@@ -1650,14 +1650,16 @@ padding:1rem;
 .appwrapper:hover {background-color: var(--primary);}
 
 
-.appwrapper a {text-decoration: none;
+.appwrapper a {
+text-decoration: none;
+text-underline-offset: 0;
 color: var(--white);
-font-size: 1.1rem;
+font-size: 1rem;
 padding: 0.5rem 1rem;
 transition: all 0.6s;
 }
 
-.appwrapper a:hover {color: var(--primary);}
+.appwrapper a:hover {color: var(--white);}
 
 .apptop {
   display: flex;
