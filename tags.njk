@@ -8,7 +8,7 @@ pagination:
     - nav
     - post
     - posts
-permalink: /legal-services/{{ tag }}/
+permalink: /pizzas/{{ tag }}/
 layout: layouts/default.njk
 eleventyComputed:
   title: "Tagged “{{ tag }}”"
@@ -21,5 +21,5 @@ eleventyComputed:
 {% include "components/postslist.njk" %}
 
 <nav>
-  <a href="{{ '/legal-services/' | url }}">← Services index</a>
+  <a href="{{ '/pizzas/' | url }}">← Pizzas index</a>
 </nav>

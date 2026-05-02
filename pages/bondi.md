@@ -27,5 +27,6 @@ permalink: /society-pizza-bar-bondi-beach/
 
 
 <div class="mapwrapper">
+<h3>Find us</h3>
 {% include "components/global/map-details.html" %}
 </div>
