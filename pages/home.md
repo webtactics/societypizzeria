@@ -10,12 +10,22 @@ metadata:
 permalink: /
 
 ---
-
-<h2>Restaurant. Bar. Pizzeria
+<h2>Restaurant. Bar. Pizzeria</h2>
 
 <section class="whiteshop">
 {% include "components/global/grid-4-bondi.html" %}
 </section>
 
+<section class="infodetails">
+{% include "components/global/info-details.html" %}
+</section>
 
 
+<div class="grid-2-columns">
+{% include "components/global/app-details.html" %}
+</div>
+
+
+<div class="mapwrapper">
+{% include "components/global/map-details.html" %}
+</div>
