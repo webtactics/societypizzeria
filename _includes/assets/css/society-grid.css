@@ -1516,7 +1516,7 @@ button.success, .button.success {
 
 background-color: rgba(0,0,0,0.30);
 
-border-width: 0.1rem;
+border-width: 0.3rem;
 
 border-color: var(--white);
 
@@ -1541,7 +1541,7 @@ text-transform:uppercase;
 
 button.success:hover, button.success:focus, .button.success:hover, .button.success:focus {
 
-background-color: var(--black);color: var(--primary);border-width: 0.1rem;border-color: var(--white);
+background-color: var(--black);color: var(--primary);border-width: 0.3rem;border-color: var(--white);
   -webkit-transition: all 0.6s;
   -moz-transition: all 0.8s;
   -ms-transition: all 0.8s;
