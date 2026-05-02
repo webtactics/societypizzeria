@@ -93,9 +93,6 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("_includes/assets/css/jts-grid.css");
     // We additionally output a copy of our js for use in Netlify CMS previews
   eleventyConfig.addPassthroughCopy("_includes/assets/js/script.js");
-  module.exports = function(eleventyConfig) {
-  eleventyConfig.addPassthroughCopy("script.js");
-  };
 
   /* Markdown Plugins */
   let markdownIt = require("markdown-it");
