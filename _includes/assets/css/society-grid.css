@@ -1515,19 +1515,12 @@ padding: 0.5rem 1rem;
 button.success, .button.success {
 
 background-color: rgba(0,0,0,0.30);
-
 border-width: 0.3rem;
-
 border-color: var(--white);
-
 color: var(--white);
-
 font-size: 1.1rem;
-
 padding: 0.5rem 0;
-
 width:90%;
-
 margin:0 auto;
 text-transform:uppercase;
   -webkit-transition: all 0.6s;
@@ -1535,6 +1528,7 @@ text-transform:uppercase;
   -ms-transition: all 0.8s;
   -o-transition: all 0.8s;
   transition: all 0.8s;
+  text-decoration: none;
 }
 
 
@@ -1546,7 +1540,10 @@ background-color: var(--black);color: var(--primary);border-width: 0.3rem;border
   -moz-transition: all 0.8s;
   -ms-transition: all 0.8s;
   -o-transition: all 0.8s;
-  transition: all 0.8s; }
+  transition: all 0.8s; 
+
+text-decoration: none;
+}
 
 .google-maps {
   position: relative;
