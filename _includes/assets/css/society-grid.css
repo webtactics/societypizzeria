@@ -1642,23 +1642,12 @@ background-color: var(--black);color: var(--primary);border-width: 0.1rem;border
 }
 
 .appwrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 1rem 0;
+  display: grid;
+  grid-template-columns: 2rem 1fr;
+  gap: 1rem;
 }
 
 
-.app-btn {
-  color: #000000;
-  float: left;
-  margin-right: 15px;
-  background: rgba(0,0,0,0.30);
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 2px;
-  transition: all .3s;
-}
 
 .appwrapper a {
   color: var(--black);
@@ -1676,13 +1665,14 @@ background-color: var(--black);color: var(--primary);border-width: 0.1rem;border
   background: var(--black);
 }
 
-.pull-left {
-  float: left;
+.pull-left, .pull-right {
+ display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
 }
 
-.app-btn .pull-right {
-  padding: 8px 25px 8px 10px;
-}
+
 
 .app-btn .text {
   display: block;
