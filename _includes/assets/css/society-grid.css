@@ -1462,8 +1462,7 @@ ul.main-menu {
   left: 20vw;
   right: 20vw;
   width: 60vw;
-   padding: 1rem;
-  background: var(--primarylight);
+   padding: 0;
   color: var(--white);
   font-size: 14px;
   line-height: 18px;
