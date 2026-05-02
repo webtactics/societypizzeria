@@ -1741,7 +1741,10 @@ ul.menu li {
 
 }
 
+.footerwrap ul.menu li {
+  margin: 0 0.5rem 0.5rem 0;
 
+}
 
 
 
