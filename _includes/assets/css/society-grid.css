@@ -1642,54 +1642,26 @@ background-color: var(--black);color: var(--primary);border-width: 0.1rem;border
 }
 
 .appwrapper {
-  display: grid;
-  grid-template-columns: 2rem 1fr;
-  gap: 1rem;
+margin:1rem 0;
+background-color: var(--mattblack);
 }
 
-.innerappwrapper {
+.appwrapper:hover {background-color: var(--black);}
+
+.apptop {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: var(--primary);
+
 }
 
-.appwrapper a {
-  color: var(--black);
-  text-decoration: none;
-  border: none;
-}
-
-.appwrapper a:hover {
-  color: var(--white);
-    text-decoration: none;
-  border: none;
-}
-
-.app-btn:hover {
-  background: var(--black);
-}
-
-.pull-left, .pull-right {
- display: flex;
-  align-items: center;
+.appbottom {
+  display: flex;
   justify-content: center;
-  padding: 0.5rem;
+  align-items: center;
+
 }
 
-
-
-.app-btn .text {
-  display: block;
-  font-size: 12px;
-  line-height: 1;
-}
-.app-btn .text-2 {
-  display: block;
-  font-size: 16px;
-  line-height: 1;
-}
 
 .right {
   float: right;
