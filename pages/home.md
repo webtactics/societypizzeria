@@ -25,7 +25,7 @@ permalink: /
 {% include "components/global/app-details.html" %}
 </div>
 
-
+<h3>Find us</h3>
 <div class="mapwrapper">
 {% include "components/global/map-details.html" %}
 </div>
