@@ -1647,7 +1647,13 @@ background-color: var(--black);color: var(--primary);border-width: 0.1rem;border
   gap: 1rem;
 }
 
-
+.innerappwrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--primary);
+}
 
 .appwrapper a {
   color: var(--black);
