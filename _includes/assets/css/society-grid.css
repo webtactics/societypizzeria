@@ -1641,8 +1641,10 @@ background-color: var(--black);color: var(--primary);border-width: 0.1rem;border
     text-transform: uppercase;
 }
 
+.apptitle {font-style: italic ; font-weight: 700;margin-top: 1.5rem;}
+
 .appwrapper {
-margin:1rem 0;
+margin:0 0 1rem 0;
 background-color: var(--black);
 padding:0;
  text-align: center;
