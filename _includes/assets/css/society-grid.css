@@ -1734,5 +1734,16 @@ ul.menu li a:hover {
 .bondi-right {text-align: right;}
 
 @media screen and (max-width: 800px) {
+
+
+ul.menu li {
+  margin: 0 0.4rem 0 0;
+
+}
+
+
+
+
+
   .bondi-right {text-align: left;}
 }
