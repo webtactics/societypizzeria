@@ -25,6 +25,7 @@
         <link href="../css/style.min.css" rel="stylesheet">
         <link id="favicon" rel="shortcut icon" href="img/favicon.png" type="image/png">
         <link rel="canonical" href="/">
+        <style id="antiClickjack">body { display: none !important; }</style>
 
         <script type="text/javascript">
         	var t_linkedStores = 1;
@@ -40,7 +41,7 @@
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
         <script type="text/javascript">	
 			var head  = document.getElementsByTagName('head')[0];
-			if ((window.location.href.includes("eatsapp.com.au") == true) && (t_storeID != 25039) && (t_storeID != 25505)){
+			if ((window.location.href.includes("eatsapp.com.au") == true) && (t_storeID != 25039) && (t_storeID != 25505) && (t_storeID != 25537) && (t_storeID != 25538)){
 				var link = document.querySelector("link[rel*='icon']") || document.createElement('link');link.type = 'image/x-icon';link.rel = 'shortcut icon';link.href = 'https://eatsapp.com.au/images/favicon.ico';document.getElementsByTagName('head')[0].appendChild(link);
 				var linkFav  = document.createElement('link');
 				linkFav.rel  = 'stylesheet';linkFav.type = 'text/css';linkFav.href = 'eatsapp.css';head.appendChild(linkFav);
@@ -62,7 +63,7 @@
 			}
 			
 			$(document).ready(function(){
-				if ((window.location.href.includes("eatsapp.com.au") == true) && (t_storeID != 25039) && (t_storeID != 25505)){
+				if ((window.location.href.includes("eatsapp.com.au") == true) && (t_storeID != 25039) && (t_storeID != 25505) && (t_storeID != 25537) && (t_storeID != 25538)){
 					document.getElementById("customerTopLeftLogo").innerHTML = '<img class="img-rounded" src="https://eatsapp.com.au/images/eatsapp-search-page.png" alt="Eatsapp Online Ordering" title="Eatsapp Online Ordering">'
 				}
 				document.getElementById("footerStore").innerHTML = t_business
@@ -76,6 +77,11 @@
 				
 			});
         </script>
+    	<style>
+			div.pac-container {
+				z-index: 99999999999 !important;
+			}
+		</style>
     </head>
     <body onload="javascript:doLoad();">
     		<div class="se-pre-con" id="se-pre-con"></div>
@@ -83,7 +89,7 @@
             <div class="animsition" data-animsition-in="fade-in" data-animsition-out="fade-out" id="topHeaderClosed">
                 <div id="sasscoMisc1">
                     <p>
-                        <i class="fa fa-exclamation-triangle"></i> Sorry, we're currently closed<span id="StoreTypeFor" class="styleDisplayNone"> for Delivery</span> <a href="#" onclick="javascript:doPopulatePreOrder();" data-toggle="modal" data-target="#preorder-modal">Pre order?</a>
+                        <i class="fa fa-exclamation-triangle"></i> Sorry, we're currently closed<span id="StoreTypeFor" class="styleDisplayNone"> for Delivery</span> <a href="#" onclick="javascript:doPopulatePreOrder();" data-toggle="modal" data-target="#preorder-modal" id="preOrderLaterBtn">Pre order?</a>
                     </p>
                 </div>
             </div>
@@ -118,7 +124,7 @@
                                 <div><i class="fa fa-shopping-cart"></i> $<span id="topCartTotal">0.00</span></div>
                             </div>
                         </div>
-                        <div class="navbar-brand misc2 doFloatLeft" style="margin-left: 50px;margin-top: 2px;color:#000" id="viewOtherRestaurantsBtn"></div>
+                        <div class="navbar-brand misc2 doFloatLeft hideMobileWidget" style="margin-left: 50px;margin-top: 2px;color:#000" id="viewOtherRestaurantsBtn"></div>
                     </div>
                 </nav>
                 <!-- /.navbar -->
@@ -161,7 +167,13 @@
                 </div>
                 <!-- end:Top links -->
                 <!-- start: Inner page hero -->
-                <section class="inner-page-hero bg-image misc6" data-image-src="img/profile-banner.jpg">
+                <div style="position: absolute;margin-top: 140px;margin-left: 520px;color: white;z-index: 99;font-size: 33px;display:none;" class="hideMobileWidget" id="tooFar1">Too far to deliver</div>
+                <div style="position: absolute;margin-top: 190px;margin-left: 520px;color: white;z-index: 99;font-size: 16px;display:none;" class="hideMobileWidget" id="whyTooFar1">At this time, we're unable to deliver to you.</div>
+                
+                <div style="position: absolute;margin-top: 185px;margin-left: 30px;color: white;z-index: 99;font-size: 33px;display:none;" class="hideDesktopDelivery" id="tooFar2">Too far to deliver</div>
+                <div style="position: absolute;margin-top: 227px;margin-left: 30px;color: white;z-index: 99;font-size: 16px;display:none;" class="hideDesktopDelivery" id="whyTooFar2">At this time, we're unable to deliver to you.</div>
+                
+                <section class="inner-page-hero bg-image misc6" data-image-src="img/profile-banner.jpg" id="imgSection">
                     <a href="javascript:;" data-toggle="modal" data-target="#status-modal" id="doShowStatus"></a>
                     <div class="profile">
                         <div class="container containerVersionTwo">
@@ -204,7 +216,7 @@
                                         </ul>
 
 
-                                        <div class="row" style="padding-top:20px">
+                                        <div class="row hideMobileWidget" style="padding-top:20px">
                                             <div class="col-sm-6">
                                                 <span id="pickupYes" class="misc12">
                                                     <a style="color:#000" class="nav-link dropdown-toggle misc13" data-toggle="dropdown" href="javascript:;" role="button" aria-haspopup="true" aria-expanded="false" id="tadingHours"></a>
@@ -322,6 +334,7 @@
                 </div>
                 
 
+                <section id="mobileShoppingCart" class="breadcrumb" style="display: none; background-color:#4caf50;" onClick="javascript:doShowMobileCart();" data-toggle="modal" data-target="#mobilecart-modal"><div class="container" style="text-align: center;"><span class="active timeNow colorFFF"><i class="fa fa-shopping-cart colorFFF"></i> Checkout <i class="fa fa-arrow-right colorFFF"></i></span></div></section>
                 <section id="add-restaurants-msg" class="add-restaurants misc11" style="display:none">
                     <div class="container">
                         <div class="row">
@@ -456,6 +469,7 @@
                         <div class="col-xs-12 col-md-12 col-lg-3" id="desktopShoppingCart" style="background-color:#fff">
                             <div class="sidebar-wrap">
                                 <div class="widget widget-cart">
+                                    <div class="breadcrumb" id="longDeliveryDelays" style="background-color:#F7AE40;display:none;"><div class="container" style="text-align: center;"><span class="active timeNow" style="color:#000">We're currently experiencing a <strong>high volume</strong> of deliveries, only pre-order is available (or select <span style="font-weight: 600;">pick up</span>).</span></div></div>
                                     <div class="widget-heading">
                                         <h3 class="widget-title text-dark">Your Shopping Cart</h3>
                                         <div class="clearfix"></div>
@@ -492,7 +506,7 @@
                                     </div>
                                     
                                     <div class="widget-heading">
-                                        <h3 class="widget-title text-dark" id="openSignIn12"><i class="fa fa-calendar"></i> Pre order for later - <a href="#" onClick="javascript:doPopulatePreOrder();" data-toggle="modal" data-target="#preorder-modal">select time</a></h3>
+                                        <h3 class="widget-title text-dark" id="openSignIn12"><i class="fa fa-calendar"></i> Pre order for later - <a href="#" style="color:#25282b" onClick="javascript:doPopulatePreOrder();" data-toggle="modal" data-target="#preorder-modal">select time</a></h3>
                                         <div class="clearfix"></div>
                                     </div>
                                     <div class="widget-body">
@@ -708,48 +722,50 @@
                                                         </span>
                                                     </label>
                                                     <div class="misc19" id="showCreditCard">
-                                                        <div class="row">
-                                                            <div class="col-sm-12">
-                                                                <div class="form-group">
-                                                                    <label>Full Name *</label>
-                                                                    <input type="text" id="ccName" class="form-control" placeholder="As it appears on credit card">
+                                                    	<div id="payment-form">
+                                                            <div class="row">
+                                                                <div class="col-sm-12">
+                                                                    <div class="form-group">
+                                                                        <label>Full Name *</label>
+                                                                        <input type="text" id="ccName" class="form-control" placeholder="As it appears on credit card">
+                                                                    </div>
+                                                                    <!--/form-group-->
                                                                 </div>
-                                                                <!--/form-group-->
                                                             </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-sm-12">
-
-                                                                <div class="form-group">
-                                                                    <label>Credit Card Number *</label>
-                                                                    <input id="ccNum" onclick="javascript:ccClicked();" type="text" class="form-control" placeholder="e.g: 5448 4556 8554 1998">
+                                                            <div class="row">
+                                                                <div class="col-sm-12">
+    
+                                                                    <div class="form-group">
+                                                                        <label>Credit Card Number *</label>
+                                                                        <input id="ccNum" onclick="javascript:ccClicked();" readonly type="text" class="form-control" placeholder="e.g: 5448 4556 8554 1998">
+                                                                    </div>
+                                                                    <!--/form-group-->
                                                                 </div>
-                                                                <!--/form-group-->
                                                             </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-sm-3">
-                                                                <div class="form-group">
-                                                                    <label>Expiry Month *</label>
-                                                                    <input id="ccExm" type="text" class="form-control" placeholder="e.g: 04">
+                                                            <div class="row">
+                                                                <div class="col-sm-3">
+                                                                    <div class="form-group">
+                                                                        <label>Expiry Month *</label>
+                                                                        <input id="ccExm" type="text" class="form-control" readonly placeholder="e.g: 04">
+                                                                    </div>
+                                                                    <!--/form-group-->
                                                                 </div>
-                                                                <!--/form-group-->
-                                                            </div>
-                                                            <div class="col-sm-6">
-                                                                <div class="form-group">
-                                                                    <label>Expiry Year *</label>
-                                                                    <input id="ccExy" type="text" class="form-control" placeholder="Last 2 digits, e.g: 18 for 2018">
+                                                                <div class="col-sm-6">
+                                                                    <div class="form-group">
+                                                                        <label>Expiry Year (last 2 digits)*</label>
+                                                                        <input id="ccExy" type="text" class="form-control" readonly placeholder="Last 2 digits, e.g: 18 for 2018">
+                                                                    </div>
+                                                                    <!--/form-group-->
                                                                 </div>
-                                                                <!--/form-group-->
-                                                            </div>
-                                                            <div class="col-sm-3">
-                                                                <div class="form-group">
-                                                                    <label>CVN *</label>
-                                                                    <input id="ccCVN" type="text" class="form-control" placeholder="3 digit code">
+                                                                <div class="col-sm-3">
+                                                                    <div class="form-group">
+                                                                        <label>CVN *</label>
+                                                                        <input id="ccCVN" type="text" class="form-control" readonly placeholder="3 digit code">
+                                                                    </div>
+                                                                    <!--/form-group-->
                                                                 </div>
-                                                                <!--/form-group-->
                                                             </div>
-                                                        </div>
+                                                    	</div>
                                                     </div>
                                                 </li>
                                                 <li>
@@ -764,7 +780,7 @@
                                                 </li>
                                             </ul>
                                             <p class="text-xs-center" id="disableForPayPal">
-                                                <a href="javascript:doPlaceOrderNow();" class="btn btn-outline-success btn-block" id="placeOrderBtn">
+                                                <a href="javascript:checkCCBeforeOrder();" class="btn btn-outline-success btn-block" id="placeOrderBtn">
                                                     Place Order <i class="fa fa-arrow-right"></i>
                                                 </a>
                                             </p>
@@ -910,6 +926,57 @@
                 </div>
             </div>
         </div>
+        <div class="modal fade" id="getnotified-modal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <button type="button" class="close zIndex1000Width" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                    <div class="modal-body cart-addon">
+                        <div class="food-item white marginNoBtmPaddingNoBtm">
+                            <div class="row">
+                                <!-- REGISTER -->
+                                <div class="col-md-8">
+                                    <div class="widget">
+                                        <div class="widget-body">
+                                            <form>
+                                                <div class="form-group">
+                                                    <label for="exampleInputEmail1">What is your mobile number?</label>
+                                                    <input class="form-control" type="tel" value="" id="getNotifiedMobile" placeholder="E.g: 0433123123" aria-describedby="getNotified">
+                                                </div>
+                                                <div class="pull-right">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal" id="notifiedCloseBtn">Cancel</button>
+                                                    <a href="javascript:doGetNotified();" class="btn theme-btn m-t-15">Notify Me</a>
+                                                </div>
+                                                <br>
+                                                <div class="pull-left disNonClr" id="notifiedError">
+                                                    <p>
+                                                        <br>Please enter a valid 10-digit Australian mobile number.
+                                                    </p>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <!-- end: Widget -->
+                                </div>
+                                <!-- /REGISTER -->
+                                <!-- WHY? -->
+                                <div class="col-md-4">
+                                    <h4 class="m-t-20">Get Notified</h4>
+                                    <p>Enter your mobile number and we will SMS you when our delivery is back on!</p>
+                                    <form>
+                                        <div class="form-group">
+                                            <small class="form-text text-muted">We will only send you an SMS if our delivery is back within 15 minutes from now.</small>
+                                        </div>
+                                    </form>
+                                </div>
+                                <!-- /WHY? -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="modal fade" id="signin-modal" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -954,16 +1021,29 @@
                                 <!-- /REGISTER -->
                                 <!-- WHY? -->
                                 <div class="col-md-4" id="emailResentContent">
+                                	<span style="display:none">
+                                        <h4 class="m-t-20">Forgot password?</h4>
+                                        <p>Enter your email address below to retrieve your password:</p>
+                                        <form>
+                                            <div class="form-group">
+                                                <input class="form-control" type="email" value="" id="loginForgotEmail" placeholder="e-mail address">
+                                                <small class="form-text text-muted">An e-mail containing your password will be sent to you.</small>
+                                            </div>
+                                        </form>
+                                        <p>
+                                            <a href="javascript:loadingSendingEmailScreen();" class="btn theme-btn-dash">Retrieve password</a>
+                                        </p>
+                                    </span>
                                     <h4 class="m-t-20">Forgot password?</h4>
-                                    <p>Enter your email address below to retrieve your password:</p>
+                                    <p>Enter your mobile number below to retrieve your password:</p>
                                     <form>
                                         <div class="form-group">
-                                            <input class="form-control" type="email" value="" id="loginForgotEmail" placeholder="e-mail address">
-                                            <small class="form-text text-muted">An e-mail containing your password will be sent to you.</small>
+                                            <input class="form-control" type="tel" value="" id="loginForgotMobile" placeholder="Mobile number">
+                                            <small class="form-text text-muted" id="pleaseWaitSMS">An SMS containing a new password will be sent to you.</small>
                                         </div>
                                     </form>
                                     <p>
-                                        <a href="javascript:loadingSendingEmailScreen();" class="btn theme-btn-dash">Retrieve password</a>
+                                        <a href="javascript:loadingSendingSMSScreen();" class="btn theme-btn-dash">Retrieve password</a>
                                     </p>
                                 </div>
                                 <!-- /WHY? -->
@@ -995,9 +1075,9 @@
                                                     
                                                     <div class="form-group">
                                                         <div class="btn-group" data-toggle="buttons">
-                                                          <label class="btn btn-secondary" onclick="javascript:preOrderSelect(0);">
+                                                          <label class="btn btn-secondary" onclick="javascript:preOrderSelect(0);" id="clickPickupPreOrder">
                                                           <input type="radio" name="optionsPre" id="option_pickup_pre" checked=""> Pick up </label>
-                                                          <label class="btn btn-secondary" onclick="javascript:preOrderSelect(1);">
+                                                          <label class="btn btn-secondary" onclick="javascript:preOrderSelect(1);" id="clickDeliveryPreOrder">
                                                           <input type="radio" name="optionsPre" id="option_delivery_pre"> Delivery </label>
                                                        </div>
                                                     </div>
@@ -1379,7 +1459,6 @@
                                         <div class="widget-body paddingBottom0">
                                             <h4>An SMS with a code has been sent to your mobile.</h4>
                                             <p>Please enter the code in the box below to activate your account.</p>
-                                            <form>
                                                 <div class="row">
                                                     <div class="form-group col-sm-6">
                                                         <label for="exampleInputEmail1">Code </label>
@@ -1393,7 +1472,6 @@
                                                         <div class="loader"></div>
                                                     </div>
                                                 </div>
-                                            </form>
                                         </div>
                                         <!-- end: Widget -->
                                     </div>
@@ -1507,6 +1585,127 @@
                 </div>
             </div>
         </div>
+        <div class="modal fade" id="delivery-modal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <button type="button" class="close zIndex1000Width styleDisplayNone" data-dismiss="modal" aria-label="Close" id="deliveryCloseBtn" onclick="javascript:closeDeliveryPopup();">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                    <div class="modal-body cart-addon">
+                        <div class="food-item white marginNoBtmPaddingNoBtm">
+                            <div class="row">
+                                <form id="mySearchForm">
+                                    <div class="col-md-12" style="padding-left:25px">
+                                        <h4 class="m-t-20">Delivery</h4>
+                                        <div class="row">
+                                        	<div class="col-md-6">Enter your address to check availability:</div>
+                                        	<div class="col-md-6 hideMobileWidget" style="text-align: right;"><a href="javascript:closeDeliveryPopup();" data-dismiss="modal" style="text-decoration: overline;color: #000;">No thanks, I'm ordering takeaway.</a></div>
+                                        </div>
+                                        <div class="form-group">
+                                            <input onfocus="document.getElementById('locality-address').value=''" class="form-control" type="text" value="" id="locality-address" placeholder="&#xf041; Enter delivery address" style="font-family:Arial, FontAwesome">
+                                        </div>
+    
+                                        <div class="pull-left disNonClr" id="deliveryAddressError" style="margin-top: -20px;color:#f00"></div>
+                                        <div class="styleDisplayNone" id="checkingDeliveryAddress">
+                                            <div class="loader"></div>
+                                        </div>
+                                    </div>
+                                </form>
+                                <div class="pull-right" style="padding-top: 20px;margin-right: 20px;display:none;">
+                                	<button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="javascript:closeDeliveryPopup();">Cancel</button>
+                                	<a href="javascript:doLogin();" class="btn theme-btn m-t-15">Save</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="delivery-modal-simple" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <button type="button" class="close zIndex1000Width styleDisplayNone" data-dismiss="modal" aria-label="Close" id="deliveryCloseBtn-simple" onclick="javascript:closeDeliveryPopup();">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                    <div class="modal-body cart-addon">
+                        <div class="food-item white marginNoBtmPaddingNoBtm">
+                            <div class="row">
+                                <form id="mySearchForm-simple">
+                                    <div class="col-md-12" style="padding-left:25px">
+                                        <h4 class="m-t-20">Delivery Address</h4>
+                                        <div class="row">
+                                        	<div class="col-md-6">Enter your address to check availability:</div>
+                                        	<div class="col-md-6 hideMobileWidget" style="text-align: right;"><a href="javascript:closeDeliveryPopup();" data-dismiss="modal" style="text-decoration: overline;color: #000;">No thanks, I'm ordering takeaway.</a></div>
+                                        </div>
+                                        <div class="form-group">
+                                        	<div class="row">
+                                            	<div class="col-sm-2"><input class="form-control" type="text" value="" name="appartment_number" id="t_deliveryApp_simple" placeholder="Appt No"></div>
+                                            	<div class="col-sm-5"><input class="form-control" type="text" value="" name="street_address" id="t_deliveryStreet_simple" placeholder="Street Address * (e.g: 12 Pitt Street)"></div>
+                                            	<div class="col-sm-5"><input class="form-control" type="text" value="" name="suburb" id="t_deliverySuburb_simple" placeholder="Suburb * (E.g: Parramatta)"></div>
+                                            </div>
+                                        	<div class="row">
+                                            	<div class="col-sm-2"></div>
+                                            	<div class="col-sm-2"><input class="form-control" type="number" name="postcode" value="" id="t_deliveryPostcode_simple" placeholder="Postcode *"></div>
+                                            	<div class="col-sm-3">
+                                                    <select class="form-control b-r-0 misc21" id="t_deliveryState_simple" style="width: 192px;">
+                                                        <option value="NSW">NSW</option>
+                                                        <option value="VIC">VIC</option>
+                                                        <option value="QLD">QLD</option>
+                                                    </select>
+                                                </div>
+                                            	<div class="col-sm-5">
+                                                    <select class="form-control b-r-0 misc21" style="width: 100%;">
+                                                        <option value="Australia">Australia</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        	<div class="row" style="padding-top: 10px;">
+                                            	<div class="col-sm-2"></div>
+                                            	<div class="col-sm-5"></div>
+                                            	<div class="col-sm-5"><a href="javascript:doValidateSimpleAddress();" class="btn btn-outline-success btn-block">Validate &amp; Continue <i class="fa fa-arrow-right"></i></a></div>
+                                            </div>
+                                        </div>
+    
+                                        <div class="pull-left disNonClr" id="deliveryAddressError-simple" style="margin-top: -20px;color:#f00"></div>
+                                        <div class="styleDisplayNone" id="checkingDeliveryAddress-simple">
+                                            <div class="loader"></div>
+                                        </div>
+                                    </div>
+                                </form>
+                                <div class="pull-right" style="padding-top: 20px;margin-right: 20px;display:none;">
+                                	<button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="javascript:closeDeliveryPopup();">Cancel</button>
+                                	<a href="javascript:doLogin();" class="btn theme-btn m-t-15">Save</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="information-modal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <button type="button" class="close zIndex1000Width styleDisplayNone" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                    <div class="modal-body cart-addon">
+                        <div class="food-item white marginNoBtmPaddingNoBtm">
+                            <div class="row">
+                                <form>
+                                    <div class="col-md-12" style="padding-left:25px">
+                                        <h4 class="m-t-20" id="infoPopupTitle"></h4>
+                                        <p id="infoPopupBody"></p>
+                                    </div>
+                                </form>
+                                <div class="pull-right" style="padding-top: 20px;margin-right: 20px;">
+                                	<a href="javascript:;" data-dismiss="modal" class="btn theme-btn m-t-15">Okay</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.6.1/bootstrap-slider.min.js"></script>
         <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 
@@ -1523,7 +1722,8 @@
         <script src="../js/sassco/sassco.js"></script>
         <script src="../js/sassco/reset.js"></script>
         <script src="../js/sassco/service.js"></script>
-        <script src="//maps.googleapis.com/maps/api/js?key=AIzaSyA4O-XeUAIu6aaNUvLZVVdI0z4R1eB7_pw"async defer></script>
+        <script src="../js/sassco/delivery.js"></script>
+    	<script src="//maps.googleapis.com/maps/api/js?key=AIzaSyA4O-XeUAIu6aaNUvLZVVdI0z4R1eB7_pw&libraries=places" async defer></script>
 
 		<!-- Braintree -->
 		<script src="//js.braintreegateway.com/js/braintree-2.32.1.min.js"></script> 
@@ -1534,6 +1734,59 @@
         <script src="//js.braintreegateway.com/web/3.53.0/js/client.min.js"></script>
         <script src="//js.braintreegateway.com/web/3.53.0/js/paypal-checkout.min.js"></script>
 		<script src="../js/sassco/paypal.js?v=101"></script>
-       
+		
+		<script id="session-script"></script>
+        <script>
+            var sessionId = null;
+            var impSessionID = ''
+    
+            if (self === top) {
+                var s = document.getElementById("antiClickjack");
+                s.parentNode.removeChild(s);
+            } else {
+                top.location = self.location;
+            }
+            
+            jQuery.getJSON(theWS + "/doSessionGate?index=458874&callback=?", function(data){trySession(data)})
+            function trySession(data){
+                sessionId = data.sessionId;
+        
+                var script = document.getElementById("session-script");
+                script.src = "https://paymentgateway.commbank.com.au/form/version/100/merchant/SASPTYCOM201/session.js";
+                script.onload = function() { configureSession(); };
+            }
+            
+            function configureSession() {
+                PaymentSession.configure({
+                    session: sessionId,
+                    fields: {
+                        card: {
+                            number:      "#ccNum",
+                            expiryMonth: "#ccExm",
+                            expiryYear:  "#ccExy",
+                            securityCode:"#ccCVN"
+                        }
+                    },
+                    frameEmbeddingMitigation: ["javascript"],
+                    callbacks: {
+                        initialized: function(response) {
+                            if (response.status !== "ok") {
+                                alert("Payment form failed to load. Please refresh.");
+                            }
+                        },
+                        formSessionUpdate: function(response) {
+                            if (response.status === "ok") {
+                                impSessionID = response.session.id
+                                doPlaceOrderNow()
+                            } else if (response.status === "fields_in_error") {
+                                alert("Please check your credit card details.");
+                            } else {
+                                alert("Something went wrong. Please try again.");
+                            }
+                        }
+                    }
+                });
+            }
+        </script>      
     </body>
 </html>

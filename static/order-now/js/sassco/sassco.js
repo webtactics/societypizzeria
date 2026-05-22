@@ -85,12 +85,33 @@ var t_couponType = 0
 var t_couponValue = 0
 var t_minValue = 0
 var t_couponEntered = ''
+var t_isPreOnly = 0
 
-    window.onbeforeunload = function() {
-		if (cartPID.length>0){
-        	return "Are you sure you want to refresh?";
-		}
-    }
+var noDriverPeople = 0
+
+var deliveryValid = 0
+var storeLong = 0
+var storeLat = 0
+
+var searchPost = ''		
+var searchSuburb = ''	
+
+var productVersion = 0
+if ((t_storeID == 25039) || (t_storeID == 25505) || (t_storeID == 25537) || (t_storeID == 25011) || (t_storeID == 25538)){ // download images for everyone else (Gios, Society)
+	productVersion = 1
+}
+if ((t_storeID == 25153) || (t_storeID == 25014) || (t_storeID == 25424) || (t_storeID == 25041)){ // download images for everyone else (Sopranos, Nikos, Hawa, Crispy Merrylands)
+	productVersion = 1
+}
+
+/*! jQuery & Zepto Lazy v1.7.10 - http://jquery.eisbehr.de/lazy - MIT&GPL-2.0 license - Copyright 2012-2018 Daniel 'Eisbehr' Kern */
+!function(t,e){"use strict";function r(r,a,i,u,l){function f(){L=t.devicePixelRatio>1,i=c(i),a.delay>=0&&setTimeout(function(){s(!0)},a.delay),(a.delay<0||a.combined)&&(u.e=v(a.throttle,function(t){"resize"===t.type&&(w=B=-1),s(t.all)}),u.a=function(t){t=c(t),i.push.apply(i,t)},u.g=function(){return i=n(i).filter(function(){return!n(this).data(a.loadedName)})},u.f=function(t){for(var e=0;e<t.length;e++){var r=i.filter(function(){return this===t[e]});r.length&&s(!1,r)}},s(),n(a.appendScroll).on("scroll."+l+" resize."+l,u.e))}function c(t){var i=a.defaultImage,o=a.placeholder,u=a.imageBase,l=a.srcsetAttribute,f=a.loaderAttribute,c=a._f||{};t=n(t).filter(function(){var t=n(this),r=m(this);return!t.data(a.handledName)&&(t.attr(a.attribute)||t.attr(l)||t.attr(f)||c[r]!==e)}).data("plugin_"+a.name,r);for(var s=0,d=t.length;s<d;s++){var A=n(t[s]),g=m(t[s]),h=A.attr(a.imageBaseAttribute)||u;g===N&&h&&A.attr(l)&&A.attr(l,b(A.attr(l),h)),c[g]===e||A.attr(f)||A.attr(f,c[g]),g===N&&i&&!A.attr(E)?A.attr(E,i):g===N||!o||A.css(O)&&"none"!==A.css(O)||A.css(O,"url('"+o+"')")}return t}function s(t,e){if(!i.length)return void(a.autoDestroy&&r.destroy());for(var o=e||i,u=!1,l=a.imageBase||"",f=a.srcsetAttribute,c=a.handledName,s=0;s<o.length;s++)if(t||e||A(o[s])){var g=n(o[s]),h=m(o[s]),b=g.attr(a.attribute),v=g.attr(a.imageBaseAttribute)||l,p=g.attr(a.loaderAttribute);g.data(c)||a.visibleOnly&&!g.is(":visible")||!((b||g.attr(f))&&(h===N&&(v+b!==g.attr(E)||g.attr(f)!==g.attr(F))||h!==N&&v+b!==g.css(O))||p)||(u=!0,g.data(c,!0),d(g,h,v,p))}u&&(i=n(i).filter(function(){return!n(this).data(c)}))}function d(t,e,r,i){++z;var o=function(){y("onError",t),p(),o=n.noop};y("beforeLoad",t);var u=a.attribute,l=a.srcsetAttribute,f=a.sizesAttribute,c=a.retinaAttribute,s=a.removeAttribute,d=a.loadedName,A=t.attr(c);if(i){var g=function(){s&&t.removeAttr(a.loaderAttribute),t.data(d,!0),y(T,t),setTimeout(p,1),g=n.noop};t.off(I).one(I,o).one(D,g),y(i,t,function(e){e?(t.off(D),g()):(t.off(I),o())})||t.trigger(I)}else{var h=n(new Image);h.one(I,o).one(D,function(){t.hide(),e===N?t.attr(C,h.attr(C)).attr(F,h.attr(F)).attr(E,h.attr(E)):t.css(O,"url('"+h.attr(E)+"')"),t[a.effect](a.effectTime),s&&(t.removeAttr(u+" "+l+" "+c+" "+a.imageBaseAttribute),f!==C&&t.removeAttr(f)),t.data(d,!0),y(T,t),h.remove(),p()});var m=(L&&A?A:t.attr(u))||"";h.attr(C,t.attr(f)).attr(F,t.attr(l)).attr(E,m?r+m:null),h.complete&&h.trigger(D)}}function A(t){var e=t.getBoundingClientRect(),r=a.scrollDirection,n=a.threshold,i=h()+n>e.top&&-n<e.bottom,o=g()+n>e.left&&-n<e.right;return"vertical"===r?i:"horizontal"===r?o:i&&o}function g(){return w>=0?w:w=n(t).width()}function h(){return B>=0?B:B=n(t).height()}function m(t){return t.tagName.toLowerCase()}function b(t,e){if(e){var r=t.split(",");t="";for(var a=0,n=r.length;a<n;a++)t+=e+r[a].trim()+(a!==n-1?",":"")}return t}function v(t,e){var n,i=0;return function(o,u){function l(){i=+new Date,e.call(r,o)}var f=+new Date-i;n&&clearTimeout(n),f>t||!a.enableThrottle||u?l():n=setTimeout(l,t-f)}}function p(){--z,i.length||z||y("onFinishedAll")}function y(t,e,n){return!!(t=a[t])&&(t.apply(r,[].slice.call(arguments,1)),!0)}var z=0,w=-1,B=-1,L=!1,T="afterLoad",D="load",I="error",N="img",E="src",F="srcset",C="sizes",O="background-image";"event"===a.bind||o?f():n(t).on(D+"."+l,f)}function a(a,o){var u=this,l=n.extend({},u.config,o),f={},c=l.name+"-"+ ++i;return u.config=function(t,r){return r===e?l[t]:(l[t]=r,u)},u.addItems=function(t){return f.a&&f.a("string"===n.type(t)?n(t):t),u},u.getItems=function(){return f.g?f.g():{}},u.update=function(t){return f.e&&f.e({},!t),u},u.force=function(t){return f.f&&f.f("string"===n.type(t)?n(t):t),u},u.loadAll=function(){return f.e&&f.e({all:!0},!0),u},u.destroy=function(){return n(l.appendScroll).off("."+c,f.e),n(t).off("."+c),f={},e},r(u,l,a,f,c),l.chainable?a:u}var n=t.jQuery||t.Zepto,i=0,o=!1;n.fn.Lazy=n.fn.lazy=function(t){return new a(this,t)},n.Lazy=n.lazy=function(t,r,i){if(n.isFunction(r)&&(i=r,r=[]),n.isFunction(i)){t=n.isArray(t)?t:[t],r=n.isArray(r)?r:[r];for(var o=a.prototype.config,u=o._f||(o._f={}),l=0,f=t.length;l<f;l++)(o[t[l]]===e||n.isFunction(o[t[l]]))&&(o[t[l]]=i);for(var c=0,s=r.length;c<s;c++)u[r[c]]=t[0]}},a.prototype.config={name:"lazy",chainable:!0,autoDestroy:!0,bind:"load",threshold:500,visibleOnly:!1,appendScroll:t,scrollDirection:"both",imageBase:null,defaultImage:"data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==",placeholder:null,delay:-1,combined:!1,attribute:"data-src",srcsetAttribute:"data-srcset",sizesAttribute:"data-sizes",retinaAttribute:"data-retina",loaderAttribute:"data-loader",imageBaseAttribute:"data-imagebase",removeAttribute:!0,handledName:"handled",loadedName:"loaded",effect:"show",effectTime:0,enableThrottle:!0,throttle:250,beforeLoad:e,afterLoad:e,onError:e,onFinishedAll:e},n(t).on("load",function(){o=!0})}(window);
+
+window.onbeforeunload = function() {
+	if (cartPID.length>0){
+		return "Are you sure you want to refresh?";
+	}
+}
 
 function doLoad(){
 	//doChangeDisplay("signIn", 0)
@@ -122,7 +143,7 @@ function doLoad(){
 		
 	// change logo...
 	try {
-		if ((window.location.href.includes("eatsapp.com.au") == true) && (t_storeID != 25039) && (t_storeID != 25505)){
+		if ((window.location.href.includes("eatsapp.com.au") == true) && (t_storeID != 25039) && (t_storeID != 25505) && (t_storeID != 25537) && (t_storeID != 25533) && (t_storeID != 25538)){
 			document.getElementById("customerTopLeftLogo").innerHTML = '<img class="img-rounded" src="https://eatsapp.com.au/images/eatsapp-search-page.png" alt="Powered by Eatsapp" title="Powered by Eatsapp">'
 		} else {  // customer website..
 			if ((t_storeID == 25011) || (t_storeID == 25026) || (t_storeID == 25027) || (t_storeID == 25173) || (t_storeID == 25174) || (t_storeID == 25175) || (t_storeID == 25176)){
@@ -133,7 +154,9 @@ function doLoad(){
 			if (w <= 768){
 				document.getElementById("customerTopLeftLogo").innerHTML = '<img class="img-rounded" src="img/results_logo.png" alt="Powered by Eatsapp Online Ordering System" title="Powered by Eatsapp Online Ordering System">'
 			}
-			document.getElementById("add-restaurants-msg").style.display = "none"
+			if (noDriverPeople == 0){
+				document.getElementById("add-restaurants-msg").style.display = "none"
+			}
 		}
 	}catch(err) {}
 
@@ -289,8 +312,15 @@ function goToCategoryID(categoryName, scrollNow){
 					productInfo += '<div class="col-xs-12 col-sm-12 col-lg-9">'
 
                       if (allProducts[x].t_imageProperty != ''){
-						  var imageSrcSmall = 'data:image/jpeg;base64,' + allProducts[x].t_imageProperty
-						productInfo += '<div class="rest-logo pull-left"><a class="restaurant-logo pull-left" onclick="javascript:doAllowAdd(1, -1);doShowProduct(' + allProducts[x].t_productIDProperty + ', 0, 0);" data-toggle="modal" data-target="' + isNormalOrHalf + '" style="cursor:pointer;font-size: 16px;"><img src="' + imageSrcSmall + '" width="80"/></a></div>'
+						if (productVersion == 1){
+							if (allProducts[x].t_imageProperty != '0'){
+								var imageSrcSmall = 'https://eatsapp.com.au/images/perm/' + t_storeID + '/' + allProducts[x].t_productIDProperty + '.jpg'
+								productInfo += '<div class="rest-logo pull-left"><a class="restaurant-logo pull-left" onclick="javascript:doAllowAdd(1, -1);doShowProduct(' + allProducts[x].t_productIDProperty + ', 0, 0);" data-toggle="modal" data-target="' + isNormalOrHalf + '" style="cursor:pointer;font-size: 16px;"><img class="lazy" data-src="' + imageSrcSmall + '" width="80"/></a></div>'
+							}
+						} else {
+							var imageSrcSmall = 'data:image/jpeg;base64,' + allProducts[x].t_imageProperty
+							productInfo += '<div class="rest-logo pull-left"><a class="restaurant-logo pull-left" onclick="javascript:doAllowAdd(1, -1);doShowProduct(' + allProducts[x].t_productIDProperty + ', 0, 0);" data-toggle="modal" data-target="' + isNormalOrHalf + '" style="cursor:pointer;font-size: 16px;"><img src="' + imageSrcSmall + '" width="80"/></a></div>'
+						}
 						productInfo += '<div class="rest-descr">'
                       } else {
 						productInfo += '<div class="rest-descr" style="padding-left:15px">'
@@ -362,6 +392,11 @@ function goToCategoryID(categoryName, scrollNow){
 	productInfo += '</ul>'
 	
 	document.getElementById("allProductsInfoInner").innerHTML = productInfo
+	if (productVersion == 1){
+		$(function($) {
+			$("img.lazy").Lazy();
+		});
+	}
 
 	// version 2
 	var productInfoEats = ''
@@ -397,6 +432,18 @@ function goToCategoryID(categoryName, scrollNow){
 				isChilli+=' <img src="../images/chilli.png"> <img src="../images/chilli.png"> <img src="../images/chilli.png"> <img src="../images/chilli.png">'
 			}
 		}
+		
+		var uberPrice = ''
+		var competitionPrice = 0
+		competitionPrice = parseFloat(allProducts[x].t_competitionProperty) // change this to competition price
+		if (competitionPrice > parseFloat(allProducts[x].t_priceProperty.replace('$',''))){
+			if ((t_storeID == 25526) || (t_storeID == 25527)){ // seafood master - Soju
+				uberPrice = '&nbsp;<span style="color:#C0C0C0;font-size: 14px;">Uber Eats: <span style="text-decoration: line-through">$' + competitionPrice.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,') + '</span></span>'
+			}
+		}
+		
+		var longDesc = allProducts[x].t_descProperty
+		//longDesc = longDesc.replace("Out Of Stock - Preorder Only!", " <span style='color:rgb(251, 51, 101)'>Out Of Stock</span> - Preorder Only!")
 
 			productInfoEats += '<li class="eatsLIP" onclick="javascript:doAllowAdd(1, -1);doShowProduct(' + allProducts[x].t_productIDProperty + ', 0, 0);" data-toggle="modal" data-target="#order-modal">'
 				productInfoEats += '<div class="eatsC1 eatsC2 eatsC4" tabindex="0">'
@@ -405,10 +452,10 @@ function goToCategoryID(categoryName, scrollNow){
 							productInfoEats += '<div class="eatsC1 eatsC2 eatsC3 eatsC7">'
 								productInfoEats += '<div class="eatsC1 eatsC2 eatsC3 eatsC8" ><h4 class="eatsC2 eatsC3 eatsC9"><div class="eatsC2 eatsC10">' + thisProductEats + '' + isVeg + '' + isChilli + '</div></h4></div>'
 								productInfoEats += '<div class="eatsC1 eatsC2 eatsC3 eatsC11">'
-									productInfoEats += '<div class="eatsC2 eatsC12" >' + allProducts[x].t_descProperty + '</div>'
+									productInfoEats += '<div class="eatsC2 eatsC12" >' + longDesc + '</div>'
 								productInfoEats += '</div>'
 								productInfoEats += '<div class="eatsC1 eatsC2 eatsC3 eatsC13">'
-									productInfoEats += '<div class="eatsC2 eatsC3 eatsC14">' + allProducts[x].t_priceProperty + '</div>'
+									productInfoEats += '<div class="eatsC2 eatsC3 eatsC14">' + allProducts[x].t_priceProperty + '' + uberPrice + '</div>'
 								productInfoEats += '</div>'
 								
 								//productInfoEats += '<div class="eatsC17">'
@@ -419,17 +466,29 @@ function goToCategoryID(categoryName, scrollNow){
 							
 							productInfoEats += '</div>'
 
-								productInfoEats += '<div class="eatsC1 eatsC2 eatsC3 eatsC15">'
-									productInfoEats += '<picture>'
-                      				if (allProducts[x].t_imageBigProperty != ''){
-										var imageSrcBig = 'data:image/jpeg;base64,' + allProducts[x].t_imageBigProperty
-										productInfoEats += '<img alt="' + thisProductEats + '" src="' + imageSrcBig + '" aria-hidden="true" class="eatsC1 eatsC2 eatsC3 eatsC16">'
-									}else if (allProducts[x].t_imageProperty != ''){
-										var imageSrcBig = 'data:image/jpeg;base64,' + allProducts[x].t_imageProperty
-										productInfoEats += '<img alt="' + thisProductEats + '" src="' + imageSrcBig + '" aria-hidden="true" class="eatsC1 eatsC2 eatsC3 eatsC16">'
-									}
-									productInfoEats += '</picture>'
-								productInfoEats += '</div>'
+								if (productVersion == 1){ // images arent downloaded from DB
+									productInfoEats += '<div class="eatsC1 eatsC2 eatsC3 eatsC15">'
+										productInfoEats += '<picture>'
+										if (allProducts[x].t_imageBigProperty != '0'){
+											productInfoEats += '<img alt="' + thisProductEats + '" data-src="https://eatsapp.com.au/images/perm/' + t_storeID + '/' + allProducts[x].t_productIDProperty + '.jpg" aria-hidden="true" class="eatsC1 eatsC2 eatsC3 eatsC16 lazy">'
+										}else if (allProducts[x].t_imageProperty != '0'){
+											productInfoEats += '<img alt="' + thisProductEats + '" data-src="https://eatsapp.com.au/images/perm/' + t_storeID + '/' + allProducts[x].t_productIDProperty + '.jpg" aria-hidden="true" class="eatsC1 eatsC2 eatsC3 eatsC16 lazy">'
+										}
+										productInfoEats += '</picture>'
+									productInfoEats += '</div>'
+								} else {
+									productInfoEats += '<div class="eatsC1 eatsC2 eatsC3 eatsC15">'
+										productInfoEats += '<picture>'
+										if (allProducts[x].t_imageBigProperty != ''){
+											var imageSrcBig = 'data:image/jpeg;base64,' + allProducts[x].t_imageBigProperty
+											productInfoEats += '<img alt="' + thisProductEats + '" src="' + imageSrcBig + '" aria-hidden="true" class="eatsC1 eatsC2 eatsC3 eatsC16">'
+										}else if (allProducts[x].t_imageProperty != ''){
+											var imageSrcBig = 'data:image/jpeg;base64,' + allProducts[x].t_imageProperty
+											productInfoEats += '<img alt="' + thisProductEats + '" src="' + imageSrcBig + '" aria-hidden="true" class="eatsC1 eatsC2 eatsC3 eatsC16">'
+										}
+										productInfoEats += '</picture>'
+									productInfoEats += '</div>'
+								}
 							
 						productInfoEats += '</div>'
 					productInfoEats += '</div>'
@@ -474,6 +533,12 @@ function goToCategoryID(categoryName, scrollNow){
 				scrollTop: $("#timeNow").offset().top - 35
 			}, 500);
 		}
+	}
+	
+	if (productVersion == 1){
+		$(function($) {
+			$("img.lazy").Lazy();
+		});
 	}
 }
 
@@ -536,12 +601,7 @@ function goToCategoryIDMobile(categoryName, scrollNow){
 			}
 		}
 		
-		if (startShowing == 1){
-				var imageContent = ''
-                if (allProducts[x].t_imageProperty != ''){
-					imageContent = 'data:image/jpeg;base64,' + allProducts[x].t_imageProperty
-                }
-					  
+		if (startShowing == 1){					  
 				var isVeg = ''
 				var isChilli = ''
 				if (allProducts[x].t_vegProperty == 1){isVeg=' <img src="../images/veg.png">'}
@@ -603,8 +663,20 @@ function goToCategoryIDMobile(categoryName, scrollNow){
 
 						}
 						
-						if (imageContent != ''){
-							productInfo += '<td><div class="item-media" style="padding-top: 20px;padding-right:15px;float:right"><img src="' + imageContent + '" width="80"></div></td>'
+						var imageContent = ''
+						if (allProducts[x].t_imageProperty != ''){
+							if (productVersion == 1){								
+								var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+								if (w <= 768){ // only if mobile download images
+									if (allProducts[x].t_imageProperty != '0'){
+										imageContent = 'https://eatsapp.com.au/images/perm/' + t_storeID + '/' + allProducts[x].t_productIDProperty + '.jpg'
+										productInfo += '<td><div class="item-media" style="padding-top: 20px;padding-right:15px;float:right"><img class="lazy" data-src="' + imageContent + '" width="80"></div></td>'
+									}
+								}
+							} else {
+								imageContent = 'data:image/jpeg;base64,' + allProducts[x].t_imageProperty
+								productInfo += '<td><div class="item-media" style="padding-top: 20px;padding-right:15px;float:right"><img src="' + imageContent + '" width="80"></div></td>'
+							}
 						}
 					
 					productInfo += '</tr></table></div>'
@@ -616,6 +688,14 @@ function goToCategoryIDMobile(categoryName, scrollNow){
 	productInfo += '</ul>'
 	
 	document.getElementById("allProductsInfoMobile").innerHTML += productInfo
+	if (productVersion == 1){
+		var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+		if (w <= 768){ // only if mobile download images
+			$(function($) {
+				$("img.lazy").Lazy();
+			});
+		}
+	}
 
 		for (x = 0; x < (allProducts.length); x++) {
 			try {
@@ -663,6 +743,7 @@ function changeOrderTypeMobile(withRefresh, doReturn){ // executed when someone 
 		t_pickupDeliveryByCustomer = 1
 		document.getElementById("cartRemoveForPickup").innerHTML = "Delivery:"
 		document.getElementById("storeTopInfo").innerHTML = "Store Details"
+		validateDelivery();
 	} else {
 		t_pickupDeliveryByCustomer = 0
 		document.getElementById("storeTopInfo").innerHTML = "Store Pickup"
@@ -681,6 +762,11 @@ function changeOrderTypeMobile(withRefresh, doReturn){ // executed when someone 
 	doResetPageCart();
 	
 	doChangeDisplay("topHeaderCart", 1)
+	doChangeDisplay("mobileShoppingCart", 1)
+	
+	if (cartPID.length > 0){
+		doChangeDisplay("mobileShoppingCart", 0)
+	}
 }
 function changeOrderType(){ // executed when someone clicks radio button...
 	//alert("radio changed")
@@ -690,12 +776,14 @@ function changeOrderType(){ // executed when someone clicks radio button...
 		document.getElementById("topDelPickup2").checked = false
 		document.getElementById("storeTopInfo").innerHTML = "Store Details"
 		document.getElementById("cartRemoveForPickup").innerHTML = "Delivery:"
+		//validateDelivery();
 	} else {
 		t_pickupDeliveryByCustomer = 0
 		document.getElementById("topDelPickup1").checked = false
 		document.getElementById("topDelPickup2").checked = true
 		document.getElementById("storeTopInfo").innerHTML = "Store Pickup"
 		document.getElementById("cartRemoveForPickup").innerHTML = "Pick up:"
+		//addressIsOkay(0)
 	}
 	resetTADelieryTimes();
 	doResetPageCart();
@@ -721,6 +809,8 @@ function changeOrderType(){ // executed when someone clicks radio button...
 	//}, 3000);
 	
 }
+$("#radioTakeaway").click(function(){cancelPreModal();}); 
+$("#radioDelivery").click(function(){cancelPreModal();}); 
 
 var viewProductID = 0
 var viewProductUnique = 0
@@ -783,7 +873,7 @@ function isStoreOpen(){
 				}
 				
 				if (dateStart == dateFinish){ // Maries bug maybe?
-					console.log("Same!!!!")
+					//console.log("Same!!!!")
 					whatReturn = 1
 				}
 			}
@@ -816,7 +906,7 @@ function isStoreOpen(){
 				}
 				
 				if (dateStart == dateFinish){ // Maries bug maybe?
-					console.log("Same!!!!")
+					//console.log("Same!!!!")
 					whatReturn = 1
 				}
 			}
@@ -833,7 +923,7 @@ function isStoreOpen(){
 		}
 		
 		if (preHours != ''){ // pre order for later...
-			console.log("Pre Order Yes")
+			//console.log("Pre Order Yes")
 			whatReturn = 1
 		}
 	} else {
@@ -909,7 +999,7 @@ function isStoreOpen(){
 		whatReturn = 1 // store always open for Pasta Casa
 	}
 	
-	console.log("Final Return: " + whatReturn)
+	//console.log("Final Return: " + whatReturn)
 	return whatReturn
 }
 
@@ -1005,6 +1095,15 @@ function addToCart(){
 	doResetPageCart();
 	document.getElementById("productCloseBtn").click();
 	$(window).scrollTop($(window).scrollTop()+1); // this will ensure the buttons are set.
+	
+	// check
+	if (t_isPreOnly == 1){
+		if (t_pickupDeliveryByCustomer ==1){
+			if (preHours == ''){
+				document.getElementById("longDeliveryDelays").style.display = "block"
+			}
+		}
+	}
 }
 
 function doResetPageCart(){
@@ -1392,6 +1491,18 @@ function doResetPageCart(){
 		exactTotal = (Math.ceil(exactTotal*20)/20)
 		document.getElementById("orderTotal").innerHTML = exactTotal.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')
 		document.getElementById("orderTotal2").innerHTML = document.getElementById("orderTotal").innerHTML 
+		try {
+			if (t_storeID == 25402){document.getElementById("orderTotal2").innerHTML += ' (<span style="color:#f00">Sunday Surcharge 10%, Public Holiday Surcharge 15%</span>)'}
+		}catch(err) {}
+		document.getElementById("t_deliveryStreet").readOnly = true;
+		document.getElementById("t_deliverySuburb").readOnly = true;
+		document.getElementById("t_deliveryPostcode").readOnly = true;
+		document.getElementById("t_deliveryStreet").style.backgroundColor = '#f7f7f7'
+		document.getElementById("t_deliveryStreet").style.border = 'none'
+		document.getElementById("t_deliverySuburb").style.backgroundColor = '#f7f7f7'
+		document.getElementById("t_deliverySuburb").style.border = 'none'
+		document.getElementById("t_deliveryPostcode").style.backgroundColor = '#f7f7f7'
+		document.getElementById("t_deliveryPostcode").style.border = 'none'
 		
 		document.getElementById("topCartTotal").innerHTML = document.getElementById("orderTotal").innerHTML
 		document.getElementById("cartTotalTop").innerHTML = document.getElementById("orderTotal").innerHTML
@@ -1399,8 +1510,13 @@ function doResetPageCart(){
 		
 		var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
 		doChangeDisplay("topHeaderCart", 1)
+		doChangeDisplay("mobileShoppingCart", 1)
 		if ((w < 768) && (document.getElementById("mystep2").classList != "col-xs-12 col-sm-3 link-item active")){
 			doChangeDisplay("topHeaderCart", 0)
+			doChangeDisplay("mobileShoppingCart", 0)
+			document.getElementById("topHeaderCart").style.borderBottom = 0
+			document.getElementById("topHeaderCart").style.borderTop = 0
+			document.getElementById("topHeaderCart").style.paddingTop = '4px'
 		}
 		
 		document.getElementById("goNextStep").style.visibility = "visible"
@@ -1429,12 +1545,25 @@ function doResetPageCart(){
 		document.getElementById("allCartItems").innerHTML = '<div class="order-row"><div class="widget-body" style="padding: 15px;"><div class="title-row" style="margin-bottom: 0px;"><div class="row no-gutter"><div class="col-xs-12">Your order is currently empty.</div></div></div></div></div>'
 		document.getElementById("orderTotal").innerHTML = '0.00' 
 		document.getElementById("orderTotal2").innerHTML = document.getElementById("orderTotal").innerHTML 
+		try {
+			if (t_storeID == 25402){document.getElementById("orderTotal2").innerHTML += ' (<span style="color:#f00">Sunday Surcharge 10%, Public Holiday Surcharge 15%</span>)'}
+		}catch(err) {}
 		document.getElementById("cartDiscountLabel").innerHTML = ""
 		document.getElementById("orderItemsTotal").innerHTML = '$0.00<br>$0.00'
+		document.getElementById("t_deliveryStreet").readOnly = true;
+		document.getElementById("t_deliverySuburb").readOnly = true;
+		document.getElementById("t_deliveryPostcode").readOnly = true;
+		document.getElementById("t_deliveryStreet").style.backgroundColor = '#f7f7f7'
+		document.getElementById("t_deliveryStreet").style.border = 'none'
+		document.getElementById("t_deliverySuburb").style.backgroundColor = '#f7f7f7'
+		document.getElementById("t_deliverySuburb").style.border = 'none'
+		document.getElementById("t_deliveryPostcode").style.backgroundColor = '#f7f7f7'
+		document.getElementById("t_deliveryPostcode").style.border = 'none'
 
 		document.getElementById("topCartTotal").innerHTML = "0.00"
 		document.getElementById("cartTotalTop").innerHTML = "0.00"
 		doChangeDisplay("topHeaderCart", 1)
+		doChangeDisplay("mobileShoppingCart", 1)
 		document.getElementById("offerOrCart").innerHTML = '<i class="fa fa-gift faPromiseColor"></i> <span>10% OFF</span>'
 		
 	}
@@ -1516,6 +1645,19 @@ function doRemoveProduct(thisProductID, theCartInd){
 	document.getElementById("mobileCartContent").innerHTML = document.getElementsByClassName('widget widget-cart')[0].innerHTML
 }
 
+function loadingSendingSMSScreen(){
+	var theMob = ''
+	theMob = document.getElementById("loginForgotMobile").value
+	theMob = theMob.trim()
+	theMob = theMob.replace(/ /g, '')
+	if ((theMob.includes("04") == true) && (theMob.length == 10)){
+		document.getElementById("pleaseWaitSMS").innerHTML = '<span style="font-size: 20px;color: #F00!important;">Please wait...</span>'
+		doResendSMS();
+	} else {
+		alert("Please enter a 10-digit Australian mobile number starting with 04...")
+	}
+}
+
 function loadingSendingEmailScreen(){
 	if ((document.getElementById("loginForgotEmail").value.includes("@") == true) && (document.getElementById("loginForgotEmail").value.includes(".") == true)){
 		document.getElementById("emailResentContent").innerHTML = '<h4 class="m-t-20">E-mail Sent</h4><p> An e-mail containing your password has been sent to you.<br><br><strong>Please remember to also check your junk folder.</strong></p>'
@@ -1538,6 +1680,21 @@ function doLogin(){
 		
 	if (doGo == 1){
 		loadingLoginScreen(document.getElementById("loginEmail").value, document.getElementById("loginPassword").value);
+	}
+}
+
+function doGetNotified(){
+	var doGo = 0
+	if (document.getElementById("getNotifiedMobile").value == ""){
+	}else {
+		if (document.getElementById("getNotifiedMobile").value.length == 10){
+			doGo = 1;
+		}
+	}
+	if (doGo == 1){
+		doNotifyDeliveryWS(document.getElementById("getNotifiedMobile").value)
+	} else {
+		document.getElementById("notifiedError").style.display = "block"
 	}
 }
 
@@ -1624,6 +1781,56 @@ function doCheckout(){
 	{
 		alert("Please select a Pre Order time")
 	} else { // continue...
+	
+		try {
+			// check long delays
+			if (t_isPreOnly == 1){
+				if (t_pickupDeliveryByCustomer ==1){
+					if (preHours == ''){
+						document.getElementById("preOrderLaterBtn").click()
+						showToast('Please select your pre-order delivery time.')
+						setTimeout(function() {
+							document.getElementById("clickPickupPreOrder").className = 'btn btn-secondary'
+							document.getElementById("clickDeliveryPreOrder").className = 'btn btn-secondary active'
+							preOrderSelect(1)
+						}, 500);
+						return;
+					}
+				}
+			}
+		}catch(err) {}
+
+		try {
+			if (t_pickupDeliveryByCustomer ==1){
+				var thisTotal = 0
+				thisTotal = parseFloat(document.getElementById("orderTotal").innerHTML)
+				if (thisTotal < t_minimumOrder){
+					showToast('Minimum delivery order is: $' + t_minimumOrder)
+					return;
+				}
+			}
+		}catch(err) {}
+		
+		if (t_pickupDeliveryByCustomer == 1){
+			if (deliveryValid == 0){ 
+				var shouldOpen = 1
+				if (doAllowPreOrderDeliveryOnly == 1){ // ok to send as pre order
+					if (preHours != ''){
+						shouldOpen = 0
+					}
+				}
+				
+				if (shouldOpen == 1){
+					nowOpenDeliveryPopup()
+					return;
+				}
+			} else {
+				document.getElementById("radioDelivery").checked = true
+			}
+		}
+
+
+		// ALL GOOD...
 		$( "#section1" ).toggle( "slide");
 		$( "#section2" ).toggle( "slide");
 		
@@ -1651,13 +1858,14 @@ function doCheckout(){
 
 		doChangeDisplay("header", 0)
 		doChangeDisplay("topHeaderCart", 1)
+		doChangeDisplay("mobileShoppingCart", 1)
 
 		doResetCC();
 		keepCheckingNewOrders();
 
 		setTimeout(function(){ 
 			$([document.documentElement, document.body]).animate({
-				scrollTop: $("#section2").offset().top - 60
+				scrollTop: $("#section2").offset().top - 105
 			}, 500);
 		}, 500);
 		
@@ -1686,17 +1894,17 @@ function doCheckout(){
 			if (preHours != ''){
 				try {
 					if (t_storeID == 25418){
-						document.getElementById("preOptionDelivery").innerHTML = 'Pre order delivery (tomorrow): ' + preHours
+						document.getElementById("preOptionDelivery").innerHTML = 'Pre order delivery (tomorrow): ' + preHours + ' - <a href="javascript:nowOpenDeliveryPopup()" style="font-size: 17px;"><i class="fa fa-map-marker"></i> change address</a>'
 					} else {
-						document.getElementById("preOptionDelivery").innerHTML = 'Pre order delivery: ' + preHours
+						document.getElementById("preOptionDelivery").innerHTML = 'Pre order delivery: ' + preHours + ' - <a href="javascript:nowOpenDeliveryPopup()" style="font-size: 17px;"><i class="fa fa-map-marker"></i> change address</a>'
 					}
 					if (isPreOrderToday > 0){
-						document.getElementById("preOptionDelivery").innerHTML += ' ' + document.getElementById("preorderWhen").value + '.'
+						document.getElementById("preOptionDelivery").innerHTML += ' ' + document.getElementById("preorderWhen").value  + ' - <a href="javascript:nowOpenDeliveryPopup()" style="font-size: 17px;"><i class="fa fa-map-marker"></i> change address</a>'
 					}
 					document.getElementById("preOptionDelivery").style.color = '#f00'
 				}catch(err) {}
 			} else {
-				document.getElementById("preOptionDelivery").innerHTML = 'Delivery'
+				document.getElementById("preOptionDelivery").innerHTML = 'Delivery - <a href="javascript:nowOpenDeliveryPopup()" style="font-size: 17px;"><i class="fa fa-map-marker"></i> change address</a>'
 				document.getElementById("preOptionDelivery").style.color = '#25282b'
 			}
 		}
@@ -1708,6 +1916,26 @@ function doCheckout(){
 		}
 		
 	}
+	
+	// if too many deliveries...
+	//try {
+		//document.getElementById("deliveryNotice").style.display = "none"
+	//}catch(err) {}
+	//setTimeout(function() {
+		//try {
+			//if (t_pickupDeliveryByCustomer == 1){
+				//if (t_minimumOrder > 50){
+					//var thisTotal = 0
+					//thisTotal = parseFloat(document.getElementById("orderTotal").innerHTML)
+					//if (thisTotal < t_minimumOrder){
+						//document.getElementById("deliveryNotice").style.display = "block"
+						//document.getElementById("deliveryNoticeInner").innerHTML = '<i class="fa fa-exclamation-triangle"></i> We\'re currently experiencing a <strong>high volume</strong> of deliveries; so we\'ve temporarily set the minimum delivery order to $' + t_minimumOrder + ' in an attempt to relieve delivery pressure and better serve you.'
+					//}
+				//}
+			//}
+		//}catch(err) {}
+	//}, 800);
+	
 }
 
 function doChangePaymentType(){
@@ -1761,7 +1989,7 @@ function doChangePaymentType(){
 
 function doResetDelivery(){
 	document.getElementById("t_deliveryApp").value = t_deliveryApp
-	document.getElementById("t_deliveryStreet").value = t_deliveryStreet
+	document.getElementById("t_deliveryStreet").value = t_deliveryStreet.trim()
 	document.getElementById("t_deliverySuburb").value = t_deliverySuburb
 
 	if (isCanada == 1){
@@ -1870,6 +2098,14 @@ function doCheckCode(){
 	doCheckCodeWS();
 }
 
+function checkCCBeforeOrder(){
+	if (document.getElementById("payCCNow").checked == true){
+		PaymentSession.updateSessionFromForm('card');
+	} else { // not paying by cc
+		doPlaceOrderNow()
+	}
+}
+
 var doNotProcessWait = 0
 function doPlaceOrderNow(){
 	if (t_user == ''){
@@ -1975,6 +2211,10 @@ function doPlaceOrderNow(){
 		}
 	}catch(err) {}
 	
+	//alert(deliveryFee)
+	//return;
+	
+	
 	doGo = 0
 	if (document.getElementById("payCCNow").checked == true){
 		if ((t_storeID == 25008) || (t_storeID == 25009) || (t_storeID == 25010)){ // CC not available
@@ -2029,8 +2269,12 @@ function doPlaceOrderNow(){
 					t_ccType = GetCardType(theCC)
 				}
 			} else {
-				showToast("Please enter all fields for the Credit Card section.")
-				return;
+				// new integration will always fail..
+				t_ccNum = "1111"
+				t_ccType = "Visa"
+				
+				//showToast("Credit card expiry date should be 2 digits, e.g: 23 instead of 2023. All fields must be entered.")
+				//return;
 			}
 		}
 	}
@@ -2108,10 +2352,10 @@ function doSendOrder(){
 			//showToast("This store does not accept credit card payments. Please select cash to continue.")
 		//}
 	} else if ((thisOrderTotalInc < t_minimumOrder) && (t_pickupDeliveryByCustomer == 1)){
-		showToast("Minimum order for the store is: $" + t_minimumOrder)
+		showToast("Minimum delivery order for the store is: $" + t_minimumOrder)
 		resetPlaceOrderButton()
 	} else if ((thisOrderTotalInc < 40) && (t_pickupDeliveryByCustomer == 1) && (t_storeID == 25167) && ((t_deliveryPostcode == 2162) || (t_deliveryPostcode == 2128) || (t_deliveryPostcode == 2141) || (t_deliveryPostcode == 2117) || (t_deliveryPostcode == 2152) || (t_deliveryPostcode == 2143) || (t_deliveryPostcode == 2145) || (t_deliveryPostcode == 2164) || (t_deliveryPostcode == 2197) || (t_deliveryPostcode == 2165) || (t_deliveryPostcode == 2199) || (t_deliveryPostcode == 2200) || (t_deliveryPostcode == 2196) || (t_deliveryPostcode == 2190))){
-		showToast("Minimum order for your address is $40.")
+		showToast("Minimum delivery order for your address is $40.")
 		resetPlaceOrderButton()
 	} else {
 		if (isStoreOpen()==0){ // store is closed..
@@ -2228,8 +2472,20 @@ function emptyCart(){
 	document.getElementById("allCartItems").innerHTML = '<div class="order-row"><div class="widget-body" style="padding: 15px;"><div class="title-row" style="margin-bottom: 0px;"><div class="row no-gutter"><div class="col-xs-12">Your order is currently empty.</div></div></div></div></div>'
 	document.getElementById("orderTotal").innerHTML = '0.00' 
 	document.getElementById("orderTotal2").innerHTML = document.getElementById("orderTotal").innerHTML 
+		try {
+			if (t_storeID == 25402){document.getElementById("orderTotal2").innerHTML += ' (<span style="color:#f00">Sunday Surcharge 10%, Public Holiday Surcharge 15%</span>)'}
+		}catch(err) {}
 	document.getElementById("cartDiscountLabel").innerHTML = ""
 	document.getElementById("orderItemsTotal").innerHTML = '$0.00<br>$0.00'
+	document.getElementById("t_deliveryStreet").readOnly = true;
+	document.getElementById("t_deliverySuburb").readOnly = true;
+	document.getElementById("t_deliveryPostcode").readOnly = true;
+	document.getElementById("t_deliveryStreet").style.backgroundColor = '#f7f7f7'
+	document.getElementById("t_deliveryStreet").style.border = 'none'
+	document.getElementById("t_deliverySuburb").style.backgroundColor = '#f7f7f7'
+	document.getElementById("t_deliverySuburb").style.border = 'none'
+	document.getElementById("t_deliveryPostcode").style.backgroundColor = '#f7f7f7'
+	document.getElementById("t_deliveryPostcode").style.border = 'none'
 }
 
 function doPoplateStoreName(){
@@ -2321,21 +2577,35 @@ $(window).scroll(function() {
 	}catch(err) {}
 	
  	try {
-		if ($(window).scrollTop() > 150){
+		var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+		if ($(window).scrollTop() > 400){
 			if (cartPID.length > 0){
-				var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
 				if ((w < 768) && (document.getElementById("mystep2").classList != "col-xs-12 col-sm-3 link-item active")){
 					document.getElementById("cartTotalTop").innerHTML = document.getElementById("orderTotal").innerHTML
 					doChangeDisplay("topHeaderCart", 0)
-				} else {
+					doChangeDisplay("mobileShoppingCart", 1)
+					document.getElementById("topHeaderCart").style.borderBottom = 0
+					document.getElementById("topHeaderCart").style.borderTop = 0
+					document.getElementById("topHeaderCart").style.paddingTop = '4px'
+			} else {
 					doChangeDisplay("topHeaderCart", 1)
+					doChangeDisplay("mobileShoppingCart", 1)
 				}
 			} else {
 				doChangeDisplay("topHeaderCart", 1)
+				doChangeDisplay("mobileShoppingCart", 1)
 			}
 		} else {
 			doChangeDisplay("topHeaderCart", 1)
+			doChangeDisplay("mobileShoppingCart", 1)
+			if (cartPID.length > 0){
+				if ((w < 768) && (document.getElementById("mystep2").classList != "col-xs-12 col-sm-3 link-item active")){
+					doChangeDisplay("mobileShoppingCart", 0)
+				}
+			}
 		}
+		
+		
 	}catch(err) {}
 	
  	try {

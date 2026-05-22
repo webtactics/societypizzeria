@@ -26,6 +26,14 @@ function detectmob() {
 	}
 }
 
+function getStyle(el,styleProp)
+{
+    if (el.currentStyle)
+        return el.currentStyle[styleProp];
+
+    return document.defaultView.getComputedStyle(el,null)[styleProp]; 
+}
+
 var allOffsets = []
 function doResetPageRestaurant(){	
 	var restaurantPics = ''
@@ -39,7 +47,13 @@ function doResetPageRestaurant(){
 					if (w >= 768){
 						for (xyz = 0; xyz < (allStores.length); xyz++) {
 							if (allStores[xyz].t_storeIDProperty == t_storeID){
-								document.getElementById("viewOtherRestaurantsBtn").innerHTML = '<a href="https://eatsapp.com.au/delivery/?area=' + allStores[xyz].t_locationProperty + '&postcode=' + allStores[xyz].t_postcodeProperty + '" style="color: #000;border-color: #dedede;border-radius: 5px;font-size: 16px; cursor:pointer" title="View other restaurants in ' + allStores[xyz].t_locationProperty + '?"><i class="fa fa-map-marker"></i>&nbsp;&nbsp;' + allStores[xyz].t_locationProperty + '&nbsp;&nbsp;•&nbsp;&nbsp;Now</a>'
+								searchPost = allStores[xyz].t_postcodeProperty	
+								searchSuburb = allStores[xyz].t_locationProperty	
+								
+								var testEl = document.getElementById("signedInName");
+								var bgColor = getStyle(testEl, 'color');
+								if (window.location.href.includes("zagseafoodexpress.com.au") == true){bgColor = '#000'}
+								document.getElementById("viewOtherRestaurantsBtn").innerHTML = '<a href="javascript:nowOpenDeliveryPopup()" style="color:' + bgColor + ';border-color: #dedede;border-radius: 5px;font-size: 16px; cursor:pointer" title="Pick up from ' + allStores[xyz].t_locationProperty + '?"><i class="fa fa-shopping-bag"></i>&nbsp;&nbsp;' + allStores[xyz].t_locationProperty + '</a>'
 							}
 						}
 					}
@@ -71,6 +85,57 @@ function doResetPageRestaurant(){
 			t_zone = allStores[x].t_zoneProperty
 			t_account = allStores[x].t_accountProperty
 			isLoyaltyOK = allStores[x].loy
+
+			storeLong = allStores[x].t_longProperty
+			storeLat = allStores[x].t_latProperty
+			
+
+			try { // if account is no cash, disable anyway...
+				if ((t_pickUpDeliveryStore == 0) && (allStores[x].t_deliverybyusProperty == 1)){
+					// cartel, zag, tommy, gyra, seven hills
+					//if ((allStores[x].t_storeIDProperty != 25457) && (allStores[x].t_storeIDProperty != 25476) && (allStores[x].t_storeIDProperty != 25480) && (allStores[x].t_storeIDProperty != 25474) && (allStores[x].t_storeIDProperty != 25472) && (allStores[x].t_storeIDProperty != 25500)){
+						noDriverPeople = 1 
+						
+						var moreText = '<span id="hideNotified"><br>Get <a href="javascript:;" class="nav-link active" style="font-weight:600;color:#000;" data-toggle="modal" data-target="#getnotified-modal"><i class="fa fa-bell"></i> notified</a> when our delivery is back online.</span>'
+						try {
+							if (document.getElementById("notifiedCloseBtn").innerHTML.length > 0) {}
+						} catch(err) {
+							moreText = '<br>Please try again later.'
+						}
+
+						var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+						if (w <= 768){
+							document.getElementById("add-restaurants-msg").innerHTML = '<div class="container" style="text-align: center;"><span class="active timeNow" style="color:#000"><i class="fa fa-motorcycle"></i> No <strong>delivery people</strong> nearby.' + moreText + '</span></div>'
+							document.getElementById("add-restaurants-msg").style.backgroundColor = 'rgb(247, 174, 64)'
+							document.getElementById("add-restaurants-msg").classList = 'breadcrumb'
+							document.getElementById("add-restaurants-msg").style.display = "block"
+							document.getElementById("starts_delivery").innerHTML = 'Currently offline <i class="fa fa-frown-o" style="font-size:14px"></i>'
+						} else {
+							document.getElementById("longDeliveryDelays").innerHTML = '<div class="container" style="text-align: center;"><span class="active timeNow" style="color:#000"><i class="fa fa-motorcycle"></i> No <strong>delivery people</strong> nearby.' + moreText + '</span></div>'
+							document.getElementById("longDeliveryDelays").style.display = "block"
+							document.getElementById("starts_delivery_desktop").innerHTML = 'Currently offline <i class="fa fa-frown-o" style="font-size:14px"></i>'
+						}
+
+					//}
+				}
+			}catch(err) {}
+
+
+			if ((t_minimumOrder > 50) && (t_storeID != 25533)){ // long delays
+				var doesExist = 1
+				try {
+					document.getElementById("preOrderLaterBtn").innerHTML = 'Pre order?'
+				}catch(err) {doesExist=0}
+				
+				if (doesExist == 1){ // HTML file is up to date...
+					t_isPreOnly = 1
+				}
+				if (t_minimumOrder == 80){
+					t_minimumOrder = 45
+				} else if (t_minimumOrder == 60){
+					t_minimumOrder = 40
+				} 
+			}
 			
 			if ((t_storeID == 25403) || (t_storeID == 25404) || (t_storeID == 25459)){
 				t_offer = 0
@@ -119,6 +184,19 @@ function doResetPageRestaurant(){
 			document.getElementById("allStoreDetailsHere1").innerHTML = '<strong>' + allStores[x].t_storeProperty + '</strong><br>' + allStores[x].t_addressProperty + '<br><br>'
 			document.getElementById("mobileStoreAddress").innerHTML = allStores[x].t_addressProperty
 			
+			if (t_storeID == 25502){document.getElementById("allStoreDetailsHere").innerHTML = '<strong>' + allStores[x].t_storeProperty + '</strong><br>' + allStores[x].t_addressProperty + ', 3166, Australia<br><br>'}
+			if (t_storeID == 25515){document.getElementById("allStoreDetailsHere").innerHTML = '<strong>' + allStores[x].t_storeProperty + '</strong><br>' + allStores[x].t_addressProperty + ', 2026, Australia<br><br>'}
+			if (t_storeID == 25503){document.getElementById("allStoreDetailsHere").innerHTML = '<strong>' + allStores[x].t_storeProperty + '</strong><br>' + allStores[x].t_addressProperty + ', 3083, Australia<br><br>'}
+			if (t_storeID == 25504){document.getElementById("allStoreDetailsHere").innerHTML = '<strong>' + allStores[x].t_storeProperty + '</strong><br>' + allStores[x].t_addressProperty + ', 3977, Australia<br><br>'}
+			if (t_storeID == 25511){document.getElementById("allStoreDetailsHere").innerHTML = '<strong>' + allStores[x].t_storeProperty + '</strong><br>' + allStores[x].t_addressProperty + ', 2117, Australia<br><br>'}
+			if (t_storeID == 25514){document.getElementById("allStoreDetailsHere").innerHTML = '<strong>' + allStores[x].t_storeProperty + '</strong><br>' + allStores[x].t_addressProperty + ', 3029, Australia<br><br>'}
+			if (t_storeID == 25516){document.getElementById("allStoreDetailsHere").innerHTML = '<strong>' + allStores[x].t_storeProperty + '</strong><br>' + allStores[x].t_addressProperty + ', 3028, Australia<br><br>'}
+			if (t_storeID == 25517){document.getElementById("allStoreDetailsHere").innerHTML = '<strong>' + allStores[x].t_storeProperty + '</strong><br>' + allStores[x].t_addressProperty + ', 3024, Australia<br><br>'}
+			if (t_storeID == 25518){document.getElementById("allStoreDetailsHere").innerHTML = '<strong>' + allStores[x].t_storeProperty + '</strong><br>' + allStores[x].t_addressProperty + ', 3631, Australia<br><br>'}
+			if (t_storeID == 25519){document.getElementById("allStoreDetailsHere").innerHTML = '<strong>' + allStores[x].t_storeProperty + '</strong><br>' + allStores[x].t_addressProperty + ', 3750, Australia<br><br>'}
+			if (t_storeID == 25520){document.getElementById("allStoreDetailsHere").innerHTML = '<strong>' + allStores[x].t_storeProperty + '</strong><br>' + allStores[x].t_addressProperty + ', 2147, Australia<br><br>'}
+			if (t_storeID == 25521){document.getElementById("allStoreDetailsHere").innerHTML = '<strong>' + allStores[x].t_storeProperty + '</strong><br>' + allStores[x].t_addressProperty + ', 2016, Australia<br><br>'}
+			
 			var storeNameAndAddress = '<b>' + allStores[x].t_storeProperty + '</b>'
 			if (allStores.length > 1) {storeNameAndAddress+= ' (' + allStores[x].t_locationProperty  + ')'}
 			
@@ -148,13 +226,27 @@ function doResetPageRestaurant(){
 			document.getElementById("subtitle").innerHTML = allStores[x].t_typeProperty + ' | ' + allStores[x].t_locationProperty
 			
 			if (allStores[x].t_pickUpDeliveryStoreProperty == 0){
-				document.getElementById("pickUpDeliveries").innerHTML = '<i class="fa fa-car"></i> ' + deliveryOrBoth + '</a>'
+				document.getElementById("pickUpDeliveries").innerHTML = '<i class="fa fa-shopping-bag"></i> Pick up</a>'
+			} else if (allStores[x].t_pickUpDeliveryStoreProperty == 1){
+				document.getElementById("pickUpDeliveries").innerHTML = '<i class="fa fa-car"></i> Delivery</a>'
 			} else {
-				document.getElementById("pickUpDeliveries").innerHTML = '<i class="fa fa-car"></i> Delivery ETA: ' + allStores[x].t_maxReadyProperty + ' min</a>'
+				document.getElementById("pickUpDeliveries").innerHTML = '<i class="fa fa-car"></i> Pick up & Delivery</a>'
 			}
 
-			document.getElementById("speed").innerHTML = '<i class="fa fa-history"></i> ' + allStores[x].t_timeProperty + '</a>'
-			document.getElementById("minOrder").innerHTML = '<i class="fa fa-check"></i> Min $' + allStores[x].t_minimumProperty
+			//document.getElementById("speed").innerHTML = '<i class="fa fa-history"></i> ' + allStores[x].t_timeProperty + '</a>'
+			document.getElementById("speed").innerHTML = '<i class="fa fa-car"></i> Delivery ETA: ' + allStores[x].t_maxReadyProperty + ' min</a>'
+			document.getElementById("minOrder").innerHTML = '<i class="fa fa-check"></i> Min $' + t_minimumOrder
+			
+			try { // if ETA more than 45 mins, it is probably a bug
+				if (allStores[x].t_maxReadyProperty > 40){
+					document.getElementById("speed").innerHTML = '<i class="fa fa-car"></i> Delivery ETA: 40 min</a>'
+				}
+			}catch(err) {}
+
+			try {
+				if (t_storeID == 25402){document.getElementById("speed").innerHTML = '<i class="fa fa-car"></i> Pick Up ETA: 30 min</a>'}
+			}catch(err) {}
+
 			
 		}
 	}
@@ -211,6 +303,22 @@ function doResetPageRestaurant(){
 		doDownloadDeliveryCost()
 	}
 
+
+	if (t_isPreOnly == 1){ // long delays
+		setTimeout(function() {
+			try {
+				if (t_todayDeliveryFormat.includes("closed") == false){
+					var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+					if (w >= 768){ // show after they add 1 item...
+						document.getElementById("starts_delivery_desktop").innerHTML = 'Pre-order only!'
+					} else {
+						document.getElementById("starts_delivery").innerHTML = 'Pre-order only!'
+					}
+				}
+			}catch(err) {}
+		}, 500);
+	}
+
 }
 function showTime(){
 	var d = new Date(),
@@ -250,9 +358,11 @@ function resetTADelieryTimes(){
 	if (t_pickupDeliveryByCustomer == 1) {
 		document.getElementById("tadingHoursDelivery").style.fontWeight = 600
 		document.getElementById("tadingHours").style.fontWeight = 200
+		validateDelivery();
 	} else {
 		document.getElementById("tadingHoursDelivery").style.fontWeight = 200
 		document.getElementById("tadingHours").style.fontWeight = 600
+		addressIsOkay(0)
 	}
 	setMobileHours()
 	changeOrderTypeMobile(0, 1)
@@ -281,7 +391,13 @@ function doResetPageProduct(){
 			document.getElementById("productDesc").innerHTML = allProducts[x].t_descProperty
 			doChangeDisplay("productMainImage", 0)
 			if (allProducts[x].t_imageBigProperty != ""){
-				var imageSrcBig = 'data:image/jpeg;base64,' + allProducts[x].t_imageBigProperty
+				if (productVersion == 1){
+					// this is called when a product is clicked
+					var imageSrcBig = 'https://eatsapp.com.au/images/perm/' + t_storeID + '/' + allProducts[x].t_productIDProperty + '.jpg'
+				} else {
+					var imageSrcBig = 'data:image/jpeg;base64,' + allProducts[x].t_imageBigProperty
+				}
+				
 				document.getElementById("productMainImage").src = imageSrcBig
 				document.getElementById("productMainImage").width = 500
 			} else {
@@ -598,26 +714,27 @@ function checkProductThenGo(thisPrice, doNotActivatePopup){ // main script for p
 	
 	if (doGoAhead == 0){
 		document.getElementById("addCartBtnValue").className = "btn btn-secondary"
-		if (t_storeID == 25026){ // maries
-			document.getElementById("addCartBtnValue").style = 'background-color:#F66321;cursor: not-allowed;background-color: rgb(229, 229, 229) !important;pointer-events:none;'
-		} else if (t_storeID == 25030){ // Itza
-			document.getElementById("addCartBtnValue").style = 'background-color:#84704c;cursor: not-allowed;background-color: rgb(229, 229, 229) !important;pointer-events:none;'
-		} else if ((t_storeID == 25403) || (t_storeID == 25404) || (t_storeID == 25459)){ // Monty
-			document.getElementById("addCartBtnValue").style = 'background-color:#EC2426;cursor: not-allowed;background-color: rgb(229, 229, 229) !important;pointer-events:none;'
-		} else {
+		//if (t_storeID == 25026){ // maries
+			//document.getElementById("addCartBtnValue").style = 'background-color:#F66321;cursor: not-allowed;background-color: rgb(229, 229, 229) !important;pointer-events:none;'
+		//} else if (t_storeID == 25030){ // Itza
+			//document.getElementById("addCartBtnValue").style = 'background-color:#84704c;cursor: not-allowed;background-color: rgb(229, 229, 229) !important;pointer-events:none;'
+		//} else if ((t_storeID == 25403) || (t_storeID == 25404) || (t_storeID == 25459)){ // Monty
+			//document.getElementById("addCartBtnValue").style = 'background-color:#EC2426;cursor: not-allowed;background-color: rgb(229, 229, 229) !important;pointer-events:none;'
+		//} else {
 			document.getElementById("addCartBtnValue").style = 'background-color:#4caf50;cursor: not-allowed;background-color: rgb(229, 229, 229) !important;pointer-events:none;'
-		}
+		//}
 	} else {
 		document.getElementById("addCartBtnValue").className = "btn theme-btn"
-		if (t_storeID == 25026){ // maries
-			document.getElementById("addCartBtnValue").style = 'background-color:#F66321;'
-		} else if (t_storeID == 25030){ // Itza
-			document.getElementById("addCartBtnValue").style = 'background-color:#84704c;'
-		} else if ((t_storeID == 25403) || (t_storeID == 25404) || (t_storeID == 25459)){ // Monty
-			document.getElementById("addCartBtnValue").style = 'background-color:#EC2426;'
-		} else {
+		//if (t_storeID == 25026){ // maries
+			//document.getElementById("addCartBtnValue").style = 'background-color:#F66321;'
+		//} else if (t_storeID == 25030){ // Itza
+			//document.getElementById("addCartBtnValue").style = 'background-color:#84704c;'
+		//} else if ((t_storeID == 25403) || (t_storeID == 25404) || (t_storeID == 25459)){ // Monty
+			//document.getElementById("addCartBtnValue").style = 'background-color:#EC2426;'
+		//} else {
 			document.getElementById("addCartBtnValue").style = 'background-color:;'
-		}
+			document.getElementById("addCartBtnValue").setAttribute('onclick', "javascript:addToCart();")
+		//}
 	}
 
 	
@@ -630,10 +747,11 @@ function checkProductThenGo(thisPrice, doNotActivatePopup){ // main script for p
 	} else {
 		// now check if store is OPEN
 		if (isStoreOpen()==0){
-			document.getElementById("addCartBtnValue").style = 'color: #000;cursor: not-allowed;background-color: rgb(252, 251, 249, 0.68) !important;pointer-events:none;'
-			document.getElementById("addCartBtnValue").innerHTML = '<i class="fa fa-times"></i> Store Closed'
+			//document.getElementById("addCartBtnValue").style = 'color: #000;cursor: not-allowed;background-color: rgb(252, 251, 249, 0.68) !important;pointer-events:none;'
+			document.getElementById("addCartBtnValue").style = 'background-color: #f7f7f7;'
+			document.getElementById("addCartBtnValue").innerHTML = '<i class="fa fa-clock-o"></i> Store Closed, Pre order?'
 			document.getElementById("addCartBtnValue").className = "btn btn-secondary"
-			
+			document.getElementById("addCartBtnValue").setAttribute('onclick', "javascript:doLaunchPreOrder();")
 			
 			try {
 				if (t_pickupDeliveryByCustomer ==0){
@@ -656,13 +774,19 @@ function checkProductThenGo(thisPrice, doNotActivatePopup){ // main script for p
 		}
 	}
 }
-
+function doLaunchPreOrder(){
+	document.getElementById("productCloseBtn").click()
+	setTimeout(function() {
+		document.getElementById("preOrderLaterBtn").click()
+	}, 300);
+}
 
 function startPopulatingOrders(){
 	if (0 == 0){
 		for (x = 0; x < (allOrders.length); x++) {
 			if (x==0){
 				if (allOrders[x].t_loyaltyPointsProperty > 0){
+					alert(allOrders[x].t_loyaltyPointsProperty)
 					totalLoyalty = allOrders[x].t_loyaltyPointsProperty / 10
 					if (totalLoyalty > 0){
 						totalLoyalty = parseInt((totalLoyalty/2))
@@ -704,7 +828,7 @@ function doChangeDisplay(el, showOrHide){
 
 //// pre order //////
 function cancelPreModal(){
-	document.getElementById("openSignIn12").innerHTML = '<i class="fa fa-calendar"></i> Pre order for later - <a href="#" onClick="javascript:doPopulatePreOrder();" data-toggle="modal" data-target="#preorder-modal">select time</a>'
+	document.getElementById("openSignIn12").innerHTML = '<i class="fa fa-calendar"></i> Pre order for later - <a href="#" style="color:#25282b" onClick="javascript:doPopulatePreOrder();" data-toggle="modal" data-target="#preorder-modal">select time</a>'
 	try {
 		document.getElementById("openSignIn12_1").innerHTML = '<i class="fa fa-calendar"></i> Pre order for later - <a href="#" onClick="javascript:doPopulatePreOrder();" data-toggle="modal" data-target="#preorder-modal">select time</a>'
 	}catch(err) {}
@@ -717,6 +841,13 @@ function doPopulatePreOrder(){
 	document.getElementById("signinError123").style.display = "none"
 	document.getElementById("preOrder_1").innerHTML = allHours.t_todayProperty
 	document.getElementById("preOrder_2").innerHTML = allHours.t_todayDeliveryProperty
+	
+	try {
+		document.getElementById("clickPickupPreOrder").className = 'btn btn-secondary'
+		document.getElementById("clickDeliveryPreOrder").className = 'btn btn-secondary'
+	}catch(err) {}
+	
+	
 	//preOrderSelect(0)
 }
 function preSelectTime(myTime){
@@ -742,6 +873,29 @@ function preOrderSelect(index){
 			
 			var preTimeNow = new Date();
 			
+			// if today, set it to at least 2 hours from now
+			try {
+				if (t_deliverybyus == 1){ // delivery by us
+					if (document.getElementById("preorderWhen").value == 'Today'){
+						if (startHourPre != 0){ // delivery available today
+							 var timeInThreeHours = preTimeNow.getHours() + 2
+							 if ((timeInThreeHours >= startHourPre) && (startHourPre < endHourPre)){
+								 startHourPre = timeInThreeHours
+								 startMinutePre = 0
+							 } else {
+								 if (startHourPre > timeInThreeHours){ // pre order after 3 hours from now..
+								 } else {
+									 startHourPre = 0
+									 endHourPre = 0
+									 startMinutePre = 0
+									 endMinutePre = 0
+								 }
+							 }
+						}
+					}
+				}
+			}catch(err) {}
+			
 			try {
 				if (document.getElementById("preorderWhen").value != 'Today'){
 					preTimeNow.setHours(1,0,0,0); // at 1 am
@@ -751,13 +905,14 @@ function preOrderSelect(index){
 			if (preTimeNow.getHours() >= t_todayDeliveryStartH){
 				startHourPre = preTimeNow.getHours()
 				if (startHourPre < 22){
-					startHourPre += 2
+					startHourPre += 1 // changed to 1 on 2/Feb
 					t_todayDeliveryStartM = 0
 				}
 			}
 			
 			if (startHourPre < 10){startHourPre = '0' + startHourPre}
 			if (startMinutePre < 10){startMinutePre = '0' + startMinutePre}
+
 	
 			if (t_todayPickUpEndH < t_todayPickUpStartH){ // finishes after midnight
 				endHourPre = '23'
@@ -766,6 +921,11 @@ function preOrderSelect(index){
 				if (endHourPre < 10){endHourPre = '0' + endHourPre}
 				if (endMinutePre < 10){endMinutePre = '0' + endMinutePre}
 			}
+			
+			var thisTimeRightNow = new Date();
+			if (thisTimeRightNow.getMinutes() > 30){startMinutePre = '30'}  // added on 2/Feb
+			// 5:15pm > 6.30pm
+			// 5:45pm > 7.00pm
 			
 			var startTime = '2000-01-01 ' + startHourPre + ':' + startMinutePre + ':00'
 			var endTime = '2000-01-01 ' + endHourPre + ':' + endMinutePre + ':00'
@@ -793,10 +953,71 @@ function preOrderSelect(index){
 				} else {
 					time1.setMinutes(time1.getMinutes() + 30);
 				}
-				preButtons += '<label class="btn btn-secondary" onClick="javascript:preSelectTime(\'' + formatAMPM(time1) + '\')"><input type="radio" name="options" id="option_del_' + Date.parse(time1) + '" checked=""> ' + formatAMPM(time1) + ' </label>'
+
+				var addOrNo = 1
+				if ((t_storeID == 25011) || (t_storeID == 25039)){ // Society Gio Fri Sat Sun
+					if ((formatAMPM(time1) == '06:00 pm') || (formatAMPM(time1) == '06:30 pm') || (formatAMPM(time1) == '07:00 pm') || (formatAMPM(time1) == '07:30 pm') || (formatAMPM(time1) == '08:00 pm')){
+						var d = new Date();
+						if ((d.getDay() == 5) || (d.getDay() == 6) || (d.getDay() == 0)){
+							// addOrNo = 0 // this line was removed on 11 Feb 2022, Vittoria wants to trial pre orders
+						}
+					}
+				}
+				if ((t_storeID == 25538)){ // Coogee Sunday OK
+					if ((formatAMPM(time1) == '06:00 pm') || (formatAMPM(time1) == '06:30 pm') || (formatAMPM(time1) == '07:00 pm') || (formatAMPM(time1) == '07:30 pm') || (formatAMPM(time1) == '08:00 pm')){
+						var d = new Date();
+						if ((d.getDay() == 5) || (d.getDay() == 6)){
+							// no longer valid
+							// addOrNo = 0
+						}
+					}
+				}
+				if ((t_storeID == 25402)){ // Kohlis
+					if ((formatAMPM(time1) == '03:00 pm') || (formatAMPM(time1) == '03:30 pm') || (formatAMPM(time1) == '04:00 pm') || (formatAMPM(time1) == '04:30 pm') || (formatAMPM(time1) == '05:00 pm')){
+						var d = new Date();
+						if ((d.getDay() == 5) || (d.getDay() == 6) || (d.getDay() == 0) || (d.getDay() == 4)){
+							addOrNo = 0
+						}
+					}
+
+					
+					// Monday closed all day
+					if (document.getElementById("preorderWhen").value != 'Today'){ // not today
+						var totMonth = ''
+						if (document.getElementById("preorderWhen").value.includes("Jan)") == true){totMonth = 'January'}
+						else if (document.getElementById("preorderWhen").value.includes("Feb)") == true){totMonth = 'February'}
+						else if (document.getElementById("preorderWhen").value.includes("Mar)") == true){totMonth = 'March'}
+						else if (document.getElementById("preorderWhen").value.includes("Apr)") == true){totMonth = 'April'}
+						else if (document.getElementById("preorderWhen").value.includes("May)") == true){totMonth = 'May'}
+						else if (document.getElementById("preorderWhen").value.includes("Jun)") == true){totMonth = 'Jun'}
+						else if (document.getElementById("preorderWhen").value.includes("Jul)") == true){totMonth = 'July'}
+						else if (document.getElementById("preorderWhen").value.includes("Aug)") == true){totMonth = 'August'}
+						else if (document.getElementById("preorderWhen").value.includes("Sep)") == true){totMonth = 'September'}
+						else if (document.getElementById("preorderWhen").value.includes("Oct)") == true){totMonth = 'October'}
+						else if (document.getElementById("preorderWhen").value.includes("Nov)") == true){totMonth = 'November'}
+						else if (document.getElementById("preorderWhen").value.includes("Dec)") == true){totMonth = 'December'}
+
+						var toDay = document.getElementById("preorderWhen").value.substring(5, 8)
+
+						var myDateTot = new Date();
+						const date1 = new Date(totMonth + ' ' + toDay + ', ' + myDateTot.getFullYear() + ' 12:00:00')
+						if (date1.getDay() == 1){
+							addOrNo = 0
+						}
+					}
+				}
+				if (addOrNo == 1){
+					preButtons += '<label class="btn btn-secondary" onClick="javascript:preSelectTime(\'' + formatAMPM(time1) + '\')"><input type="radio" name="options" id="option_del_' + Date.parse(time1) + '" checked=""> ' + formatAMPM(time1) + ' </label>'
+				} else {
+					preButtons += '<label style="background-color: #cccccc;color: #666666;cursor: not-allowed;" class="btn btn-secondary" onClick="javascript:;"><input type="radio" name="options" id="option_del_' + Date.parse(time1) + '" checked=""> ' + formatAMPM(time1) + ' </label>'
+				}
+
+
 			  }
 			  return arr;
 			}
+			
+			//console.log(preButtons)
 			
 			startTime = parseIn(startTime);
 			endTime = parseIn(endTime);
@@ -870,7 +1091,63 @@ function preOrderSelect(index){
 		  while(time1 < time2){
 			arr.push(time1.toTimeString().substring(0,5));
 			time1.setMinutes(time1.getMinutes() + 30);
-			preButtons += '<label class="btn btn-secondary" onClick="javascript:preSelectTime(\'' + formatAMPM(time1) + '\')"><input type="radio" name="options" id="option_pick_' + Date.parse(time1) + '" checked=""> ' + formatAMPM(time1) + ' </label>'
+			
+			var addOrNo = 1
+			if ((t_storeID == 25011) || (t_storeID == 25039)){
+				if ((formatAMPM(time1) == '06:00 pm') || (formatAMPM(time1) == '06:30 pm') || (formatAMPM(time1) == '07:00 pm') || (formatAMPM(time1) == '07:30 pm') || (formatAMPM(time1) == '08:00 pm')){
+					var d = new Date();
+					if ((d.getDay() == 5) || (d.getDay() == 6) || (d.getDay() == 0)){
+						// addOrNo = 0 // this line was removed on 11 Feb 2022, Vittoria wants to trial pre orders
+					}
+				}
+			}
+			if ((t_storeID == 25538)){
+				if ((formatAMPM(time1) == '06:00 pm') || (formatAMPM(time1) == '06:30 pm') || (formatAMPM(time1) == '07:00 pm') || (formatAMPM(time1) == '07:30 pm') || (formatAMPM(time1) == '08:00 pm')){
+					var d = new Date();
+					if ((d.getDay() == 5) || (d.getDay() == 6)){
+						// no longer valid
+						//addOrNo = 0
+					}
+				}
+			}
+				if ((t_storeID == 25402)){ // Kohlis
+					if ((formatAMPM(time1) == '03:00 pm') || (formatAMPM(time1) == '03:30 pm') || (formatAMPM(time1) == '04:00 pm') || (formatAMPM(time1) == '04:30 pm') || (formatAMPM(time1) == '05:00 pm')){
+						var d = new Date();
+						if ((d.getDay() == 5) || (d.getDay() == 6) || (d.getDay() == 0) || (d.getDay() == 4)){
+							addOrNo = 0
+						}
+					}
+					
+					// Monday closed all day
+					if (document.getElementById("preorderWhen").value != 'Today'){ // not today
+						var totMonth = ''
+						if (document.getElementById("preorderWhen").value.includes("Jan)") == true){totMonth = 'January'}
+						else if (document.getElementById("preorderWhen").value.includes("Feb)") == true){totMonth = 'February'}
+						else if (document.getElementById("preorderWhen").value.includes("Mar)") == true){totMonth = 'March'}
+						else if (document.getElementById("preorderWhen").value.includes("Apr)") == true){totMonth = 'April'}
+						else if (document.getElementById("preorderWhen").value.includes("May)") == true){totMonth = 'May'}
+						else if (document.getElementById("preorderWhen").value.includes("Jun)") == true){totMonth = 'Jun'}
+						else if (document.getElementById("preorderWhen").value.includes("Jul)") == true){totMonth = 'July'}
+						else if (document.getElementById("preorderWhen").value.includes("Aug)") == true){totMonth = 'August'}
+						else if (document.getElementById("preorderWhen").value.includes("Sep)") == true){totMonth = 'September'}
+						else if (document.getElementById("preorderWhen").value.includes("Oct)") == true){totMonth = 'October'}
+						else if (document.getElementById("preorderWhen").value.includes("Nov)") == true){totMonth = 'November'}
+						else if (document.getElementById("preorderWhen").value.includes("Dec)") == true){totMonth = 'December'}
+
+						var toDay = document.getElementById("preorderWhen").value.substring(5, 8)
+
+						var myDateTot = new Date();
+						const date1 = new Date(totMonth + ' ' + toDay + ', ' + myDateTot.getFullYear() + ' 12:00:00')
+						if (date1.getDay() == 1){
+							addOrNo = 0
+						}
+					}
+				}
+			if (addOrNo == 1){
+				preButtons += '<label class="btn btn-secondary" onClick="javascript:preSelectTime(\'' + formatAMPM(time1) + '\')"><input type="radio" name="options" id="option_pick_' + Date.parse(time1) + '" checked=""> ' + formatAMPM(time1) + ' </label>'
+			} else {
+				preButtons += '<label style="background-color: #cccccc;color: #666666;cursor: not-allowed;" class="btn btn-secondary" onClick="javascript:;"><input type="radio" name="options" id="option_pick_' + Date.parse(time1) + '" checked=""> ' + formatAMPM(time1) + ' </label>'
+			}
 		  }
 		  return arr;
 		}
@@ -933,7 +1210,7 @@ function doSavePreOrder(){
 		document.getElementById("radioTakeaway").checked = true
 	}
 	changeOrderType()
-	document.getElementById("openSignIn12").innerHTML = '<i class="fa fa-calendar"></i> Pre order - <a href="#" onClick="javascript:doPopulatePreOrder();" data-toggle="modal" data-target="#preorder-modal">' + whatIsPre + ' ' + preHours + '</a> <i class="fa fa-times" style="cursor:pointer" onclick="javascript:cancelPreModal()" title="Cancel pre order"></i>'
+	document.getElementById("openSignIn12").innerHTML = '<i class="fa fa-calendar"></i> Pre order - <a href="#" style="color:#25282b" onClick="javascript:doPopulatePreOrder();" data-toggle="modal" data-target="#preorder-modal">' + whatIsPre + ' ' + preHours + '</a> <i class="fa fa-times" style="cursor:pointer" onclick="javascript:cancelPreModal()" title="Cancel pre order"></i>'
 	try {
 		document.getElementById("openSignIn12_1").innerHTML = '<i class="fa fa-calendar"></i> Pre order - <a href="#" onClick="javascript:doPopulatePreOrder();" data-toggle="modal" data-target="#preorder-modal">' + whatIsPre + ' ' + preHours + '</a> <i class="fa fa-times" style="cursor:pointer" onclick="javascript:cancelPreModal()" title="Cancel pre order"></i>'
 	}catch(err) {}
@@ -1018,4 +1295,254 @@ function activateCoupon(){
 	document.getElementById("couponAccepted_1").style.display = "block"
 	document.getElementById("enterCoupon_1").style.display = "none"
 	document.getElementById("actualCouponAccepted_1").innerHTML = t_couponEntered
+}
+
+function closeDeliveryPopup(){
+}
+
+function validateDelivery(){
+	if (deliveryValid == 0){
+		if (localStorage.getItem("t_deliveryadd") != '' && localStorage.getItem("t_deliveryadd") != null){ // never used before..
+			validateAddressOnly() // check?
+		} else {
+			nowOpenDeliveryPopup()
+		}
+	} else {
+		addressIsOkay(1)
+	}
+}
+function nowOpenDeliveryPopup(){
+	if ((t_storeID == 25538) || (t_storeID == 25538)){ // not for Gios and Kohlis Batemans Bay //. for now Coogee is only pick up...
+		document.getElementById("imgSection").style.filter = 'brightness(100%)'
+		document.getElementById("tooFar1").innerHTML = ""
+		document.getElementById("whyTooFar1").innerHTML = ""
+		setTimeout(function() {
+			document.getElementById("imgSection").style.filter = 'brightness(100%)'
+			document.getElementById("tooFar1").innerHTML = ""
+			document.getElementById("whyTooFar1").innerHTML = ""
+		}, 1000);
+		setTimeout(function() {
+			document.getElementById("imgSection").style.filter = 'brightness(100%)'
+			document.getElementById("tooFar1").innerHTML = ""
+			document.getElementById("whyTooFar1").innerHTML = ""
+		}, 2000);
+		return;
+	}
+	
+	if (t_pickUpDeliveryStore == 0) {
+		alert("This venue is Pick Up / Takeaway only - no delivery!")
+		return;
+	}
+	if (document.getElementById("section2").style.display == "block") {
+		slideBack();
+	}
+	if (deliveryValid == 0){
+		doShowTooFar()
+	}
+	
+	var isNewVersion = 1
+	try {
+		var tt = document.getElementById("t_deliveryState_simple").value
+		isNewVersion = 1
+	}catch(err) {
+		isNewVersion = 0 // doesnt exist...
+	}
+	
+	//if ((t_storeID == 25011) || (t_storeID == 25505) || (t_storeID == 25039) || (t_storeID == 25153) || (t_storeID == 25014) || (t_storeID == 25041) || (t_storeID == 25530) || (t_storeID == 25424) || (t_storeID == 25021) || (t_storeID == 25537) || (t_storeID == 25500) || (t_storeID == 25400) || (t_storeID == 25429)){
+	if (isNewVersion == 1){
+		if ((t_storeID == 25039) || (t_storeID == 25538)){ // gios dont do delivery
+			setTimeout(function() {
+				document.getElementById("tooFar1").innerHTML = 'Pick up only!'
+				document.getElementById("whyTooFar1").innerHTML = 'Delivery is currently unavailable, pick up is welcome.'
+				document.getElementById("imgSection").style.filter = 'brightness(100%)'
+				document.getElementById("tooFar2").style.display = "none"
+				document.getElementById("whyTooFar2").style.display = "none"
+			}, 1000);
+		} else {
+			$('#delivery-modal-simple').modal({
+				backdrop: 'static',
+				keyboard: false
+			})	
+		}
+		setTimeout(function() {
+			document.getElementById("t_deliveryApp_simple").value = t_deliveryApp
+			document.getElementById("t_deliveryStreet_simple").value = t_deliveryStreet
+			document.getElementById("t_deliverySuburb_simple").value = t_deliverySuburb
+			document.getElementById("t_deliveryPostcode_simple").value = t_deliveryPostcode
+			if ((t_storeID == 25517) || (t_storeID == 25516) || (t_storeID == 25514) || (t_storeID == 25503) || (t_storeID == 25014) || (t_storeID == 25502) || (t_storeID == 25518) || (t_storeID == 25519) || (t_storeID == 25531) || (t_storeID == 25504)){
+				document.getElementById("t_deliveryState_simple").selectedIndex = 1 // VIC
+			} else if ((t_storeID == 25536) || (t_storeID == 25450) || (t_storeID == 25420)){
+				document.getElementById("t_deliveryState_simple").selectedIndex = 2 // QLD
+			} else {
+				document.getElementById("t_deliveryState_simple").selectedIndex = 0
+			}
+			document.getElementById("t_deliveryStreet_simple").select();
+		}, 300);
+	} else { // less busy restaurants, show traditional page
+		$('#delivery-modal').modal({
+			backdrop: 'static',
+			keyboard: false
+		})	
+		setTimeout(function() {
+			document.getElementById("locality-address").value = ''
+			document.getElementById("locality-address").select();
+		}, 500);
+		initMap();
+	}
+	
+}
+function addressIsOkay(index){
+	var testEl = document.getElementById("signedInName");
+	var bgColor = getStyle(testEl, 'color');
+	if (window.location.href.includes("zagseafoodexpress.com.au") == true){bgColor = '#000'}
+	
+	var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+
+	if (index == 1){
+		document.getElementById("radioDelivery").checked = true // make sure it's checked
+		document.getElementById("viewOtherRestaurantsBtn").innerHTML = '<a href="javascript:nowOpenDeliveryPopup()" style="color:' + bgColor + ';border-color: #dedede;border-radius: 5px;font-size: 16px; cursor:pointer" title="Change delivery address?"><i class="fa fa-map-marker"></i>&nbsp;&nbsp;' + localStorage.getItem("t_deliveryadd") + '</a>'
+		
+		t_deliveryStreet = localStorage.getItem("t_deliveryadd_streetNo") + ' ' + localStorage.getItem("t_deliveryaddress_streetName")
+		t_deliverySuburb = localStorage.getItem("t_deliveryadd_suburb")
+		t_deliveryPostcode = localStorage.getItem("t_deliveryadd_postcode")
+		t_deliveryState = localStorage.getItem("t_deliveryadd_state")
+
+		document.getElementById("tooFar1").style.display = "none"
+		document.getElementById("whyTooFar1").style.display = "none"
+		document.getElementById("imgSection").style.filter = 'brightness(100%)'
+		if (w < 768){
+			document.getElementById("imgSection").style.height = 'auto'
+			document.getElementById("profile-desc-padding").style.paddingTop = '80px'
+			document.getElementById("tooFar2").style.display = "none"
+			document.getElementById("whyTooFar2").style.display = "none"
+			document.getElementById("subtitle").style.visibility = "visible"
+			var x = document.getElementsByClassName("misc34");
+			var y = document.getElementsByClassName("marginLeft5");
+			x[0].style.visibility = "visible"
+			y[0].style.visibility = "visible"
+		}
+
+		doResetDelivery()
+		recalculateDeliveryFee()
+	} else {
+		
+		setTimeout(function() {
+			if (deliveryValid == 0){
+				doShowTooFar()
+			}
+		}, 1400);
+		
+		if (searchSuburb == '') {searchSuburb = document.getElementById("subtitle").innerHTML}
+		
+		document.getElementById("viewOtherRestaurantsBtn").innerHTML = '<a href="javascript:nowOpenDeliveryPopup()" style="color:' + bgColor + ';border-color: #dedede;border-radius: 5px;font-size: 16px; cursor:pointer" title="Pick up from ' + searchSuburb + '?"><i class="fa fa-shopping-bag"></i>&nbsp;&nbsp;' + searchSuburb + '</a>'
+	}
+}
+
+function doShowTooFar(){
+	if ((localStorage.getItem("t_deliveryadd") != '') && (localStorage.getItem("t_deliveryadd") != null)){ // never used before..
+		document.getElementById("whyTooFar1").innerHTML = deliveryFarMessage + ' <br><a href="javascript:nowOpenDeliveryPopup()" style="color:rgb(255, 255, 255);border-color: #dedede;border-radius: 5px;font-size: 16px; cursor:pointer" title="Change delivery address?"><i class="fa fa-map-marker"></i>&nbsp;&nbsp;change address</a>'
+	} else {
+		document.getElementById("whyTooFar1").innerHTML = deliveryFarMessage
+	}
+
+	if ((t_pickUpDeliveryStore != 0)){ // not pick up
+	// if ((t_storeID != 25538) && (t_storeID != 25402)){ // not for Gios and Kohlis Batemans Bay
+		document.getElementById("tooFar1").style.display = "block"
+		document.getElementById("whyTooFar1").style.display = "block"
+		document.getElementById("imgSection").style.filter = 'brightness(40%)'
+	} else {
+		document.getElementById("hideDesktopDelivery").style.display = "none"
+	}
+	
+	if ((localStorage.getItem("t_deliveryadd") != '') && (localStorage.getItem("t_deliveryadd") != null)){
+		if (doAllowPreOrderDeliveryOnly == 1){ // out of range but still allow pre order
+			document.getElementById("tooFar1").innerHTML = 'Too far to deliver <i class="fa fa-info-circle" style="color:#4caf50;font-size: 14px;"></i>&nbsp;<a href="javascript:doOpenMoreInfoDelivery();" style="color:#4caf50;font-size: 14px;">find out more</a>'
+		} else {
+			document.getElementById("tooFar1").innerHTML = 'Too far to deliver'
+			document.getElementById("whyTooFar1").innerHTML = 'Select pick up or enter a different delivery address. <br><a href="javascript:nowOpenDeliveryPopup()" style="color:rgb(255, 255, 255);border-color: #dedede;border-radius: 5px;font-size: 16px; cursor:pointer" title="Change delivery address?"><i class="fa fa-map-marker"></i>&nbsp;&nbsp;change address</a>'
+		}
+	} else {
+		document.getElementById("tooFar1").innerHTML = 'Enter delivery address'
+		document.getElementById("whyTooFar1").innerHTML = 'Click <a href="javascript:nowOpenDeliveryPopup()" style="color:rgb(255, 255, 255);border-color: #dedede;border-radius: 5px;font-size: 16px; cursor:pointer" title="Change delivery address?"><span style="font-weight:600">here</span></a> to enter your delivery address.'
+	}
+	
+	if (w < 768){
+		document.getElementById("profile-desc-padding").style.paddingTop = '80px'
+		document.getElementById("imgSection").style.height = '320px'
+		
+		if ((localStorage.getItem("t_deliveryadd") != '') && (localStorage.getItem("t_deliveryadd") != null)){ // never used before..
+			document.getElementById("whyTooFar2").innerHTML = deliveryFarMessage + ' <br><a href="javascript:nowOpenDeliveryPopup()" style="color:rgb(255, 255, 255);border-color: #dedede;border-radius: 5px;font-size: 16px; cursor:pointer" title="Change delivery address?"><i class="fa fa-map-marker"></i>&nbsp;&nbsp;change address</a>'
+		} else {
+			document.getElementById("whyTooFar2").innerHTML = deliveryFarMessage
+		}
+		document.getElementById("tooFar1").style.display = "none"
+		document.getElementById("whyTooFar1").style.display = "none"
+		document.getElementById("tooFar2").style.display = "block"
+		document.getElementById("whyTooFar2").style.display = "block"
+		document.getElementById("subtitle").visibility = "hidden"
+		var x = document.getElementsByClassName("misc34");
+		var y = document.getElementsByClassName("marginLeft5");
+		x[0].style.visibility = "hidden"
+		y[0].style.visibility = "hidden"
+		
+		if ((localStorage.getItem("t_deliveryadd") != '') && (localStorage.getItem("t_deliveryadd") != null)){
+			if (doAllowPreOrderDeliveryOnly == 1){ // out of range but still allow pre order
+				document.getElementById("tooFar2").innerHTML = 'Too far to deliver <i class="fa fa-info-circle" style="color:#4caf50;font-size: 14px;"></i>&nbsp;<a href="javascript:doOpenMoreInfoDelivery();" style="color:#4caf50;font-size: 14px;">find out more</a>'
+			} else {
+				document.getElementById("tooFar2").innerHTML = 'Too far to deliver'
+				document.getElementById("whyTooFar2").innerHTML = 'Select pick up or enter a different delivery address. <br><a href="javascript:nowOpenDeliveryPopup()" style="color:rgb(255, 255, 255);border-color: #dedede;border-radius: 5px;font-size: 16px; cursor:pointer" title="Change delivery address?"><i class="fa fa-map-marker"></i>&nbsp;&nbsp;change address</a>'
+			}
+		} else {
+			document.getElementById("tooFar2").innerHTML = 'Enter delivery address'
+			document.getElementById("whyTooFar2").innerHTML = 'Click <a href="javascript:nowOpenDeliveryPopup()" style="color:rgb(255, 255, 255);border-color: #dedede;border-radius: 5px;font-size: 16px; cursor:pointer" title="Change delivery address?"><span style="font-weight:600">here</span></a> to enter your delivery address.'
+		}
+	}
+}
+
+function recalculateDeliveryFee(){
+	try {
+		if (t_pickupDeliveryByCustomer==1){ // delivery order and has a postcode...
+			for (x = 0; x < (allStores.length); x++) {
+				if (allStores[x].t_storeIDProperty == t_storeID){
+					deliveryFee = allStores[x].t_deliveryfeeProperty
+					try {
+						if (t_storeID == 25153){
+							//deliveryFee = 5 // $5 for Sopranos
+							deliveryFee = 0
+						}
+					}catch(err) {}
+					
+					t_deliveryPostcode = localStorage.getItem("t_deliveryadd_postcode")
+					
+					var anyDeliveryAdditional = 0
+					try {
+						if (t_deliveryPostcode > 0){
+							for (xyz = 0; xyz < (deliveryCostBySuburb.length); xyz++) {
+								if (t_deliveryPostcode == deliveryCostBySuburb[xyz].t_postcodeProperty){
+									deliveryFee += deliveryCostBySuburb[xyz].t_extraProperty // recalculate delivery fee...
+									doResetPageCart();
+									break;
+								}
+							}
+						}
+					}
+					catch(err) {}
+		
+					break;
+				}
+			}
+		}
+	}catch(err) {}
+}
+
+function doOpenMoreInfoDelivery(){
+	openInformationModal('<i class="fa fa-motorcycle"></i> How about pre-order?', '<span style="font-weight:600">We\'re currently experiencing a high volume of deliveries; as a result delivery times will have a delay.</span><br><br>Why not schedule your delivery for a little later?<br>Click \'Pre order for later\' on your shopping cart, select a delivery time then click save. <br><br><div style="margin-top: 15px;-webkit-text-size-adjust: 100%;font-family: Verdana,sans-serif;font-size: 15px;line-height: 1.5;box-sizing: inherit;padding: 20px;background-color: #f44336;color: white;opacity: 0.83;transition: opacity 0.6s;margin-bottom: 15px;"><i class="fa fa-heart"></i> <span style="font-weight:600">Support your local business!</span><div style="padding-top: 8px;">Our prices here are cheaper than anywhere else, that\'s our promise to you.</div></div><br><strong>Note</strong>: Under normal circumstances, we would deliver to you because you are within our delivery radius. ')
+}
+function openInformationModal(t_title, t_message){
+	document.getElementById("infoPopupTitle").innerHTML = t_title
+	document.getElementById("infoPopupBody").innerHTML = t_message
+	$('#information-modal').modal({
+		backdrop: 'static',
+		keyboard: false
+	})			
 }

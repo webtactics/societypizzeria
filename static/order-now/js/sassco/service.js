@@ -2,8 +2,8 @@
 var theWS = 'https://eatsapp.cloud/EatsAppDesktop_WS.asmx'
 //theWS = 'http://localhost/SasscoAWS_WS/EatsAppDesktop_WS.asmx'
 
-if (window.location.href.includes("http://192.168.0.3/") == true){
-	theWS = 'http://192.168.0.3/SasscoAWS_WS/EatsAppDesktop_WS.asmx' // for Phonegap
+if (window.location.href.includes("http://192.168.0.129/") == true){
+	theWS = 'http://192.168.0.129/SasscoAWS_WS/EatsAppDesktop_WS.asmx' // for Phonegap
 }
 
 function thereIsError(){
@@ -14,7 +14,8 @@ function thereIsError(){
 }
 
 function getStores(){
-	jQuery.getJSON(theWS + "/getStores?index=" + wsPass + "&t_storeID=" + t_storeID + "&t_linked=" + t_linkedStores + "&callback=?", function(data){getStoresSuccess(data)})
+	// new version added 4 April 2021 when Validate Delivery was added
+	jQuery.getJSON(theWS + "/getStoresV2?index=" + wsPass + "&t_storeID=" + t_storeID + "&t_linked=" + t_linkedStores + "&t_webversion=2&callback=?", function(data){getStoresSuccess(data)})
 	.error(function() { thereIsError() })
 }
 
@@ -196,8 +197,13 @@ function onFirstLoad(){
 
 function getProducts(){
 	//console.log("starting (2)..")
-	jQuery.getJSON(theWS + "/getProducts?index=" + wsPass + "&t_storeID=" + t_storeID + "&callback=?", function(data){getProductsSuccess(data)})
-	.error(function() { thereIsError() })
+	if (productVersion == 1){ // only gios for now
+		jQuery.getJSON(theWS + "/getProductsV1?index=" + wsPass + "&t_storeID=" + t_storeID + "&t_images=0&callback=?", function(data){getProductsSuccess(data)})
+		.error(function() { thereIsError() })
+	} else {
+		jQuery.getJSON(theWS + "/getProducts?index=" + wsPass + "&t_storeID=" + t_storeID + "&callback=?", function(data){getProductsSuccess(data)})
+		.error(function() { thereIsError() })
+	}
 }
 function getProductsSuccess(data) {
 	//console.log("done (2)..")
@@ -262,7 +268,30 @@ function doGetTodayHoursSuccess() {
 	//}
 	doResetPageRestaurant()
 	
-	// wait a few seconds then send welcome emails to all new users...
+	// wait thench check delivery
+	setTimeout(function() {
+		if (t_pickUpDeliveryStore != 0){
+			// No need to popup, even for popular stores
+			//if ((t_storeID == 25011) || (t_storeID == 25505) || (t_storeID == 25039) || (t_storeID == 25153) || (t_storeID == 25014) || (t_storeID == 25041) || (t_storeID == 25530) || (t_storeID == 25424) || (t_storeID == 25021) || (t_storeID == 25537) || (t_storeID == 25500) || (t_storeID == 25400) || (t_storeID == 25429)){
+				validateDelivery();
+			//}
+		} else {
+			if (t_deliverybyus == 1) {
+				document.getElementById("tooFar1").innerHTML = 'Delivery unavailable'
+				document.getElementById("tooFar2").innerHTML = 'Delivery unavailable'
+				document.getElementById("whyTooFar1").innerHTML = 'Click here to be <a href="javascript:;" class="nav-link active" style="font-weight:600;color:#FFF;" data-toggle="modal" data-target="#getnotified-modal"><i class="fa fa-bell"></i> notified</a> when we\'re back online.'
+				document.getElementById("whyTooFar2").innerHTML = 'Click here to be <a href="javascript:;" class="nav-link active" style="font-weight:600;color:#FFF;" data-toggle="modal" data-target="#getnotified-modal"><i class="fa fa-bell"></i> notified</a> when we\'re back online.'
+				deliveryFarMessage = 'No delivery people nearby.'
+			} else {
+				document.getElementById("tooFar1").innerHTML = 'Delivery unavailable'
+				document.getElementById("tooFar2").innerHTML = 'Delivery unavailable'
+				document.getElementById("whyTooFar1").innerHTML = 'Delivery is not available.'
+				document.getElementById("whyTooFar2").innerHTML = 'Delivery is not available.'
+				deliveryFarMessage = 'Delivery is not available.'
+			}
+		}
+	}, 500);
+
 	setTimeout(function() {
 		jQuery.getJSON(theWS + "/doSendDelayedEmails?index=457690&t_reason=1&callback=?", function(data){doSendDelayedEmailsSuccess(data)})
 		.error(function() { thereIsError() })
@@ -288,6 +317,19 @@ function doResendEmailSuccess(data) {
 		//document.getElementById("emailResentContent").innerHTML = '<h4 class="m-t-20">E-mail Sent</h4><p> An e-mail containing your password has been sent to you.<br><br><strong>Please remember to also check your junk folder.</strong></p>'
 	} else {
 		alert("The e-mail address you have provided is not registered in our database. Refresh page!")
+	}
+}
+
+function doResendSMS(){
+	jQuery.getJSON(theWS + "/doResendPasswordSMS?index=" + wsPass + "&t_mobile=" + document.getElementById("loginForgotMobile").value.replace(/'/g,"") + "&t_storeID=" + t_storeID + "&callback=?", function(data){doResendSMSSuccess(data)})
+	.error(function() { thereIsError() })
+}
+function doResendSMSSuccess(data) {
+	if (data == 1){
+		document.getElementById("emailResentContent").innerHTML = '<h4 class="m-t-20">SMS Sent</h4><p> An SMS containing your password has been sent to you.<br><br><strong>Please allow up to 20 seconds for the SMS to be sent to you.</strong></p>'
+	} else {
+		alert("The mobile number you have entered does not exist in our database, try a different number?")
+		document.getElementById("pleaseWaitSMS").innerHTML = 'The mobile number you have entered does not exist in our database, try a different number?'
 	}
 }
 
@@ -320,11 +362,21 @@ function doLoginWSNowSuccess(data) {
 			t_email = data.t_emailProperty
 			t_mobile = data.t_mobileProperty
 			t_password = data.t_passwordProperty
-			t_deliveryApp = data.t_deliveryAppProperty
-			t_deliveryStreet = data.t_deliveryStreetProperty
-			t_deliverySuburb = data.t_deliverySuburbProperty
-			t_deliveryPostcode = data.t_deliveryPostcodeProperty
-			t_deliveryState = data.t_deliveryStateProperty
+			
+			if (deliveryValid == 1){ // customer has already entered a delivery address
+				t_deliveryApp = localStorage.getItem("t_deliveryadd_streetNo")
+				t_deliveryStreet = localStorage.getItem("t_deliveryaddress_streetName")
+				t_deliverySuburb = localStorage.getItem("t_deliveryadd_suburb")
+				t_deliveryPostcode = localStorage.getItem("t_deliveryadd_postcode")
+				t_deliveryState = localStorage.getItem("t_deliveryadd_state")
+			} else {
+				t_deliveryApp = data.t_deliveryAppProperty
+				t_deliveryStreet = data.t_deliveryStreetProperty
+				t_deliverySuburb = data.t_deliverySuburbProperty
+				t_deliveryPostcode = data.t_deliveryPostcodeProperty
+				t_deliveryState = data.t_deliveryStateProperty
+			}
+			
 			t_ccName = data.t_ccNameProperty
 			t_ccNum = data.t_ccNumProperty
 			t_ccExm = data.t_ccExmProperty
@@ -403,6 +455,16 @@ function doCreateAccountSuccess(data) {
 				document.getElementById("accountLoader").style.display = "none"
 				document.getElementById("codeNotSent").style.display = "none"
 				document.getElementById("codeSent").style.display = "block"
+
+				try {
+					document.getElementById('verificationCode').click();
+					document.getElementById("verificationCode").focus();
+					var mytextbox = document.getElementById("verificationCode");
+					mytextbox.focus();
+					mytextbox.scrollIntoView();
+					$("#verificationCode").focus();
+				}catch(err) {}
+	
 			}, 1000);
 		}
 	} else if (data = -1){
@@ -448,19 +510,23 @@ function doSendOrderNow(){
 }
 
 function doAddCC(){
-	var theCC = ''
-	var ccType = ''
-	theCC=document.getElementById("ccNum").value.replace(/ /g, "")
-	if (theCC.includes("****") == true){
-		theCC=''
-		ccType = ''
+	if (1==2){ // old code before CBA
+		var theCC = ''
+		var ccType = ''
+		theCC=document.getElementById("ccNum").value.replace(/ /g, "")
+		if (theCC.includes("****") == true){
+			theCC=''
+			ccType = ''
+		}
+		else{
+			ccType = GetCardType(theCC)
+		}
+		
+		jQuery.getJSON(theWS + "/doAddCC?index=" + wsPass + "&t_userID=" + localStorage.getItem("t_eatsCustomerID") + "&t_ccType=" + ccType + "&t_ccName=" + document.getElementById("ccName").value.replace(/'/g,"") + "&t_ccNum=" + theCC + "&t_ccExm=" + document.getElementById("ccExm").value.replace(/ /g, "").replace(/'/g,"") + "&t_ccExy=" + document.getElementById("ccExy").value.replace(/ /g, "").replace(/'/g,"") + "&t_ccCVN=" + document.getElementById("ccCVN").value.replace(/ /g, "") + "&callback=?", function(data){doAddCCSuccess(data)})
+		.fail(function(jqXHR, textStatus, errorThrown) { thereIsError(jqXHR, textStatus, errorThrown) })
+	} else {
+		doAddCCSuccess(1)
 	}
-	else{
-		ccType = GetCardType(theCC)
-	}
-	
-	jQuery.getJSON(theWS + "/doAddCC?index=" + wsPass + "&t_userID=" + localStorage.getItem("t_eatsCustomerID") + "&t_ccType=" + ccType + "&t_ccName=" + document.getElementById("ccName").value.replace(/'/g,"") + "&t_ccNum=" + theCC + "&t_ccExm=" + document.getElementById("ccExm").value.replace(/ /g, "").replace(/'/g,"") + "&t_ccExy=" + document.getElementById("ccExy").value.replace(/ /g, "").replace(/'/g,"") + "&t_ccCVN=" + document.getElementById("ccCVN").value.replace(/ /g, "") + "&callback=?", function(data){doAddCCSuccess(data)})
-	.fail(function(jqXHR, textStatus, errorThrown) { thereIsError(jqXHR, textStatus, errorThrown) })
 }
 function doAddCCSuccess(data) {
 	if (data > 0){
@@ -677,7 +743,7 @@ function doSendOrderNowYes_1(whatBraintree){
 	}catch(err) {}
 	
 	// send order regardless..
-	jQuery.getJSON(theWS + "/doOrderV8?index=" + wsPass + "&t_storeID=" + t_storeID + "&t_customerID=" + localStorage.getItem("t_eatsCustomerID") + "&t_delivery=" + t_pickupDeliveryByCustomer + "&t_maxMin=" + t_maxReady + "&t_total=" + thisOrderTotalInc + "&t_deliveryFee=" + deliveryFee + "&t_note=" + t_myOrderNote + "&t_card=" + t_ccNum + "&orderItems=" + orderItemsSend + "&orderItemTypes=" + orderItemTypesSend + "&t_discount=" + thisOrderTotalDiscount + "&t_loyalty=" + t_loyalty + "&t_naMobWeb=2&t_coupon=" + t_couponID + "&t_braintree=" + whatBraintree + "&t_source=" + t_source + "&t_pickupOrDine=0&t_preorder=" + preHours + "&points=0&callback=?", function(data){doSendOrderSuccess(data)})
+	jQuery.getJSON(theWS + "/doOrderV11?index=" + wsPass + "&t_storeID=" + t_storeID + "&t_customerID=" + localStorage.getItem("t_eatsCustomerID") + "&t_delivery=" + t_pickupDeliveryByCustomer + "&t_maxMin=" + t_maxReady + "&t_total=" + thisOrderTotalInc + "&t_deliveryFee=" + deliveryFee + "&t_note=" + t_myOrderNote + "&t_card=" + t_ccNum + "&orderItems=" + orderItemsSend + "&orderItemTypes=" + orderItemTypesSend + "&t_discount=" + thisOrderTotalDiscount + "&t_loyalty=" + t_loyalty + "&t_naMobWeb=2&t_coupon=" + t_couponID + "&t_braintree=" + whatBraintree + "&t_source=" + t_source + "&t_pickupOrDine=0&t_preorder=" + preHours + "&points=0&sessionID=" + impSessionID + "&callback=?", function(data){doSendOrderSuccess(data)})
 	.error(function() { thereIsErrorOrder() })
 }
 function doNothing(data) {}
@@ -701,9 +767,9 @@ function doSendOrderSuccess(data) {
 	document.getElementById("map").style.border = '2px solid #666';
 	document.getElementById("liveTracker").style.display = "none"
 
-	// send previous emails
-	jQuery.getJSON(theWS + "/doCheckEmailsForStore?t_storeID=" + t_storeID + "&callback=?", function(data){doNothing(data)})
-	.error(function() { thereIsErrorOrder() })
+	// send previous emails - no need... this is handled by delayed email function
+	//jQuery.getJSON(theWS + "/doCheckEmailsForStore?t_storeID=" + t_storeID + "&callback=?", function(data){doNothing(data)})
+	//.error(function() { thereIsErrorOrder() })
 	
 	deliveryETAToUse = ''
 	var orderResponse = 0
@@ -1463,4 +1529,124 @@ function doCheckDeliveryFeeWSSuccess(data) {
 			doSendOrderNow()
 		}
 	}, 1500);
+}
+
+function doNotifyDeliveryWS(t_mobile){
+	jQuery.getJSON(theWS + "/doNotifyDelivery?index=457690&t_storeID=" + t_storeID + "&t_mobile=" + t_mobile + "&callback=?", function(data){doNotifyDeliverySuccess(data)})
+	.fail(function(jqXHR, textStatus, errorThrown) { thereIsError(jqXHR, textStatus, errorThrown) })
+}
+function doNotifyDeliverySuccess(data) {
+	document.getElementById("notifiedCloseBtn").click()
+	document.getElementById("notifiedError").style.display = "none"
+	document.getElementById("hideNotified").innerHTML = '<br><i class="fa fa-thumbs-up"></i> Thanks, we will SMS you if our delivery is back ON within 15 minutes..'
+	document.getElementById("hideNotified").style.fontWeight = 200
+	document.getElementById("longDeliveryDelays").style.backgroundColor = '#ccc'
+}
+
+var holdt_streetNo = ''
+var holdt_streetName = ''
+var holdt_suburb = ''
+var holdt_postcode = 0
+var holdt_state = ''
+var holdt_country = ''
+var deliveryFarMessage = 'Please enter your delivery address.'
+var doAllowPreOrderDeliveryOnly = 0
+function doValidateDeliveryWS(t_streetNo, t_streetName, t_suburb, t_postcode, t_state, t_country){
+	holdt_streetNo = t_streetNo
+	holdt_streetName = t_streetName
+	holdt_suburb = t_suburb
+	holdt_postcode = t_postcode
+	holdt_state = t_state
+	holdt_country = t_country
+	var thisID = 0
+	if ((localStorage.getItem("t_eatsCustomerID") == '') || (localStorage.getItem("t_eatsCustomerID") == null)){} else {
+		thisID = localStorage.getItem("t_eatsCustomerID")
+	}
+	
+	document.getElementById("checkingDeliveryAddress").style.display = "block"
+	jQuery.getJSON(theWS + "/doValidateDelivery?index=457690&t_storeID=" + t_storeID + "&t_lat=" + storeLat + "&t_long=" + storeLong + "&t_streetNo=" + t_streetNo + "&t_streetName=" + t_streetName + "&t_suburb=" + t_suburb + "&t_postcode=" + t_postcode + "&t_state=" + t_state + "&t_country=" + t_country + "&t_userID=" + thisID + "&t_zone=" + t_zone + "&callback=?", function(data){doValidateDeliverySuccess(data)})
+	.fail(function(jqXHR, textStatus, errorThrown) { thereIsError(jqXHR, textStatus, errorThrown) })
+}
+function doValidateDeliverySuccess(data) {
+	if (data.length == 0){
+		return;
+	}
+	deliveryFarMessage = ''
+	
+	localStorage.setItem("t_deliveryadd", document.getElementById("locality-address").value)
+	localStorage.setItem("t_deliveryadd_streetNo", holdt_streetNo)
+	localStorage.setItem("t_deliveryaddress_streetName", holdt_streetName)
+	localStorage.setItem("t_deliveryadd_suburb", holdt_suburb)
+	localStorage.setItem("t_deliveryadd_postcode", holdt_postcode)
+	localStorage.setItem("t_deliveryadd_state", holdt_state)
+	localStorage.setItem("t_deliveryaddress_country", holdt_country)
+
+	doAllowPreOrderDeliveryOnly = data.t_preorderProperty
+	if (data.t_resultProperty == 0){
+		showToast(data.t_errorProperty)
+		deliveryFarMessage = data.t_errorProperty
+		deliveryValid = 0
+		addressIsOkay(0)
+		if (doAllowPreOrderDeliveryOnly == 1){
+			document.getElementById("starts_delivery_desktop").innerHTML = 'Pre-order only'
+		} else {
+			document.getElementById("starts_delivery_desktop").innerHTML = 'Outside range'
+		}
+		setTimeout(function() {
+			//document.getElementById("radioDelivery").checked = false // uncheck delivery
+			document.getElementById("checkingDeliveryAddress").style.display = "none"
+			//document.getElementById("deliveryAddressError").style.display = "block"
+			//document.getElementById("deliveryAddressError").style.width = '100%'
+			//document.getElementById("deliveryAddressError").innerHTML = '<div style="margin-top: 15px;-webkit-text-size-adjust: 100%;font-family: Verdana,sans-serif;font-size: 15px;line-height: 1.5;box-sizing: inherit;padding: 20px;background-color: #2196F3;color: white;opacity: 0.83;transition: opacity 0.6s;margin-bottom: 15px;"><i class="fa fa-motorcycle"></i> <span style="font-weight:600">Too far to deliver!</span><div style="padding-top: 8px;">We do not deliver to this address during peek hours.<br>Try a different address or select pick up.</div></div>'
+			
+			// regardless... close window...
+			document.getElementById("checkingDeliveryAddress").style.display = "none"
+			document.getElementById("deliveryCloseBtn").click()
+		}, 100);
+	} else {
+		document.getElementById("starts_delivery_desktop").innerHTML = 'Within range'
+		deliveryValid = 1
+		addressIsOkay(1)
+
+		setTimeout(function() {
+			document.getElementById("checkingDeliveryAddress").style.display = "none"
+			//document.getElementById("deliveryAddressError").style.display = "none"
+			document.getElementById("deliveryCloseBtn").click()
+		}, 500);
+	}
+}
+
+function validateAddressOnly(){
+	//document.getElementById("deliveryAddressError").style.display = "none"
+	var thisID = 0
+	if ((localStorage.getItem("t_eatsCustomerID") == '') || (localStorage.getItem("t_eatsCustomerID") == null)){} else {
+		thisID = localStorage.getItem("t_eatsCustomerID")
+	}
+	
+	jQuery.getJSON(theWS + "/doValidateDelivery?index=457690&t_storeID=" + t_storeID + "&t_lat=" + storeLat + "&t_long=" + storeLong + "&t_streetNo=" + localStorage.getItem("t_deliveryadd_streetNo") + "&t_streetName=" + localStorage.getItem("t_deliveryaddress_streetName") + "&t_suburb=" + localStorage.getItem("t_deliveryadd_suburb") + "&t_postcode=" + localStorage.getItem("t_deliveryadd_postcode") + "&t_state=" + localStorage.getItem("t_deliveryadd_state") + "&t_country=" + localStorage.getItem("t_deliveryaddress_country") + "&t_userID=" + thisID + "&t_zone=" + t_zone + "&callback=?", function(data){validateAddressOnlySuccess(data)})
+	.fail(function(jqXHR, textStatus, errorThrown) { thereIsError(jqXHR, textStatus, errorThrown) })
+}
+function validateAddressOnlySuccess(data) {
+	if (data.length == 0){
+		return;
+	}
+
+	doAllowPreOrderDeliveryOnly = data.t_preorderProperty
+	if (data.t_resultProperty == 0){
+		showToast(data.t_errorProperty)
+		deliveryFarMessage = data.t_errorProperty
+		if (doAllowPreOrderDeliveryOnly == 1){
+			document.getElementById("starts_delivery_desktop").innerHTML = 'Pre-order only'
+		} else {
+			document.getElementById("starts_delivery_desktop").innerHTML = 'Outside range'
+		}
+		deliveryValid = 0
+		addressIsOkay(0)
+		//document.getElementById("radioDelivery").checked = false // uncheck delivery
+		//nowOpenDeliveryPopup() // open popup, address in local storage is too far..
+	} else {
+		document.getElementById("starts_delivery_desktop").innerHTML = 'Within range'
+		deliveryValid = 1
+		addressIsOkay(1)
+	}
 }
