@@ -34,6 +34,5 @@ permalink: /
 <div class="mapwrapper">
 <h3>Follow us</h3>
 <!-- Elfsight Instagram Feed | Untitled Instagram Feed -->
-<script src="https://elfsightcdn.com/platform.js" async></script>
-<div class="elfsight-app-2bf46624-4f76-4d38-81a9-b5273979115c" data-elfsight-app-lazy></div>
+<div class="sk-instagram-feed" data-embed-id="25693524"></div><script src="https://widgets.sociablekit.com/instagram-feed/widget.js" defer></script>
 </div>
