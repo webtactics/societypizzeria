@@ -31,8 +31,3 @@ permalink: /
 {% include "components/global/map-details.html" %}
 </div>
 
-<div class="mapwrapper">
-<h3>Follow us</h3>
-<!-- Elfsight Instagram Feed | Untitled Instagram Feed -->
-<div class="sk-instagram-feed" data-embed-id="25693524"></div><script src="https://widgets.sociablekit.com/instagram-feed/widget.js" defer></script>
-</div>
