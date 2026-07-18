@@ -2,6 +2,7 @@
 layout: layouts/home.njk
 title: Society Pizzeria di Catania
 subtitle: Society Pizzeria di Catania
+metatitle: "Society Pizzeria di Catania: home of Bondi's Best Pizza"
 class: home
 date: 2026-05-01
 description: Society Pizzeria di Catania is a family-owned pizzeria known for its authentic Italian pizza and warm atmosphere.
