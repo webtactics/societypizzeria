@@ -1,6 +1,7 @@
 ---
 layout: layouts/default.njk
 title: The Family
+metatitle: "The family behind Society Pizzeria di Catania"
 description: Society is a family owned business founded by Italian brother and sister team Jonathan Faro and Vittoria Wynne.
 section: about
 class: about

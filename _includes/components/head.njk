@@ -8,7 +8,7 @@
 
 <meta name="view-transition" content="same-origin">
 
-<title>{{ title or metadata.title }} - {{ metadata.title }}</title>
+<title>{% if metatitle %}{{ metatitle }}{% else %}{{ title or metadata.title }}{% endif %}</title>
 <link rel="canonical" href="https://www.societypizzeria.com.au{{ page.url or post.url or permalink }}" />
 <meta name="description" content="{{ description or metadata.description or eleventyComputed.description }}" />
 <meta property="og:title" content="{% if metatitle %}{{ metatitle }}{% else %}{{ title or metadata.title }}{% endif %}" />
