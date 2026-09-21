@@ -21,10 +21,10 @@ permalink: /
 {% include "components/global/info-details.html" %}
 </section>
 
-
+<!--
 <div class="deliveryapp">
 {% include "components/global/app-details.html" %}
-</div>
+</div> -->
 
 
 <div class="mapwrapper">
