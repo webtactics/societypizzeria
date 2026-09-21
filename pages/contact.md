@@ -20,9 +20,10 @@ eleventyNavigation:
 {% include "components/global/info-details.html" %}
 </section>
 
+<!--
 <div class="deliveryapp">
 {% include "components/global/app-details.html" %}
-</div>
+</div> -->
 
 <iframe style="border: none;" src="https://myguestlist.com.au/mgl/showForm.php?id=5cef6775c2ae3" width="100%" height="700" frameborder="0" scrolling="auto"></iframe>
 
